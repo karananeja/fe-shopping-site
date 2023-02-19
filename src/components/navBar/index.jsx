@@ -20,7 +20,7 @@ const NavBar = () => {
           <Search />
           <input
             type='text'
-            placeholder="Type the name of the product you're looking for"
+            placeholder="Search the name of the product you're looking for"
           />
         </div>
       </div>

@@ -51,3 +51,28 @@
     }
   }
 }
+
+@media screen and (max-width: 410px) {
+  .header {
+    height: 10vh;
+
+    .header__center {
+      flex: unset;
+      width: 40%;
+
+      .header__searchBar {
+        input {
+          flex: unset;
+          width: 60%;
+          padding: 0.5rem 0;
+        }
+      }
+    }
+
+    .header__unorderedList {
+      li {
+        padding: 0;
+      }
+    }
+  }
+}
