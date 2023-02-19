@@ -1,4 +1,9 @@
-import { Search } from '@mui/icons-material';
+import {
+  AccountCircleOutlined,
+  BrandingWatermarkOutlined,
+  Search,
+  ShoppingCartOutlined,
+} from '@mui/icons-material';
 import React from 'react';
 import './NavBar.scss';
 
@@ -7,7 +12,7 @@ const NavBar = () => {
     <header className='header'>
       <div className='header__left'>
         {/* Brand Logo */}
-        Brand Logo
+        <BrandingWatermarkOutlined />
       </div>
       <div className='header__center'>
         {/* Search Bar */}
@@ -23,8 +28,12 @@ const NavBar = () => {
         {/* Options */}
         <nav className='header__nav'>
           <ul className='header__unorderedList'>
-            <li>Cart</li>
-            <li>Account</li>
+            <li>
+              <ShoppingCartOutlined />
+            </li>
+            <li>
+              <AccountCircleOutlined />
+            </li>
           </ul>
         </nav>
       </div>
