@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Card from '../card';
 import './Cards.scss';
 import data from '../../utils/sampleData.json';
+import { Button } from '@mui/material';
+import { LaunchOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 
 const Cards = () => {
   const [cardData] = useState(data);
@@ -9,7 +10,18 @@ const Cards = () => {
   return (
     <div className='cards'>
       {cardData.map(({ title, imageUrl }, index) => (
-        <Card key={index} title={title} imageUrl={imageUrl} />
+        <div key={index}>
+          <img className='cards__img' src={imageUrl} alt={title} />
+          <h3 className='cards__title'>{title}</h3>
+          <div className='cards__buttons'>
+            <Button>
+              Open <LaunchOutlined />
+            </Button>
+            <Button>
+              Add to <ShoppingCartOutlined />
+            </Button>
+          </div>
+        </div>
       ))}
     </div>
   );
