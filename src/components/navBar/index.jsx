@@ -31,10 +31,14 @@ const NavBar = () => {
         <nav className='header__nav'>
           <ul className='header__unorderedList'>
             <li>
-              <ShoppingCartOutlined />
+              <Link to='/cart'>
+                <ShoppingCartOutlined />
+              </Link>
             </li>
             <li>
-              <AccountCircleOutlined />
+              <Link to='/profile'>
+                <AccountCircleOutlined />
+              </Link>
             </li>
           </ul>
         </nav>
