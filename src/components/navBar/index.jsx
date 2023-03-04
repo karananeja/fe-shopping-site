@@ -5,6 +5,7 @@ import {
   ShoppingCartOutlined,
 } from '@mui/icons-material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './NavBar.scss';
 
 const NavBar = () => {
@@ -12,10 +13,11 @@ const NavBar = () => {
     <header className='header'>
       <div className='header__left'>
         {/* Brand Logo */}
-        <BrandingWatermarkOutlined />
+        <Link to='/'>
+          <BrandingWatermarkOutlined />
+        </Link>
       </div>
       <div className='header__center'>
-        {/* Search Bar */}
         <div className='header__searchBar'>
           <Search />
           <input

@@ -15,6 +15,11 @@
     cursor: pointer;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .header__center {
     flex: 1;
 
