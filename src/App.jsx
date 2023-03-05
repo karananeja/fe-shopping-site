@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Product from './pages/product';
 import Cart from './pages/cart';
 import Profile from './pages/profile';
+import Error from './pages/error';
 
 const App = () => {
   return (
@@ -44,6 +45,15 @@ const App = () => {
             <>
               <NavBar />
               <Profile />
+            </>
+          }
+        />
+        <Route
+          path='*'
+          element={
+            <>
+              <NavBar />
+              <Error />
             </>
           }
         />

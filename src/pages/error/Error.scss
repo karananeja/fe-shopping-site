@@ -1,0 +1,33 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 4.6875rem);
+  color: var(--gray-color);
+
+  .error__message,
+  .error__info,
+  .error__link {
+    padding: 1.25rem;
+  }
+
+  .error__link {
+    display: flex;
+    align-items: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+      color: var(--black-color);
+    }
+  }
+
+  .MuiSvgIcon-root {
+    margin: 0 0.5rem !important;
+  }
+}
