@@ -4,69 +4,119 @@
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   },
   {
     "id": 2,
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   },
   {
     "id": 3,
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   },
   {
     "id": 4,
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   },
   {
     "id": 5,
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   },
   {
     "id": 6,
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   },
   {
     "id": 7,
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   },
   {
     "id": 8,
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   },
   {
     "id": 9,
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   },
   {
     "id": 10,
     "title": "Semi Automatic Shuttle",
     "imageUrl": "https://qkarthi.pythonanywhere.com/welcome/products/download/tinysite_products.pic.b0b73f593a781f75.73656d692d6175746f6d617469632d73687574746c652d6c6f6f6d2d6d616368696e652d353030783530302e6a7067.jpg",
     "description": "Our Semi Automatic Shuttle Loom Machines are designed using simple yet convenient mechanism the conforms to the industry quality norms. The sley in these machines is fabricated with seasoned teak wood sourced from reputed vendor base. These machines are sturdy in construction and offer high machining accuracy, which reduce their maintenance costs. Our range is perfectly designed for weaving rayon, cotton, pure silk, synthetic and polyester fabrics.",
-    "price": "1 lakhs INR ( 50 % loan with 30 % subsidy)"
+    "price": "₹1,00,000",
+    "loan": "50 % loan with 30 % subsidy",
+    "workingWidth": [35, 45, 55, 60, 64, 68, 72],
+    "shuttleBox": ["1x1", "2x1", "4x1", "2x2", "4x4"],
+    "shedding": "Tappet, Cam Dobby or Jacquard.",
+    "quantityAvailable": 50
   }
 ]
