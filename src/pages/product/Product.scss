@@ -1,0 +1,47 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem;
+  color: var(--gray-color);
+
+  .product__imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .MuiSvgIcon-root {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--white-color);
+        background-color: var(--black-color);
+        border-radius: 50%;
+      }
+    }
+
+    .product__img {
+      height: 50vh;
+      width: 40vw;
+      margin: 0.5rem;
+      object-fit: contain;
+      border: 1px solid var(--gray-color);
+      border-radius: 0.5rem;
+    }
+  }
+
+  .product__content > * {
+    padding: 0.5rem;
+  }
+
+  .product__button {
+    color: inherit !important;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+
+    &:hover {
+      border: 1px solid var(--black-color);
+      color: var(--black-color) !important;
+    }
+  }
+}
