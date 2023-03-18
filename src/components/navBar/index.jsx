@@ -3,16 +3,18 @@ import {
   BrandingWatermarkOutlined,
   LightMode,
   LightModeOutlined,
+  LoginOutlined,
   Search,
   ShoppingCartOutlined,
 } from '@mui/icons-material';
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { darkModeAtom } from '../../utils/globalState';
 import './NavBar.scss';
 
 const NavBar = () => {
+  const [userExists] = useState(false);
   const [isDarkMode, setIsDarkMode] = useRecoilState(darkModeAtom);
 
   !isDarkMode
@@ -46,9 +48,17 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link to='/profile'>
-                <AccountCircleOutlined />
-              </Link>
+              {userExists ? (
+                <Link to='/profile'>
+                  <AccountCircleOutlined />
+                </Link>
+              ) : (
+                <Link to='/auth/signup'>
+                  <LoginOutlined />
+                </Link>
+              )}
+            </li>
+            <li onClick={() => setIsDarkMode(!isDarkMode)}>
               {isDarkMode ? <LightMode /> : <LightModeOutlined />}
             </li>
           </ul>
