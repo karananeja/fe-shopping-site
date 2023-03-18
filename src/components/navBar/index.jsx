@@ -1,14 +1,24 @@
 import {
   AccountCircleOutlined,
   BrandingWatermarkOutlined,
+  LightMode,
+  LightModeOutlined,
   Search,
   ShoppingCartOutlined,
 } from '@mui/icons-material';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { darkModeAtom } from '../../utils/globalState';
 import './NavBar.scss';
 
 const NavBar = () => {
+  const [isDarkMode, setIsDarkMode] = useRecoilState(darkModeAtom);
+
+  !isDarkMode
+    ? document.documentElement.setAttribute('data-mode', 'light')
+    : document.documentElement.setAttribute('data-mode', 'dark');
+
   return (
     <header className='header'>
       <div className='header__left'>
@@ -39,6 +49,7 @@ const NavBar = () => {
               <Link to='/profile'>
                 <AccountCircleOutlined />
               </Link>
+              {isDarkMode ? <LightMode /> : <LightModeOutlined />}
             </li>
           </ul>
         </nav>
