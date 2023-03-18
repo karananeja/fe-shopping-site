@@ -7,6 +7,8 @@ import Product from './pages/product';
 import Cart from './pages/cart';
 import Profile from './pages/profile';
 import Error from './pages/error';
+import SignIn from './pages/userService/signIn';
+import SignUp from './pages/userService/signUp';
 
 const App = () => {
   return (
@@ -39,24 +41,10 @@ const App = () => {
             </>
           }
         />
-        <Route
-          path='profile'
-          element={
-            <>
-              <NavBar />
-              <Profile />
-            </>
-          }
-        />
-        <Route
-          path='*'
-          element={
-            <>
-              <NavBar />
-              <Error />
-            </>
-          }
-        />
+        <Route path='auth/signin' element={<SignIn />} />
+        <Route path='auth/signup' element={<SignUp />} />
+        <Route path='profile' element={<Profile />} />
+        <Route path='*' element={<Error />} />
       </Routes>
     </div>
   );
