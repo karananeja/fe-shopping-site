@@ -2,8 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 1rem;
+  padding: 1rem;
   color: var(--gray-color);
+  height: calc(100vh - 8vh);
+
   span {
     color: var(--black-color);
     font-weight: bold;
@@ -26,7 +28,7 @@
 
     .product__img {
       height: 50vh;
-      width: 40vw;
+      width: 34vw;
       margin: 0.5rem;
       object-fit: contain;
       border: 1px solid var(--gray-color);
