@@ -27,8 +27,8 @@ html[data-mode='light'] .product {
     }
 
     .product__img {
-      height: 50vh;
-      width: 34vw;
+      height: 25rem;
+      width: 25rem;
       margin: 0.5rem;
       object-fit: contain;
       border: 1px solid var(--gray-color);
@@ -82,11 +82,11 @@ html[data-mode='dark'] .product {
     }
 
     .product__img {
-      height: 50vh;
-      width: 34vw;
+      height: 25rem;
+      width: 25rem;
       margin: 0.5rem;
       object-fit: contain;
-      border: 1px solid var(--gray-color);
+      border: 1px solid var(--white-color);
       border-radius: 0.5rem;
     }
   }
