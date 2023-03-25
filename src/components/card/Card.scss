@@ -10,8 +10,8 @@ html[data-mode='light'] .card {
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    transform: scale(1.02);
-    border: 1px solid var(--black-color);
+    transform: scale(1.1);
+    border: 1px solid var(--white-color);
 
     .card__title {
       text-decoration: underline;
