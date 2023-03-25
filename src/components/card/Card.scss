@@ -1,4 +1,4 @@
-.card {
+html[data-mode='light'] .card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +16,48 @@
     .card__title {
       text-decoration: underline;
       color: var(--black-color);
+    }
+  }
+
+  .card__img {
+    height: 30vh;
+    object-fit: contain;
+  }
+
+  .card__title {
+    color: var(--gray-color);
+
+    a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  .MuiSvgIcon-root {
+    margin: 0 0.5rem !important;
+  }
+}
+
+html[data-mode='dark'] .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid var(--gray-color);
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  background-color: var(--dm-form-bg-color);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.02);
+    border: 1px solid var(--white-color);
+
+    .card__title {
+      text-decoration: underline;
+      color: var(--white-color);
     }
   }
 
