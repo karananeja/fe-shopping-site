@@ -4,6 +4,10 @@
   justify-content: center;
   margin: 1rem;
   color: var(--gray-color);
+  span {
+    color: var(--black-color);
+    font-weight: bold;
+  }
 
   .product__imgContainer {
     display: flex;
