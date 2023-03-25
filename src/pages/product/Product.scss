@@ -1,4 +1,4 @@
-.product {
+html[data-mode='light'] .product {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,6 +48,61 @@
     &:hover {
       border: 1px solid var(--black-color);
       color: var(--black-color) !important;
+    }
+  }
+}
+
+html[data-mode='dark'] .product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--white-color);
+  background-color: var(--dm-form-bg-color);
+  height: calc(100vh - 8vh);
+
+  span {
+    color: var(--white-color);
+    font-weight: bold;
+  }
+
+  .product__imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .MuiSvgIcon-root {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--black-color);
+        background-color: var(--white-color);
+        border-radius: 50%;
+      }
+    }
+
+    .product__img {
+      height: 50vh;
+      width: 34vw;
+      margin: 0.5rem;
+      object-fit: contain;
+      border: 1px solid var(--gray-color);
+      border-radius: 0.5rem;
+    }
+  }
+
+  .product__content > * {
+    padding: 0.5rem;
+  }
+
+  .product__button {
+    color: inherit !important;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+
+    &:hover {
+      border: 1px solid var(--white-color);
+      color: var(--white-color) !important;
     }
   }
 }
