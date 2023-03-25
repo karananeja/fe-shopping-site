@@ -24,25 +24,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-#root {
-  height: 100vh;
-  overflow-y: auto;
-}
-
-#root::-webkit-scrollbar {
-  cursor: pointer;
-  height: 5px;
-  width: 5px;
-  background-color: var(--scroll-white-color);
-}
-
-#root::-webkit-scrollbar-thumb {
-  background-color: var(--gray-color);
-  -webkit-border-radius: 5px;
-  -webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
-}
-
-#root::-webkit-scrollbar-corner {
-  background-color: var(--white-color);
-}
