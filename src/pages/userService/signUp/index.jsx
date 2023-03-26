@@ -2,7 +2,7 @@ import { BrandingWatermarkOutlined } from '@mui/icons-material';
 import { Button, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 import '../UserService.scss';
 import { useRecoilValue } from 'recoil';
@@ -11,6 +11,7 @@ import { darkModeAtom } from '../../../utils/globalState';
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const isDarkModeValue = useRecoilValue(darkModeAtom);
+  const navigate = useNavigate();
 
   !isDarkModeValue
     ? document.documentElement.setAttribute('data-mode', 'light')
@@ -23,7 +24,7 @@ const SignUp = () => {
 
     setEmail('');
 
-    
+    setTimeout(() => navigate('/auth/set-password'), 2000);
   };
 
   return (
