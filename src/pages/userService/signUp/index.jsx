@@ -10,8 +10,6 @@ import { darkModeAtom } from '../../../utils/globalState';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const isDarkModeValue = useRecoilValue(darkModeAtom);
 
   !isDarkModeValue
@@ -21,15 +19,11 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log({
-      email: event?.target[0]?.value,
-      password: event?.target[2]?.value,
-      confirmPassword: event?.target[4]?.value,
-    });
+    console.log({ email: event?.target[0]?.value });
 
     setEmail('');
-    setPassword('');
-    setConfirmPassword('');
+
+    
   };
 
   return (
@@ -55,24 +49,6 @@ const SignUp = () => {
             label='Email'
             type='text'
             onChange={(event) => setEmail(event.target.value)}
-          />
-
-          <TextField
-            value={password}
-            size='small'
-            id='password'
-            label='Password'
-            type='password'
-            onChange={(event) => setPassword(event.target.value)}
-          />
-
-          <TextField
-            value={confirmPassword}
-            size='small'
-            id='confirm-password'
-            label='Confirm Password'
-            type='password'
-            onChange={(event) => setConfirmPassword(event.target.value)}
           />
 
           <Button type='submit' variant='contained'>
