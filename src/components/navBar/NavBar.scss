@@ -1,4 +1,4 @@
-html[data-mode='light'] .header {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6,8 +6,6 @@ html[data-mode='light'] .header {
   top: 0;
   z-index: 100;
   height: 8vh;
-  background-color: var(--gray-color);
-  color: var(--white-color);
   padding: 0 1.25rem;
   gap: 1rem;
 
@@ -19,15 +17,10 @@ html[data-mode='light'] .header {
   .header__center {
     flex: 1;
 
-    .MuiSvgIcon-root {
-      color: var(--gray-color);
-    }
-
     .header__searchBar {
       padding: 0 0.5rem;
       display: flex;
       align-items: center;
-      background-color: var(--white-color);
       border-radius: 0.5rem;
 
       input {
@@ -56,60 +49,35 @@ html[data-mode='light'] .header {
   }
 }
 
-html[data-mode='dark'] .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  height: 8vh;
+html[data-mode='light'] .header {
   background-color: var(--gray-color);
   color: var(--white-color);
-  padding: 0 1.25rem;
-  gap: 1rem;
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
 
   .header__center {
-    flex: 1;
-
     .MuiSvgIcon-root {
       color: var(--gray-color);
     }
 
     .header__searchBar {
-      padding: 0 0.5rem;
-      display: flex;
-      align-items: center;
-      background-color: var(--dm-form-bg-color);
-      border-radius: 0.5rem;
-
-      input {
-        flex: 1;
-        padding: 1rem 0;
-        background-color: inherit;
-        border: none;
-        outline-width: 0;
-        color: var(--white-color);
-      }
+      background-color: var(--white-color);
     }
   }
+}
 
-  .header__unorderedList {
-    padding: 0;
-    display: flex;
+html[data-mode='dark'] .header {
+  background-color: var(--gray-color);
+  color: var(--white-color);
 
-    li {
-      margin: 0.625rem;
-      padding: 0.5rem;
-      list-style: none;
+  .header__center {
+    .MuiSvgIcon-root {
+      color: var(--gray-color);
+    }
 
-      > .MuiSvgIcon-root {
-        cursor: pointer;
+    .header__searchBar {
+      background-color: var(--dm-form-bg-color);
+
+      input {
+        color: var(--white-color);
       }
     }
   }

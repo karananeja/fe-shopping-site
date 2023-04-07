@@ -1,8 +1,7 @@
-html[data-mode='light'] .sign {
+.sign {
   display: flex;
   align-items: center;
   height: 100vh;
-  background-color: var(--gray-color);
 
   .sign__logo,
   .sign__form {
@@ -13,7 +12,6 @@ html[data-mode='light'] .sign {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--white-color);
     margin: 0 auto;
 
     a {
@@ -28,8 +26,6 @@ html[data-mode='light'] .sign {
     flex-direction: column;
     margin: 0 auto;
     width: 30%;
-    background-color: var(--white-color);
-    box-shadow: 0 0 1rem 0.75rem rgba(0, 0, 0, 0.3);
     border-radius: 0.625rem;
 
     > * {
@@ -59,74 +55,44 @@ html[data-mode='light'] .sign {
         width: 100%;
       }
     }
+  }
+}
 
-    .sign__user__validate {
-      a {
-        text-decoration: underline;
-        color: var(--blue-color);
-      }
+html[data-mode='light'] .sign {
+  background-color: var(--gray-color);
+
+  .sign__logo {
+    color: var(--white-color);
+  }
+
+  .sign__form__layout {
+    background-color: var(--white-color);
+    box-shadow: 0 0 1rem 0.75rem rgba(0, 0, 0, 0.3);
+
+    .sign__user__validate a {
+      color: var(--blue-color);
     }
   }
 }
 
 html[data-mode='dark'] .sign {
-  display: flex;
-  align-items: center;
-  height: 100vh;
   background-color: var(--dm-black-color);
   color: var(--white-color);
 
-  .sign__logo,
-  .sign__form {
-    flex: 0.5;
-  }
-
   .sign__logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: var(--white-color);
-    margin: 0 auto;
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
   }
 
   .sign__form__layout {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 30%;
     background-color: var(--dm-form-bg-color);
     box-shadow: 0 0 1rem 0.75rem rgba(255, 255, 255, 0.3);
-    border-radius: 0.625rem;
-
-    > * {
-      margin: 1.25rem;
-    }
 
     .sign__title {
-      font-size: 2rem;
-      display: flex;
-      align-items: flex-start;
-      text-align: left;
-      width: 100%;
-      margin: 1.25rem 0 !important;
-      padding: 0 1rem !important;
       color: var(--white-color);
     }
 
     .sign__form {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-
       > * {
-        margin: 1rem 0;
-
         label {
           color: var(--white-color);
         }
@@ -138,25 +104,17 @@ html[data-mode='dark'] .sign {
 
       .MuiTextField-root {
         border: 1px solid var(--white-color) !important;
-        opacity: 0.3;
-      }
-
-      button {
-        width: 100%;
       }
     }
 
-    .sign__user__validate {
-      a {
-        text-decoration: underline;
-        color: var(--dm-button-color);
-      }
+    .sign__user__validate a {
+      color: var(--dm-button-color);
     }
   }
 }
 
 @media screen and (max-width: 768px) {
-  html[data-mode='light'] .sign {
+  .sign {
     flex-direction: column;
 
     .sign__form__layout {
@@ -166,7 +124,7 @@ html[data-mode='dark'] .sign {
 }
 
 @media screen and (max-width: 425px) {
-  html[data-mode='light'] .sign {
+  .sign {
     flex-direction: column;
 
     .sign__form__layout {
