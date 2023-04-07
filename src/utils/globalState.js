@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { localStorageEffect } from './utilFun';
+import { localStorageEffect } from './effects';
 
 export const darkModeAtom = atom({
   key: 'dark_mode',
