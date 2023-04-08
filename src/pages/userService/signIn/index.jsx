@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignIn.scss';
 import '../UserService.scss';
 import { Button, Form, Input } from 'antd';
@@ -7,26 +7,27 @@ import { BrandLogoIcon } from '../../../utils/constants/icons';
 import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '../../../utils/globalState';
 
-const { TextArea } = Input;
+const { Item, useForm } = Form;
+
+const { Password } = Input;
 
 const SignIn = () => {
   const isDarkModeValue = useRecoilValue(darkModeAtom);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+  const [signInForm] = useForm();
 
   !isDarkModeValue
     ? document.documentElement.setAttribute('data-mode', 'light')
     : document.documentElement.setAttribute('data-mode', 'dark');
-  const handleSubmit = (event) => {
-    event.preventDefault();
 
+  const handleSubmit = (credentials) => {
     console.log({
-      email: event?.target[0]?.value,
-      password: event?.target[2]?.value,
+      email: credentials.email,
+      password: credentials.password,
     });
 
-    setEmail('');
-    setPassword('');
+    signInForm.resetFields();
+
     setTimeout(() => navigate('/'), 1000);
   };
 
@@ -41,30 +42,44 @@ const SignIn = () => {
       <div className='sign__form__layout'>
         <h3 className='sign__title'>Sign In</h3>
         <Form
-          component='form'
+          form={signInForm}
+          layout='vertical'
           autoComplete='off'
           className='sign__form'
-          onSubmit={handleSubmit}
+          onFinish={handleSubmit}
+          onFinishFailed={(err) => console.log({ err })}
         >
-          <TextArea
-            value={email}
-            size='small'
-            id='email'
+          <Item
             label='Email'
-            type='text'
-            onChange={(event) => setEmail(event.target.value)}
-          />
+            name='email'
+            rules={[
+              {
+                required: true,
+                message: 'Please enter your email.',
+              },
+              {
+                type: 'email',
+                message: 'Please enter a valid email.',
+              },
+            ]}
+          >
+            <Input size='small' />
+          </Item>
 
-          <TextArea
-            value={password}
-            size='small'
-            id='password'
+          <Item
             label='Password'
-            type='password'
-            onChange={(event) => setPassword(event.target.value)}
-          />
+            name='password'
+            rules={[
+              {
+                required: true,
+                message: 'Please enter your password!',
+              },
+            ]}
+          >
+            <Password size='small' />
+          </Item>
 
-          <Button type='submit' variant='contained'>
+          <Button type='primary' htmlType='submit'>
             Sign In
           </Button>
         </Form>

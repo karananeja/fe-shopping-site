@@ -47,9 +47,7 @@
     }
 
     .sign__form {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
+      width: 80%;
 
       > * {
         margin: 1rem 0;
@@ -58,6 +56,10 @@
       button {
         width: 100%;
       }
+    }
+
+    .sign__user__validate a {
+      text-decoration: none;
     }
   }
 }
@@ -91,23 +93,9 @@ html[data-mode='dark'] .sign {
     background-color: var(--dm-form-bg-color);
     box-shadow: 0 0 1rem 0.75rem rgba(255, 255, 255, 0.3);
 
-    .sign__title {
-      color: var(--white-color);
-    }
-
     .sign__form {
-      > * {
-        label {
-          color: var(--white-color);
-        }
-
-        input {
-          color: var(--white-color);
-        }
-      }
-
-      .MuiTextField-root {
-        border: 1px solid var(--white-color) !important;
+      label {
+        color: var(--white-color);
       }
     }
 

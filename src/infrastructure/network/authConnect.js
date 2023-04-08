@@ -1,4 +1,4 @@
-import { apiGet, apiPost } from './morpheus';
+import { apiGet, apiPost } from './apiClient';
 
 //register user which accepts an email id to sent the verification link
 export const signUpUser = (body) => {
