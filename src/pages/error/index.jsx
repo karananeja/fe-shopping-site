@@ -1,20 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowCircleRightOutlined } from '@mui/icons-material';
 import './Error.scss';
+import { Button, Result } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 const Error = () => {
+  const navigate = useNavigate();
+
   return (
     <div className='error'>
-      <h2 className='error__message'>Psych, that&apos;s the wrong url</h2>
-      <h4 className='error__info'>
-        Please correct the url to continue shopping or contact support for what
-        you&apos;re looking
-      </h4>
-      <p className='error__link'>
-        Click Here to go back to <ArrowCircleRightOutlined />{' '}
-        <Link to='/'>Home</Link>
-      </p>
+      <Result
+        status='404'
+        title='404'
+        subTitle='Sorry, the page you visited does not exist.'
+        extra={
+          <Button type='primary' onClick={() => navigate('/')}>
+            Back Home
+          </Button>
+        }
+      />
     </div>
   );
 };
