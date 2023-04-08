@@ -1,4 +1,3 @@
-import { BrandingWatermarkOutlined } from '@mui/icons-material';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Profile.scss';
@@ -6,9 +5,7 @@ import './Profile.scss';
 const Profile = () => {
   return (
     <div className='profile'>
-      <Link to='/'>
-        <BrandingWatermarkOutlined />
-      </Link>
+      <Link to='/'>Brand Logo</Link>
     </div>
   );
 };

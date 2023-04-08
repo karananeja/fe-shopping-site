@@ -1,12 +1,12 @@
-import { BrandingWatermarkOutlined } from '@mui/icons-material';
-import { Button, TextField } from '@mui/material';
-import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 import '../UserService.scss';
 import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '../../../utils/globalState';
+import { Button, Form, Input } from 'antd';
+
+const { TextArea } = Input;
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -31,19 +31,17 @@ const SignUp = () => {
     <div className='sign'>
       <div className='sign__logo'>
         {/* Brand Logo */}
-        <Link to='/'>
-          <BrandingWatermarkOutlined />
-        </Link>
+        <Link to='/'>Brand Logo</Link>
       </div>
       <div className='sign__form__layout'>
         <h3 className='sign__title'>Sign Up</h3>
-        <Box
+        <Form
           component='form'
           autoComplete='off'
           className='sign__form'
           onSubmit={handleSubmit}
         >
-          <TextField
+          <TextArea
             value={email}
             size='small'
             id='email'
@@ -55,7 +53,7 @@ const SignUp = () => {
           <Button type='submit' variant='contained'>
             Sign Up
           </Button>
-        </Box>
+        </Form>
         <div className='sign__user__validate'>
           Already have an account? <Link to='/auth/signin'>Sign In</Link>
         </div>

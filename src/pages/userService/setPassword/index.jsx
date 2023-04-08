@@ -1,11 +1,11 @@
-import { BrandingWatermarkOutlined } from '@mui/icons-material';
-import { Button, TextField } from '@mui/material';
-import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../UserService.scss';
 import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '../../../utils/globalState';
+import { Button, Form, Input } from 'antd';
+
+const { TextArea } = Input;
 
 const SetPassword = () => {
   const [password, setPassword] = useState('');
@@ -35,19 +35,17 @@ const SetPassword = () => {
     <div className='sign'>
       <div className='sign__logo'>
         {/* Brand Logo */}
-        <Link to='/'>
-          <BrandingWatermarkOutlined />
-        </Link>
+        <Link to='/'>Brand Logo</Link>
       </div>
       <div className='sign__form__layout'>
         <h3 className='sign__title'>Set Password</h3>
-        <Box
+        <Form
           component='form'
           autoComplete='off'
           className='sign__form'
           onSubmit={handleSubmit}
         >
-          <TextField
+          <TextArea
             value={password}
             size='small'
             id='password'
@@ -56,7 +54,7 @@ const SetPassword = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
 
-          <TextField
+          <TextArea
             value={confirmPassword}
             size='small'
             id='confirmPassword'
@@ -68,7 +66,7 @@ const SetPassword = () => {
           <Button type='submit' variant='contained'>
             Set Password
           </Button>
-        </Box>
+        </Form>
       </div>
     </div>
   );

@@ -1,13 +1,8 @@
-import {
-  AddShoppingCartOutlined,
-  ArrowCircleLeftOutlined,
-  ArrowCircleRightOutlined,
-} from '@mui/icons-material';
-import { Button } from '@mui/material';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import sampleData from '../../utils/sampleData.json';
 import './Product.scss';
+import { Button } from 'antd';
 
 const Product = () => {
   const { productID } = useParams();
@@ -19,13 +14,11 @@ const Product = () => {
   return (
     <div className='product'>
       <div className='product__imgContainer'>
-        <ArrowCircleLeftOutlined />
         <img
           className='product__img'
           src={productInfo?.imageUrl}
           alt={productInfo?.title}
         />
-        <ArrowCircleRightOutlined />
       </div>
       <div className='product__content'>
         {productInfo?.title && (
@@ -81,9 +74,7 @@ const Product = () => {
         )}
       </div>
       <div className='product__buttons'>
-        <Button className='product__button'>
-          Add to Cart - <AddShoppingCartOutlined />
-        </Button>
+        <Button className='product__button'>Add to Cart -</Button>
       </div>
     </div>
   );

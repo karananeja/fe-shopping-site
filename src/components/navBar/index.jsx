@@ -1,17 +1,11 @@
-import {
-  AccountCircleOutlined,
-  BrandingWatermarkOutlined,
-  LightMode,
-  LightModeOutlined,
-  LoginOutlined,
-  Search,
-  ShoppingCartOutlined,
-} from '@mui/icons-material';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { darkModeAtom } from '../../utils/globalState';
 import './NavBar.scss';
+import { Input } from 'antd';
+
+const { Search } = Input;
 
 const NavBar = () => {
   const [userExists] = useState(false);
@@ -25,9 +19,7 @@ const NavBar = () => {
     <header className='header'>
       <div className='header__left'>
         {/* Brand Logo */}
-        <Link to='/'>
-          <BrandingWatermarkOutlined />
-        </Link>
+        <Link to='/'>Brand Logo </Link>
       </div>
       <div className='header__center'>
         <div className='header__searchBar'>
@@ -43,24 +35,16 @@ const NavBar = () => {
         <nav className='header__nav'>
           <ul className='header__unorderedList'>
             <li>
-              <Link to='/cart'>
-                <ShoppingCartOutlined />
-              </Link>
+              <Link to='/cart'></Link>
             </li>
             <li>
               {userExists ? (
-                <Link to='/profile'>
-                  <AccountCircleOutlined />
-                </Link>
+                <Link to='/profile'></Link>
               ) : (
-                <Link to='/auth/signup'>
-                  <LoginOutlined />
-                </Link>
+                <Link to='/auth/signup'></Link>
               )}
             </li>
-            <li onClick={() => setIsDarkMode(!isDarkMode)}>
-              {isDarkMode ? <LightMode /> : <LightModeOutlined />}
-            </li>
+            <li onClick={() => setIsDarkMode(!isDarkMode)}></li>
           </ul>
         </nav>
       </div>
