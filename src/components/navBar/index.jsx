@@ -4,6 +4,14 @@ import { useRecoilState } from 'recoil';
 import { darkModeAtom } from '../../utils/globalState';
 import './NavBar.scss';
 import { Input } from 'antd';
+import {
+  AccountCircleIcon,
+  BrandLogoIcon,
+  LightModeIcon,
+  LightModeFilledIcon,
+  LoginIcon,
+  ShoppingCartIcon,
+} from '../../utils/constants/icons';
 
 const { Search } = Input;
 
@@ -19,7 +27,9 @@ const NavBar = () => {
     <header className='header'>
       <div className='header__left'>
         {/* Brand Logo */}
-        <Link to='/'>Brand Logo </Link>
+        <Link to='/'>
+          <BrandLogoIcon />
+        </Link>
       </div>
       <div className='header__center'>
         <div className='header__searchBar'>
@@ -35,16 +45,24 @@ const NavBar = () => {
         <nav className='header__nav'>
           <ul className='header__unorderedList'>
             <li>
-              <Link to='/cart'></Link>
+              <Link to='/cart'>
+                <ShoppingCartIcon />
+              </Link>
             </li>
             <li>
               {userExists ? (
-                <Link to='/profile'></Link>
+                <Link to='/profile'>
+                  <AccountCircleIcon />
+                </Link>
               ) : (
-                <Link to='/auth/signup'></Link>
+                <Link to='/auth/signup'>
+                  <LoginIcon />
+                </Link>
               )}
             </li>
-            <li onClick={() => setIsDarkMode(!isDarkMode)}></li>
+            <li onClick={() => setIsDarkMode(!isDarkMode)}>
+              {isDarkMode ? <LightModeFilledIcon /> : <LightModeIcon />}
+            </li>
           </ul>
         </nav>
       </div>

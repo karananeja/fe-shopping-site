@@ -3,6 +3,11 @@ import { useParams } from 'react-router-dom';
 import sampleData from '../../utils/sampleData.json';
 import './Product.scss';
 import { Button } from 'antd';
+import {
+  AddShoppingCartIconIcon,
+  ArrowCircleLeftIcon,
+  ArrowCircleRightIcon,
+} from '../../utils/constants/icons';
 
 const Product = () => {
   const { productID } = useParams();
@@ -14,11 +19,13 @@ const Product = () => {
   return (
     <div className='product'>
       <div className='product__imgContainer'>
+        <ArrowCircleLeftIcon />
         <img
           className='product__img'
           src={productInfo?.imageUrl}
           alt={productInfo?.title}
         />
+        <ArrowCircleRightIcon />
       </div>
       <div className='product__content'>
         {productInfo?.title && (
@@ -74,7 +81,10 @@ const Product = () => {
         )}
       </div>
       <div className='product__buttons'>
-        <Button className='product__button'>Add to Cart -</Button>
+        <Button className='product__button'>
+          Add to Cart -
+          <AddShoppingCartIconIcon />
+        </Button>
       </div>
     </div>
   );

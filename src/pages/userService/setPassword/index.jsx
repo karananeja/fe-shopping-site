@@ -4,6 +4,7 @@ import '../UserService.scss';
 import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '../../../utils/globalState';
 import { Button, Form, Input } from 'antd';
+import { BrandLogoIcon } from '../../../utils/constants/icons';
 
 const { TextArea } = Input;
 
@@ -35,7 +36,9 @@ const SetPassword = () => {
     <div className='sign'>
       <div className='sign__logo'>
         {/* Brand Logo */}
-        <Link to='/'>Brand Logo</Link>
+        <Link to='/'>
+          <BrandLogoIcon />
+        </Link>
       </div>
       <div className='sign__form__layout'>
         <h3 className='sign__title'>Set Password</h3>

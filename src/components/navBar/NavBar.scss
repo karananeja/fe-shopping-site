@@ -14,6 +14,10 @@
     color: inherit;
   }
 
+  svg {
+    fill: var(--white-color);
+  }
+
   .header__center {
     flex: 1;
 
@@ -42,7 +46,7 @@
       padding: 0.5rem;
       list-style: none;
 
-      > .MuiSvgIcon-root {
+      > svg {
         cursor: pointer;
       }
     }
@@ -54,8 +58,8 @@ html[data-mode='light'] .header {
   color: var(--white-color);
 
   .header__center {
-    .MuiSvgIcon-root {
-      color: var(--gray-color);
+    svg {
+      fill: var(--gray-color);
     }
 
     .header__searchBar {
@@ -69,8 +73,8 @@ html[data-mode='dark'] .header {
   color: var(--white-color);
 
   .header__center {
-    .MuiSvgIcon-root {
-      color: var(--gray-color);
+    svg {
+      fill: var(--gray-color);
     }
 
     .header__searchBar {

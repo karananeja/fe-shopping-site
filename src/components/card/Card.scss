@@ -25,10 +25,10 @@
     align-items: center;
     text-decoration: none;
     color: inherit;
-  }
 
-  .MuiSvgIcon-root {
-    margin: 0 0.5rem !important;
+    svg {
+      margin: 0 0.5rem !important;
+    }
   }
 }
 
@@ -46,6 +46,10 @@ html[data-mode='light'] .card {
 
   .card__title {
     color: var(--white-color);
+
+    svg {
+      fill: var(--white-color);
+    }
   }
 }
 
@@ -63,5 +67,9 @@ html[data-mode='dark'] .card {
 
   .card__title {
     color: var(--gray-color);
+
+    svg {
+      fill: var(--gray-color);
+    }
   }
 }

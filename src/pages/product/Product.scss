@@ -14,11 +14,13 @@
     align-items: center;
     justify-content: center;
 
-    .MuiSvgIcon-root {
+    svg {
       cursor: pointer;
+      opacity: 0.5;
 
       &:hover {
         border-radius: 50%;
+        opacity: 1;
       }
     }
 
@@ -36,9 +38,21 @@
   }
 
   .product__button {
+    display: flex;
+    align-items: center;
     color: inherit !important;
     border: 1px solid transparent;
     border-radius: 0.5rem;
+    opacity: 0.5;
+    background-color: inherit;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    span {
+      text-transform: uppercase;
+    }
   }
 }
 
@@ -50,8 +64,8 @@ html[data-mode='light'] .product {
   }
 
   .product__imgContainer {
-    .MuiSvgIcon-root:hover {
-      color: var(--white-color);
+    svg:hover {
+      fill: var(--white-color);
       background-color: var(--black-color);
     }
 
@@ -64,9 +78,15 @@ html[data-mode='light'] .product {
     padding: 0.5rem;
   }
 
-  .product__button:hover {
-    border: 1px solid var(--black-color);
-    color: var(--black-color) !important;
+  .product__button {
+    svg {
+      fill: var(--black-color);
+    }
+
+    &:hover {
+      border: 1px solid var(--black-color);
+      color: var(--black-color) !important;
+    }
   }
 }
 
@@ -79,9 +99,13 @@ html[data-mode='dark'] .product {
   }
 
   .product__imgContainer {
-    .MuiSvgIcon-root:hover {
-      color: var(--black-color);
-      background-color: var(--white-color);
+    svg {
+      fill: var(--white-color);
+
+      &:hover {
+        fill: var(--black-color);
+        background-color: var(--white-color);
+      }
     }
 
     .product__img {
@@ -93,8 +117,14 @@ html[data-mode='dark'] .product {
     padding: 0.5rem;
   }
 
-  .product__button:hover {
-    border: 1px solid var(--white-color);
-    color: var(--white-color) !important;
+  .product__button {
+    svg {
+      fill: var(--white-color);
+    }
+
+    &:hover {
+      border: 1px solid var(--white-color);
+      color: var(--white-color) !important;
+    }
   }
 }
