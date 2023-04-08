@@ -4,13 +4,19 @@ import './SignIn.scss';
 import '../UserService.scss';
 import { Button, Form, Input } from 'antd';
 import { BrandLogoIcon } from '../../../utils/constants/icons';
+import { useRecoilValue } from 'recoil';
+import { darkModeAtom } from '../../../utils/globalState';
 
 const { TextArea } = Input;
 
 const SignIn = () => {
+  const isDarkModeValue = useRecoilValue(darkModeAtom);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  !isDarkModeValue
+    ? document.documentElement.setAttribute('data-mode', 'light')
+    : document.documentElement.setAttribute('data-mode', 'dark');
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -21,6 +27,7 @@ const SignIn = () => {
 
     setEmail('');
     setPassword('');
+    setTimeout(() => navigate('/'), 1000);
   };
 
   return (
