@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { darkModeAtom } from '../../utils/globalState';
 import './NavBar.scss';
@@ -22,49 +22,52 @@ const NavBar = () => {
     : document.documentElement.setAttribute('data-mode', 'dark');
 
   return (
-    <header className='header'>
-      <div className='header__left'>
-        {/* Brand Logo */}
-        <Link to='/'>
-          <BrandLogoIcon />
-        </Link>
-      </div>
-      <div className='header__center'>
-        <div className='header__searchBar'>
-          <SearchIcon />
-          <input
-            type='text'
-            placeholder="Search the name of the product you're looking for"
-          />
+    <>
+      <header className='header'>
+        <div className='header__left'>
+          {/* Brand Logo */}
+          <Link to='/'>
+            <BrandLogoIcon />
+          </Link>
         </div>
-      </div>
-      <div className='header__right'>
-        {/* Options */}
-        <nav className='header__nav'>
-          <ul className='header__unorderedList'>
-            <li>
-              <Link to='/cart'>
-                <ShoppingCartIcon />
-              </Link>
-            </li>
-            <li>
-              {userExists ? (
-                <Link to='/profile'>
-                  <AccountCircleIcon />
+        <div className='header__center'>
+          <div className='header__searchBar'>
+            <SearchIcon />
+            <input
+              type='text'
+              placeholder="Search the name of the product you're looking for"
+            />
+          </div>
+        </div>
+        <div className='header__right'>
+          {/* Options */}
+          <nav className='header__nav'>
+            <ul className='header__unorderedList'>
+              <li>
+                <Link to='/cart'>
+                  <ShoppingCartIcon />
                 </Link>
-              ) : (
-                <Link to='/auth/signup'>
-                  <LoginIcon />
-                </Link>
-              )}
-            </li>
-            <li onClick={() => setIsDarkMode(!isDarkMode)}>
-              {isDarkMode ? <LightModeFilledIcon /> : <LightModeIcon />}
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+              </li>
+              <li>
+                {userExists ? (
+                  <Link to='/profile'>
+                    <AccountCircleIcon />
+                  </Link>
+                ) : (
+                  <Link to='/auth/signup'>
+                    <LoginIcon />
+                  </Link>
+                )}
+              </li>
+              <li onClick={() => setIsDarkMode(!isDarkMode)}>
+                {isDarkMode ? <LightModeFilledIcon /> : <LightModeIcon />}
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <Outlet />
+    </>
   );
 };
 
