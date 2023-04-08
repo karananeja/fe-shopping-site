@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './SignIn.scss';
 import '../UserService.scss';
 import { Button, Form, Input } from 'antd';
+import { BrandLogoIcon } from '../../../utils/constants/icons';
 
 const { TextArea } = Input;
 
@@ -26,7 +27,9 @@ const SignIn = () => {
     <div className='sign'>
       <div className='sign__logo'>
         {/* Brand Logo */}
-        <Link to='/'>Brand Logo </Link>
+        <Link to='/'>
+          <BrandLogoIcon />
+        </Link>
       </div>
       <div className='sign__form__layout'>
         <h3 className='sign__title'>Sign In</h3>
