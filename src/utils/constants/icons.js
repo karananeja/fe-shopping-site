@@ -8,6 +8,7 @@ import { ReactComponent as LoginIcon } from '../../assets/icons/login.svg';
 import { ReactComponent as AccountCircleIcon } from '../../assets/icons/account_circle.svg';
 import { ReactComponent as LightModeIcon } from '../../assets/icons/light_mode.svg';
 import { ReactComponent as LightModeFilledIcon } from '../../assets/icons/light_mode_fill.svg';
+import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
 
 export {
   AccountCircleIcon,
@@ -19,5 +20,6 @@ export {
   LightModeFilledIcon,
   LoginIcon,
   OpenInBrowserIcon,
+  SearchIcon,
   ShoppingCartIcon,
 };

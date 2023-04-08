@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { darkModeAtom } from '../../utils/globalState';
 import './NavBar.scss';
-import { Input } from 'antd';
 import {
   AccountCircleIcon,
   BrandLogoIcon,
@@ -11,9 +10,8 @@ import {
   LightModeFilledIcon,
   LoginIcon,
   ShoppingCartIcon,
+  SearchIcon,
 } from '../../utils/constants/icons';
-
-const { Search } = Input;
 
 const NavBar = () => {
   const [userExists] = useState(false);
@@ -33,7 +31,7 @@ const NavBar = () => {
       </div>
       <div className='header__center'>
         <div className='header__searchBar'>
-          <Search />
+          <SearchIcon />
           <input
             type='text'
             placeholder="Search the name of the product you're looking for"
