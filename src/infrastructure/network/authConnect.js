@@ -1,6 +1,6 @@
 import { apiGet, apiPost } from './apiClient';
 
-//register user which accepts an email id to sent the verification link
+//register user which accepts an email id to send the verification link
 export const signUpUser = (body) => {
   return apiPost('/user/v1/register', body);
 };
@@ -11,7 +11,7 @@ export const verifySignUpToken = (query) => {
 };
 
 //set password
-export const setPassword = (token, body) => {
+export const setPassword = ({ token, body }) => {
   const headers = { Authorization: `Bearer ${token}` };
 
   return apiPost('/user/v1/password/set', body, headers);

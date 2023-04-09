@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 import '../UserService.scss';
@@ -6,6 +6,9 @@ import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '../../../utils/globalState';
 import { Button, Form, Input } from 'antd';
 import { BrandLogoIcon } from '../../../utils/constants/icons';
+import { useSignUp } from '../../../hooks/useLogin';
+import Loader from '../../../components/Loader';
+import { setValue } from '../../../infrastructure/storeManagement';
 
 const { Item, useForm } = Form;
 
@@ -18,12 +21,30 @@ const SignUp = () => {
     ? document.documentElement.setAttribute('data-mode', 'light')
     : document.documentElement.setAttribute('data-mode', 'dark');
 
-  const handleSubmit = (credentials) => {
-    console.log({ email: credentials.email });
-    signUpForm.resetFields();
+  const { isLoading, data, mutateAsync: signUp } = useSignUp();
 
-    setTimeout(() => navigate('/auth/set-password'), 1000);
+  useEffect(() => {
+    if (data) {
+      setValue('accessToken', data.userInfo.accessToken);
+      navigate('/auth/set-password');
+    }
+  }, [data]);
+
+  const handleSubmit = async (credentials) => {
+    const payload = { email: credentials.email };
+
+    setValue('userEmail', JSON.stringify(payload));
+
+    try {
+      await signUp(payload);
+    } catch (err) {
+      console.log({ err });
+    }
+
+    signUpForm.resetFields();
   };
+
+  if (isLoading) return <Loader />;
 
   return (
     <div className='sign'>

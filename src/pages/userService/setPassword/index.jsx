@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../UserService.scss';
 import { useRecoilValue } from 'recoil';
@@ -7,6 +7,9 @@ import { Button, Form, Input, Popover, Space, theme } from 'antd';
 import { BrandLogoIcon } from '../../../utils/constants/icons';
 import { PASSWORD_CHECK } from '../../../utils/constants/constants';
 import { CheckCircleFilled } from '@ant-design/icons';
+import { useSetPassword } from '../../../hooks/useLogin';
+import Loader from '../../../components/Loader';
+import { getValue } from '../../../infrastructure/storeManagement';
 
 const { Item, useForm } = Form;
 
@@ -25,15 +28,28 @@ const SetPassword = () => {
     ? document.documentElement.setAttribute('data-mode', 'light')
     : document.documentElement.setAttribute('data-mode', 'dark');
 
-  const handleSubmit = (credentials) => {
-    console.log({
+  const { isLoading, data, mutateAsync: setUserPassword } = useSetPassword();
+
+  useEffect(() => {
+    if (data) {
+      navigate('/');
+    }
+  }, [data]);
+
+  const handleSubmit = async (credentials) => {
+    const payload = {
+      email: JSON.parse(getValue('userEmail')).email,
       password: credentials.password,
       confirmPassword: credentials.confirmPassword,
-    });
+    };
+
+    try {
+      await setUserPassword({ token: getValue('accessToken'), body: payload });
+    } catch (err) {
+      console.log({ err });
+    }
 
     setPasswordForm.resetFields();
-
-    setTimeout(() => navigate('/'), 1000);
   };
 
   const handlePasswordChange = (e) => {
@@ -47,6 +63,7 @@ const SetPassword = () => {
     );
     setPasswordChecks(temp);
   };
+
   const content = (
     <>
       {passwordChecks.map((check) => (
@@ -63,6 +80,8 @@ const SetPassword = () => {
       ))}
     </>
   );
+
+  if (isLoading) return <Loader />;
 
   return (
     <div className='sign'>
