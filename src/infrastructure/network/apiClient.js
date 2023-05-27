@@ -52,7 +52,7 @@ export const apiPost = async (url, body, headers = {}) => {
   return morpheus
     .post(url, body, { headers })
     .then((response) => {
-      return response.data;
+      return response.data.data;
     })
     .catch((error) => {
       errorHandler(error);
@@ -65,7 +65,7 @@ export const apiGet = async (url) => {
   return morpheus
     .get(url)
     .then((response) => {
-      return response.data;
+      return response.data.data;
     })
     .catch((error) => {
       errorHandler(error);
@@ -78,7 +78,7 @@ export const apiPut = async (url, body) => {
   return morpheus
     .put(url, body)
     .then((response) => {
-      return response.data;
+      return response.data.data;
     })
     .catch((error) => {
       errorHandler(error);
@@ -93,7 +93,7 @@ export const apiDelete = async (url, body) => {
       data: body,
     })
     .then((response) => {
-      return response.data;
+      return response.data.data;
     })
     .catch((error) => {
       errorHandler(error);
