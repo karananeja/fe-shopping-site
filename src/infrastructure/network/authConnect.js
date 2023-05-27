@@ -11,10 +11,8 @@ export const verifySignUpToken = (query) => {
 };
 
 //set password
-export const setPassword = ({ token, body }) => {
-  const headers = { Authorization: `Bearer ${token}` };
-
-  return apiPost('/user/v1/password/set', body, headers);
+export const setPassword = (body) => {
+  return apiPost('/user/v1/password/set', body);
 };
 
 //forgot Password
