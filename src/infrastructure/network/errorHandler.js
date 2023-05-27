@@ -2,7 +2,7 @@ import { notification } from 'antd';
 
 export const errorHandler = (error) => {
   const errMsg =
-    (error.response && error.response.data && error.response.data.msg) ||
+    (error.response && error.response.data.data && error.response.data.msg) ||
     error.message ||
     error.toString();
 
