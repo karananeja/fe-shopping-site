@@ -24,3 +24,8 @@ export const forgotPassword = (body) => {
 export const verifyResetPasswordToken = (query) => {
   return apiGet(`/user/v1/password/forgot/verify${query}`);
 };
+
+//sign in user
+export const signInUser = (body) => {
+  return apiPost('/user/v1/signin', body);
+};
