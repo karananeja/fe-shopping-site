@@ -1,14 +1,14 @@
-import { notification } from 'antd';
+import { displayNotification } from '../../utils/helper';
 
 export const errorHandler = (error) => {
   const errMsg =
-    (error.response && error.response.data.data && error.response.data.msg) ||
+    (error.response && error.response.data.data.errmessage) ||
     error.message ||
     error.toString();
 
-  notification.error({
+  displayNotification({
+    type: 'error',
     message: 'Something went wrong!',
     description: errMsg,
-    duration: 3,
   });
 };
