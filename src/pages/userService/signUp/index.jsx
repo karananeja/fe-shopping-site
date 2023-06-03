@@ -9,6 +9,7 @@ import { BrandLogoIcon } from '../../../utils/constants/icons';
 import { useSignUp } from '../../../hooks/useLogin';
 import Loader from '../../../components/Loader';
 import { setValue } from '../../../infrastructure/storeManagement';
+import { keys } from '../../../utils/constants/keys';
 
 const { Item, useForm } = Form;
 
@@ -18,14 +19,14 @@ const SignUp = () => {
   const [signUpForm] = useForm();
 
   !isDarkModeValue
-    ? document.documentElement.setAttribute('data-mode', 'light')
-    : document.documentElement.setAttribute('data-mode', 'dark');
+    ? document.documentElement.setAttribute(keys.DATA_MODE, keys.LIGHT)
+    : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
 
   const { isLoading, data, mutateAsync: signUp } = useSignUp();
 
   useEffect(() => {
     if (data) {
-      setValue('accessToken', data.userInfo.accessToken);
+      setValue(keys.ACCESS_TOKEN, data.userInfo.accessToken);
       navigate('/auth/set-password');
     }
   }, [data]);

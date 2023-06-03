@@ -4,6 +4,7 @@ import './Profile.scss';
 import { BrandLogoIcon, LogoutIcon } from '../../utils/constants/icons';
 import { deleteValue } from '../../infrastructure/storeManagement';
 import { Tooltip } from 'antd';
+import { keys } from '../../utils/constants/keys';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Profile = () => {
       <Tooltip title='Logout'>
         <LogoutIcon
           onClick={() => {
-            deleteValue('accessToken');
+            deleteValue(keys.ACCESS_TOKEN);
             navigate('/');
           }}
         />

@@ -9,7 +9,7 @@ import { PASSWORD_CHECK } from '../../../utils/constants/constants';
 import { CheckCircleFilled } from '@ant-design/icons';
 import { useSetPassword } from '../../../hooks/useLogin';
 import Loader from '../../../components/Loader';
-import { getValue } from '../../../infrastructure/storeManagement';
+import { keys } from '../../../utils/constants/keys';
 
 const { Item, useForm } = Form;
 
@@ -25,8 +25,8 @@ const SetPassword = () => {
   const { token } = useToken();
 
   !isDarkModeValue
-    ? document.documentElement.setAttribute('data-mode', 'light')
-    : document.documentElement.setAttribute('data-mode', 'dark');
+    ? document.documentElement.setAttribute(keys.DATA_MODE, keys.LIGHT)
+    : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
 
   const { isLoading, data, mutateAsync: setUserPassword } = useSetPassword();
 

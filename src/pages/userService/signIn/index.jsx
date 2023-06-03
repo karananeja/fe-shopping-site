@@ -6,6 +6,7 @@ import { Button, Form, Input } from 'antd';
 import { BrandLogoIcon } from '../../../utils/constants/icons';
 import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '../../../utils/globalState';
+import { keys } from '../../../utils/constants/keys';
 
 const { Item, useForm } = Form;
 
@@ -17,8 +18,8 @@ const SignIn = () => {
   const [signInForm] = useForm();
 
   !isDarkModeValue
-    ? document.documentElement.setAttribute('data-mode', 'light')
-    : document.documentElement.setAttribute('data-mode', 'dark');
+    ? document.documentElement.setAttribute(keys.DATA_MODE, keys.LIGHT)
+    : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
 
   const handleSubmit = (credentials) => {
     console.log({
