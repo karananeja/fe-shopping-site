@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { errorHandler } from './errorHandler';
 import { getValue } from '../storeManagement';
+import { keys } from '../../utils/constants/keys';
 
 const morpheus = axios.create({
   baseURL: import.meta.env.VITE_APP_API_BASE_URL,
@@ -41,7 +42,7 @@ const morpheus = axios.create({
 // };
 
 const setAuthorizationHeader = () => {
-  let token = getValue('accessToken');
+  let token = getValue(keys.ACCESS_TOKEN);
   if (token) {
     morpheus.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   }
