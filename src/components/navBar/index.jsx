@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { darkModeAtom } from '../../utils/globalState';
 import './NavBar.scss';
@@ -12,10 +12,12 @@ import {
   ShoppingCartIcon,
   SearchIcon,
 } from '../../utils/constants/icons';
+import { useAuthStatus } from '../../hooks/useAuthStatus';
 
 const NavBar = () => {
-  const [userExists] = useState(false);
   const [isDarkMode, setIsDarkMode] = useRecoilState(darkModeAtom);
+
+  const { loggedIn } = useAuthStatus();
 
   !isDarkMode
     ? document.documentElement.setAttribute('data-mode', 'light')
@@ -49,12 +51,12 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
-                {userExists ? (
+                {loggedIn ? (
                   <Link to='/profile'>
                     <AccountCircleIcon />
                   </Link>
                 ) : (
-                  <Link to='/auth/signup'>
+                  <Link to='/auth/signin'>
                     <LoginIcon />
                   </Link>
                 )}
@@ -66,7 +68,6 @@ const NavBar = () => {
           </nav>
         </div>
       </header>
-      <Outlet />
     </>
   );
 };
