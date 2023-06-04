@@ -1,15 +1,15 @@
 import React from 'react';
-import NavBar from '../components/navBar';
 import Product from '../pages/product';
 import Cart from '../pages/cart';
 import Cards from '../components/cards';
 import Profile from '../pages/profile';
 import Error from '../pages/error';
+import Home from '../pages/home';
 
 const DashboardRoutes = [
   {
     path: '/',
-    element: <NavBar />,
+    element: <Home />,
     children: [
       { path: '', element: <Cards /> },
       { path: 'products/:productID', element: <Product /> },
