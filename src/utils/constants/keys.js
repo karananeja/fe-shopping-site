@@ -21,4 +21,6 @@ export const keys = {
     MESSAGE: 'Please enter your Password!',
     ERROR_MESSAGE: 'The two passwords that you entered do not match!',
   },
+  SIGN_IN: 'Sign In',
+  SIGN_UP: 'Sign Up',
 };
