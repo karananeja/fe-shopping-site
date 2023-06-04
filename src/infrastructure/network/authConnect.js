@@ -17,5 +17,5 @@ export const forgotPassword = (body) => {
 
 //sign in user
 export const signInUser = (body) => {
-  return apiPost('/user/v1/signin', body);
+  return apiPost('/user/v1/sign-in', body);
 };
