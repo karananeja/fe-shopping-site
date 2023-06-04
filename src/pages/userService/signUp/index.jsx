@@ -1,49 +1,77 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 import '../UserService.scss';
 import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '../../../utils/globalState';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Popover, Space, theme } from 'antd';
 import { BrandLogoIcon } from '../../../utils/constants/icons';
-import { useSignUp } from '../../../hooks/useLogin';
+import { useSignUp } from '../../../hooks/useSignUp';
 import Loader from '../../../components/Loader';
-import { setValue } from '../../../infrastructure/storeManagement';
 import { keys } from '../../../utils/constants/keys';
+import { PASSWORD_CHECK } from '../../../utils/constants/constants';
+import { CheckCircleFilled } from '@ant-design/icons';
 
 const { Item, useForm } = Form;
 
+const { Password } = Input;
+
+const { useToken } = theme;
+
 const SignUp = () => {
+  const [passwordChecks, setPasswordChecks] = useState(PASSWORD_CHECK);
   const isDarkModeValue = useRecoilValue(darkModeAtom);
   const navigate = useNavigate();
   const [signUpForm] = useForm();
+  const { token } = useToken();
 
   !isDarkModeValue
     ? document.documentElement.setAttribute(keys.DATA_MODE, keys.LIGHT)
     : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
 
-  const { isLoading, data, mutateAsync: signUp } = useSignUp();
+  const { isLoading, mutate: signUp } = useSignUp({
+    onSuccess: () => {
+      signUpForm.resetFields();
+      navigate('/');
+    },
+  });
 
-  useEffect(() => {
-    if (data) {
-      setValue(keys.ACCESS_TOKEN, data.userInfo.accessToken);
-      navigate('/auth/set-password');
-    }
-  }, [data]);
-
-  const handleSubmit = async (credentials) => {
-    const payload = { email: credentials.email };
-
-    setValue('userEmail', JSON.stringify(payload));
-
+  const handleSignUpSubmit = (credentials) => {
     try {
-      await signUp(payload);
+      signUp(credentials);
     } catch (err) {
       console.log({ err });
     }
-
-    signUpForm.resetFields();
   };
+
+  const handlePasswordChange = (e) => {
+    const password = e.target.value;
+    signUpForm.setFieldsValue({ password });
+    //run the validation criteria
+    const temp = PASSWORD_CHECK.map((check) =>
+      check.pattern.test(password)
+        ? { ...check, valid: true }
+        : { ...check, valid: false }
+    );
+    setPasswordChecks(temp);
+  };
+
+  const content = (
+    <>
+      {passwordChecks.map((check) => (
+        <div key={check.id}>
+          <Space>
+            {check.valid ? (
+              <CheckCircleFilled style={{ color: token.colorPrimary }} />
+            ) : (
+              <CheckCircleFilled style={{ color: '#e5e5e5' }} />
+            )}
+            {check.label}
+          </Space>
+        </div>
+      ))}
+    </>
+  );
 
   if (isLoading) return <Loader />;
 
@@ -62,27 +90,79 @@ const SignUp = () => {
           layout='vertical'
           autoComplete='off'
           className='sign__form'
-          onFinish={handleSubmit}
-          onFinishFailed={(err) => console.log({ err })}
+          onFinish={handleSignUpSubmit}
+          requiredMark={false}
         >
           <Item
-            label='Email'
-            name='email'
+            label={keys.EMAIL.LABEL}
+            name={keys.EMAIL.NAME}
             rules={[
               {
                 required: true,
-                message: 'Please enter your email!',
+                message: `${keys.EMAIL.MESSAGE}`,
               },
               {
                 type: 'email',
-                message: 'Please input a valid email.',
+                message: `${keys.EMAIL.VALID_MESSAGE}`,
               },
             ]}
           >
-            <Input size='small' />
+            <Input />
           </Item>
 
-          <Button type='primary' htmlType='submit'>
+          <Popover
+            placement='topRight'
+            title='Password policy'
+            content={content}
+            trigger='click'
+          >
+            <Item
+              label={keys.PASSWORD.LABEL}
+              name={keys.PASSWORD.NAME}
+              rules={[
+                {
+                  required: true,
+                  message: `${keys.PASSWORD.MESSAGE}`,
+                },
+                {
+                  pattern: new RegExp(
+                    /(?=^.{6,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*/
+                  ),
+                  message: `${keys.EMAIL.REGEX_MESSAGE}`,
+                },
+              ]}
+            >
+              <Password onChange={handlePasswordChange} />
+            </Item>
+          </Popover>
+
+          <Item
+            label={keys.CONFIRM_PASSWORD.LABEL}
+            name={keys.CONFIRM_PASSWORD.NAME}
+            rules={[
+              {
+                required: true,
+                message: `${keys.CONFIRM_PASSWORD.MESSAGE}`,
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (
+                    !value ||
+                    getFieldValue(`${keys.PASSWORD.NAME}`) === value
+                  ) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(
+                    new Error(`${keys.CONFIRM_PASSWORD.ERROR_MESSAGE}`)
+                  );
+                },
+              }),
+            ]}
+          >
+            <Password visibilityToggle={{ visible: true }} />
+          </Item>
+
+          <Button type='primary' htmlType='submit' loading={isLoading}>
             Sign Up
           </Button>
         </Form>
