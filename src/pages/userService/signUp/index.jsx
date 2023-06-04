@@ -84,7 +84,7 @@ const SignUp = () => {
         </Link>
       </div>
       <div className='sign__form__layout'>
-        <h3 className='sign__title'>Sign Up</h3>
+        <h3 className='sign__title'>{keys.SIGN_UP}</h3>
         <Form
           form={signUpForm}
           layout='vertical'
@@ -163,11 +163,11 @@ const SignUp = () => {
           </Item>
 
           <Button type='primary' htmlType='submit' loading={isLoading}>
-            Sign Up
+            {keys.SIGN_UP}
           </Button>
         </Form>
         <div className='sign__user__validate'>
-          Already have an account? <Link to='/auth/signin'>Sign In</Link>
+          Already have an account? <Link to='/auth/signin'>{keys.SIGN_IN}</Link>
         </div>
       </div>
     </div>
