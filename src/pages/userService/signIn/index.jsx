@@ -6,6 +6,9 @@ import { Button, Form, Input } from 'antd';
 import { BrandLogoIcon } from '../../../utils/constants/icons';
 import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '../../../utils/globalState';
+import { useSignIn } from '../../../hooks/useSignIn';
+import Loader from '../../../components/Loader';
+import { setValue } from '../../../infrastructure/storeManagement';
 import { keys } from '../../../utils/constants/keys';
 
 const { Item, useForm } = Form;
@@ -21,16 +24,28 @@ const SignIn = () => {
     ? document.documentElement.setAttribute(keys.DATA_MODE, keys.LIGHT)
     : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
 
+  const { isLoading, mutate: signIn } = useSignIn({
+    onSuccess: (data) => {
+      setValue(keys.ACCESS_TOKEN, data.userInfo.accessToken);
+      signInForm.resetFields();
+      navigate('/');
+    },
+  });
+
   const handleSubmit = (credentials) => {
-    console.log({
+    const payload = {
       email: credentials.email,
       password: credentials.password,
-    });
+    };
 
-    signInForm.resetFields();
-
-    setTimeout(() => navigate('/'), 1000);
+    try {
+      signIn(payload);
+    } catch (err) {
+      console.log({ err });
+    }
   };
+
+  if (isLoading) return <Loader />;
 
   return (
     <div className='sign'>
@@ -48,7 +63,7 @@ const SignIn = () => {
           autoComplete='off'
           className='sign__form'
           onFinish={handleSubmit}
-          onFinishFailed={(err) => console.log({ err })}
+          requiredMark={false}
         >
           <Item
             label='Email'
@@ -64,7 +79,7 @@ const SignIn = () => {
               },
             ]}
           >
-            <Input size='small' />
+            <Input />
           </Item>
 
           <Item
@@ -77,10 +92,10 @@ const SignIn = () => {
               },
             ]}
           >
-            <Password size='small' />
+            <Password />
           </Item>
 
-          <Button type='primary' htmlType='submit'>
+          <Button type='primary' htmlType='submit' loading={isLoading}>
             Sign In
           </Button>
         </Form>
