@@ -9,7 +9,6 @@ const AuthRoutes = {
   children: [
     { path: 'signin', element: <SignIn /> },
     { path: 'signup', element: <SignUp /> },
-    { path: 'set-password', element: <SetPassword /> },
   ],
 };
 
