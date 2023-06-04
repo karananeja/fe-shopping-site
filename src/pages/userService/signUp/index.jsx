@@ -10,6 +10,7 @@ import { useSignUp } from '../../../hooks/useSignUp';
 import { keys } from '../../../utils/constants/keys';
 import { PASSWORD_CHECK } from '../../../utils/constants/constants';
 import { CheckCircleFilled } from '@ant-design/icons';
+import { setValue } from '../../../infrastructure/storeManagement';
 
 const { Item, useForm } = Form;
 
@@ -29,7 +30,8 @@ const SignUp = () => {
     : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
 
   const { isLoading, mutate: signUp } = useSignUp({
-    onSuccess: () => {
+    onSuccess: (data) => {
+      setValue(keys.ACCESS_TOKEN, data.userInfo.accessToken);
       signUpForm.resetFields();
       navigate('/');
     },
