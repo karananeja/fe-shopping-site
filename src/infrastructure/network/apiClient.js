@@ -51,10 +51,8 @@ const setAuthorizationHeader = () => {
 export const apiPost = async (url, body, headers = {}) => {
   setAuthorizationHeader();
   return morpheus
-    .post(url, body, { headers })
-    .then((response) => {
-      return response.data.data;
-    })
+    .post(url, body, headers)
+    .then((response) => response.data.data)
     .catch((error) => {
       errorHandler(error);
       throw error;
@@ -65,9 +63,7 @@ export const apiGet = async (url) => {
   setAuthorizationHeader();
   return morpheus
     .get(url)
-    .then((response) => {
-      return response.data.data;
-    })
+    .then((response) => response.data.data)
     .catch((error) => {
       errorHandler(error);
       throw error;
@@ -78,9 +74,7 @@ export const apiPut = async (url, body) => {
   setAuthorizationHeader();
   return morpheus
     .put(url, body)
-    .then((response) => {
-      return response.data.data;
-    })
+    .then((response) => response.data.data)
     .catch((error) => {
       errorHandler(error);
       throw error;
@@ -93,9 +87,7 @@ export const apiDelete = async (url, body) => {
     .delete(url, {
       data: body,
     })
-    .then((response) => {
-      return response.data.data;
-    })
+    .then((response) => response.data.data)
     .catch((error) => {
       errorHandler(error);
       throw error;
