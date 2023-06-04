@@ -32,7 +32,7 @@ const SignIn = () => {
     },
   });
 
-  const handleSubmit = (credentials) => {
+  const handleSignInSubmit = (credentials) => {
     const payload = {
       email: credentials.email,
       password: credentials.password,
@@ -62,20 +62,20 @@ const SignIn = () => {
           layout='vertical'
           autoComplete='off'
           className='sign__form'
-          onFinish={handleSubmit}
+          onFinish={handleSignInSubmit}
           requiredMark={false}
         >
           <Item
-            label='Email'
-            name='email'
+            label={keys.EMAIL.LABEL}
+            name={keys.EMAIL.NAME}
             rules={[
               {
                 required: true,
-                message: 'Please enter your email.',
+                message: `${keys.EMAIL.MESSAGE}`,
               },
               {
                 type: 'email',
-                message: 'Please enter a valid email.',
+                message: `${keys.EMAIL.VALID_MESSAGE}`,
               },
             ]}
           >
@@ -83,12 +83,12 @@ const SignIn = () => {
           </Item>
 
           <Item
-            label='Password'
-            name='password'
+            label={keys.PASSWORD.LABEL}
+            name={keys.PASSWORD.NAME}
             rules={[
               {
                 required: true,
-                message: 'Please enter your password!',
+                message: `${keys.PASSWORD.MESSAGE}`,
               },
             ]}
           >
