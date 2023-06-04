@@ -5,11 +5,6 @@ export const signUpUser = (body) => {
   return apiPost('/user/register', body);
 };
 
-//set password
-export const setPassword = (body) => {
-  return apiPost('/user/v1/password/set', body);
-};
-
 //forgot Password
 export const forgotPassword = (body) => {
   return apiPost('/user/password/forgot', body);
