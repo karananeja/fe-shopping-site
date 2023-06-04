@@ -13,6 +13,7 @@ import {
   SearchIcon,
 } from '../../utils/constants/icons';
 import { useAuthStatus } from '../../hooks/useAuthStatus';
+import { keys } from '../../utils/constants/keys';
 
 const NavBar = () => {
   const [isDarkMode, setIsDarkMode] = useRecoilState(darkModeAtom);
@@ -20,8 +21,8 @@ const NavBar = () => {
   const { loggedIn } = useAuthStatus();
 
   !isDarkMode
-    ? document.documentElement.setAttribute('data-mode', 'light')
-    : document.documentElement.setAttribute('data-mode', 'dark');
+    ? document.documentElement.setAttribute(keys.DATA_MODE, keys.LIGHT)
+    : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
 
   return (
     <>
