@@ -7,7 +7,6 @@ import { BrandLogoIcon } from '../../../utils/constants/icons';
 import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '../../../utils/globalState';
 import { useSignIn } from '../../../hooks/useSignIn';
-import Loader from '../../../components/Loader';
 import { setValue } from '../../../infrastructure/storeManagement';
 import { keys } from '../../../utils/constants/keys';
 
@@ -44,8 +43,6 @@ const SignIn = () => {
       console.log({ err });
     }
   };
-
-  if (isLoading) return <Loader />;
 
   return (
     <div className='sign'>

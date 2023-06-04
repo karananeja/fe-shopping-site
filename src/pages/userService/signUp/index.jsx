@@ -7,7 +7,6 @@ import { darkModeAtom } from '../../../utils/globalState';
 import { Button, Form, Input, Popover, Space, theme } from 'antd';
 import { BrandLogoIcon } from '../../../utils/constants/icons';
 import { useSignUp } from '../../../hooks/useSignUp';
-import Loader from '../../../components/Loader';
 import { keys } from '../../../utils/constants/keys';
 import { PASSWORD_CHECK } from '../../../utils/constants/constants';
 import { CheckCircleFilled } from '@ant-design/icons';
@@ -72,8 +71,6 @@ const SignUp = () => {
       ))}
     </>
   );
-
-  if (isLoading) return <Loader />;
 
   return (
     <div className='sign'>
