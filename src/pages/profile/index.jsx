@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Profile.scss';
 import { BrandLogoIcon, LogoutIcon } from '../../utils/constants/icons';
 import { deleteValue } from '../../infrastructure/storeManagement';
-import { Tooltip } from 'antd';
+import { Button, Result, Tooltip } from 'antd';
 import { keys } from '../../utils/constants/keys';
 
 const Profile = () => {
@@ -14,6 +14,7 @@ const Profile = () => {
       <Link to='/'>
         <BrandLogoIcon />
       </Link>
+
       <Tooltip title='Logout'>
         <LogoutIcon
           onClick={() => {
@@ -22,6 +23,20 @@ const Profile = () => {
           }}
         />
       </Tooltip>
+
+      <Result
+        status='404'
+        subTitle={
+          <>
+            Sorry, the page you visited is under <b>construction/maintenance</b>
+          </>
+        }
+        extra={
+          <Button type='primary' onClick={() => navigate('/')}>
+            Back Home
+          </Button>
+        }
+      />
     </div>
   );
 };
