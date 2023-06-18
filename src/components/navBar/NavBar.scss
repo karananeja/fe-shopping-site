@@ -1,3 +1,5 @@
+@use '../../shared/styles' as *;
+
 .header {
   display: flex;
   align-items: center;
@@ -5,7 +7,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 8vh;
+  height: $navbar-height;
   padding: 0 1.25rem;
   gap: 1rem;
 

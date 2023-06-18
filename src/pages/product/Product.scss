@@ -1,9 +1,11 @@
+@use '../../shared/styles' as *;
+
 .product {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
-  height: calc(100vh - 8vh);
+  height: calc(100vh - $navbar-height);
 
   span {
     font-weight: bold;

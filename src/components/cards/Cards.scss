@@ -1,9 +1,11 @@
+@use '../../shared/styles' as *;
+
 .cards {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  height: calc(100vh - 8vh);
+  height: calc(100vh - $navbar-height);
   overflow-y: auto;
 
   &::-webkit-scrollbar {
