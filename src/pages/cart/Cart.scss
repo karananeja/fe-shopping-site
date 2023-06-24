@@ -1,6 +1,0 @@
-@use '../../shared/styles' as *;
-
-.cart {
-  @include flexCenter();
-  height: calc(100vh - $navbar-height);
-}
