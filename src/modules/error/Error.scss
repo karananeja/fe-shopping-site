@@ -1,8 +1,10 @@
+@use '@modules/shared/styles' as *;
+
 .error {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: calc(100vh - 4.6875rem);
-  color: var(--gray-color);
+  color: $gray-color;
 }

@@ -1,3 +1,5 @@
+@use '@modules/shared/styles' as *;
+
 .card {
   display: flex;
   flex-direction: column;
@@ -33,43 +35,43 @@
 }
 
 html[data-mode='light'] .card {
-  border: 1px solid var(--gray-color);
-  background-color: var(--gray-color);
+  border: 1px solid $gray-color;
+  background-color: $gray-color;
 
   &:hover {
-    border: 1px solid var(--white-color);
+    border: 1px solid $white-color;
 
     .card__title {
-      color: var(--white-color);
+      color: $white-color;
     }
   }
 
   .card__title {
-    color: var(--white-color);
+    color: $white-color;
 
     svg {
-      fill: var(--white-color);
+      fill: $white-color;
     }
   }
 }
 
 html[data-mode='dark'] .card {
-  border: 1px solid var(--gray-color);
-  background-color: var(--white-color);
+  border: 1px solid $gray-color;
+  background-color: $white-color;
 
   &:hover {
-    border: 1px solid var(--white-color);
+    border: 1px solid $white-color;
 
     .card__title {
-      color: var(--gray-color);
+      color: $gray-color;
     }
   }
 
   .card__title {
-    color: var(--gray-color);
+    color: $gray-color;
 
     svg {
-      fill: var(--gray-color);
+      fill: $gray-color;
     }
   }
 }

@@ -22,30 +22,30 @@
 
 html[data-mode='light'] .cards {
   &::-webkit-scrollbar {
-    background-color: var(--scroll-white-color);
+    background-color: $scroll-white-color;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--gray-color);
+    background-color: $gray-color;
   }
 
   &::-webkit-scrollbar-corner {
-    background-color: var(--white-color);
+    background-color: $white-color;
   }
 }
 
 html[data-mode='dark'] .cards {
-  background-color: var(--dm-form-bg-color);
+  background-color: $dm-form-bg-color;
 
   &::-webkit-scrollbar {
-    background-color: var(--scroll-white-color);
+    background-color: $scroll-white-color;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--gray-color);
+    background-color: $gray-color;
   }
 
   &::-webkit-scrollbar-corner {
-    background-color: var(--white-color);
+    background-color: $white-color;
   }
 }

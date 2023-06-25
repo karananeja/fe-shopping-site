@@ -1,3 +1,5 @@
+@use '@modules/shared/styles' as *;
+
 .sign {
   display: flex;
   align-items: center;
@@ -19,7 +21,7 @@
       color: inherit;
 
       svg {
-        fill: var(--white-color);
+        fill: $white-color;
       }
     }
   }
@@ -65,42 +67,42 @@
 }
 
 html[data-mode='light'] .sign {
-  background-color: var(--gray-color);
+  background-color: $gray-color;
 
   .sign__logo {
-    color: var(--white-color);
+    color: $white-color;
   }
 
   .sign__form__layout {
-    background-color: var(--white-color);
+    background-color: $white-color;
     box-shadow: 0 0 1rem 0.75rem rgba(0, 0, 0, 0.3);
 
     .sign__user__validate a {
-      color: var(--blue-color);
+      color: $blue-color;
     }
   }
 }
 
 html[data-mode='dark'] .sign {
-  background-color: var(--dm-black-color);
-  color: var(--white-color);
+  background-color: $dm-black-color;
+  color: $white-color;
 
   .sign__logo {
-    color: var(--white-color);
+    color: $white-color;
   }
 
   .sign__form__layout {
-    background-color: var(--dm-form-bg-color);
+    background-color: $dm-form-bg-color;
     box-shadow: 0 0 1rem 0.75rem rgba(255, 255, 255, 0.3);
 
     .sign__form {
       label {
-        color: var(--white-color);
+        color: $white-color;
       }
     }
 
     .sign__user__validate a {
-      color: var(--dm-button-color);
+      color: $dm-button-color;
     }
   }
 }

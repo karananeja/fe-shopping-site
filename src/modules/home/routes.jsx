@@ -13,9 +13,9 @@ const HomeRoutes = [
       { path: '', element: <Cards /> },
       { path: 'products/:productID', element: <Product /> },
       { path: 'cart', element: <Cart /> },
+      { path: 'profile', element: <Profile /> },
     ],
   },
-  { path: 'profile', element: <Profile /> },
 ];
 
 export default HomeRoutes;

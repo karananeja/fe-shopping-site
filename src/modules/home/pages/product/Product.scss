@@ -59,20 +59,20 @@
 }
 
 html[data-mode='light'] .product {
-  color: var(--gray-color);
+  color: $gray-color;
 
   span {
-    color: var(--black-color);
+    color: $black-color;
   }
 
   .product__imgContainer {
     svg:hover {
-      fill: var(--white-color);
-      background-color: var(--black-color);
+      fill: $white-color;
+      background-color: $black-color;
     }
 
     .product__img {
-      border: 1px solid var(--gray-color);
+      border: 1px solid $gray-color;
     }
   }
 
@@ -82,36 +82,36 @@ html[data-mode='light'] .product {
 
   .product__button {
     svg {
-      fill: var(--black-color);
+      fill: $black-color;
     }
 
     &:hover {
-      border: 1px solid var(--black-color);
-      color: var(--black-color) !important;
+      border: 1px solid $black-color;
+      color: $black-color !important;
     }
   }
 }
 
 html[data-mode='dark'] .product {
-  color: var(--white-color);
-  background-color: var(--dm-form-bg-color);
+  color: $white-color;
+  background-color: $dm-form-bg-color;
 
   span {
-    color: var(--white-color);
+    color: $white-color;
   }
 
   .product__imgContainer {
     svg {
-      fill: var(--white-color);
+      fill: $white-color;
 
       &:hover {
-        fill: var(--black-color);
-        background-color: var(--white-color);
+        fill: $black-color;
+        background-color: $white-color;
       }
     }
 
     .product__img {
-      border: 1px solid var(--white-color);
+      border: 1px solid $white-color;
     }
   }
 
@@ -121,12 +121,12 @@ html[data-mode='dark'] .product {
 
   .product__button {
     svg {
-      fill: var(--white-color);
+      fill: $white-color;
     }
 
     &:hover {
-      border: 1px solid var(--white-color);
-      color: var(--white-color) !important;
+      border: 1px solid $white-color;
+      color: $white-color !important;
     }
   }
 }
