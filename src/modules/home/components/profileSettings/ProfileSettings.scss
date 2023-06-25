@@ -1,0 +1,14 @@
+@use '@modules/shared/styles' as *;
+
+.profileSettings {
+  background-color: $white-color !important;
+
+  &__icon {
+    padding-right: 0.5rem;
+  }
+
+  .ant-menu-item {
+    @include flexCenter;
+    justify-content: flex-start;
+  }
+}
