@@ -17,7 +17,7 @@
   }
 
   svg {
-    fill: var(--white-color);
+    fill: $white-color;
   }
 
   .header__center {
@@ -56,34 +56,34 @@
 }
 
 html[data-mode='light'] .header {
-  background-color: var(--gray-color);
-  color: var(--white-color);
+  background-color: $gray-color;
+  color: $white-color;
 
   .header__center {
     svg {
-      fill: var(--gray-color);
+      fill: $gray-color;
     }
 
     .header__searchBar {
-      background-color: var(--white-color);
+      background-color: $white-color;
     }
   }
 }
 
 html[data-mode='dark'] .header {
-  background-color: var(--gray-color);
-  color: var(--white-color);
+  background-color: $gray-color;
+  color: $white-color;
 
   .header__center {
     svg {
-      fill: var(--gray-color);
+      fill: $gray-color;
     }
 
     .header__searchBar {
-      background-color: var(--dm-form-bg-color);
+      background-color: $dm-form-bg-color;
 
       input {
-        color: var(--white-color);
+        color: $white-color;
       }
     }
   }
