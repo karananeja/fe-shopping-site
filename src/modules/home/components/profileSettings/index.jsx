@@ -1,40 +1,47 @@
 import React from 'react';
-import './ProfileSettings.scss';
+import './ProfileMenu.scss';
 import { Layout, Menu } from 'antd';
-import { SettingOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { deleteValue } from '@utils/helpers/localStorageManagement';
 import { keys } from '@utils/constants';
 
 const { Sider } = Layout;
 
-const ProfileSettings = () => {
+const ProfileMenu = () => {
   const navigate = useNavigate();
 
   const items = [
     {
-      key: 'settings',
+      key: 'account',
       label: (
         <>
-          <SettingOutlined className='profileSettings__icon' /> Settings
+          <UserOutlined className='profileMenu__icon' /> My Account
         </>
       ),
       type: 'group',
       children: [
-        { key: 'account', path: 'account', label: 'Account' },
-        { key: 'payment', path: 'payment', label: 'Payment' },
-        { key: 'privacy', path: 'privacy', label: 'Privacy' },
         {
-          key: 'advanced-settings',
-          path: 'advanced-settings',
-          label: 'Advanced Settings',
+          key: 'details',
+          path: 'details',
+          label: 'Details',
+          onClick: () => {
+            navigate('details');
+          },
+        },
+        { key: 'address', path: 'address', label: 'Address' },
+        { key: 'orders', path: 'orders', label: 'Orders' },
+        {
+          key: 'account-settings',
+          path: 'account-settings',
+          label: 'Account Settings',
         },
         {
           key: 'logout',
           label: 'Logout',
           onClick: () => {
             deleteValue(keys.ACCESS_TOKEN);
-            navigate('/');
+            window.location.reload();
           },
         },
       ],
@@ -42,10 +49,10 @@ const ProfileSettings = () => {
   ];
 
   return (
-    <Sider className='profileSettings'>
+    <Sider className='profileMenu'>
       <Menu items={items} />
     </Sider>
   );
 };
 
-export default ProfileSettings;
+export default ProfileMenu;
