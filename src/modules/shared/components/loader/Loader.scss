@@ -1,5 +1,7 @@
 @use '@modules/shared/styles' as *;
 
-.profile {
+.loader {
+  display: grid;
+  place-content: center;
   height: calc(100vh - $navbar-height);
 }

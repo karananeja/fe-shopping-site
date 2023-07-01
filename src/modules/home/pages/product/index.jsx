@@ -80,6 +80,7 @@ const Product = () => {
           </p>
         )}
       </div>
+
       <div className='product__buttons'>
         <Button className='product__button'>
           Add to Cart -
