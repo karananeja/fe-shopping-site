@@ -1,0 +1,7 @@
+@use '@modules/shared/styles' as *;
+
+.loader {
+  display: grid;
+  place-content: center;
+  height: calc(100vh - $navbar-height);
+}

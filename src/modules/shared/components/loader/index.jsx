@@ -3,7 +3,7 @@ import { Spin } from 'antd';
 
 const Loader = () => {
   return (
-    <div style={{ display: 'grid', placeContent: 'center', height: '100vh' }}>
+    <div className='loader'>
       <Spin size='default' />
     </div>
   );
