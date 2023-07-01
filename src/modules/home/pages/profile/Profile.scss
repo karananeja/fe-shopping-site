@@ -1,1 +1,5 @@
+@use '@modules/shared/styles' as *;
 
+.profile {
+  height: calc(100vh - $navbar-height);
+}

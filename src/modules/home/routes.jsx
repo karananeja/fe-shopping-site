@@ -5,6 +5,7 @@ import Product from './pages/product';
 import Cart from './pages/cart';
 import Profile from './pages/profile';
 import PrivateRoute from '@modules/shared/components/PrivateRoute';
+import Details from './pages/profile/details';
 
 const HomeRoutes = [
   {
@@ -21,6 +22,7 @@ const HomeRoutes = [
             <Profile />
           </PrivateRoute>
         ),
+        children: [{ path: 'details', element: <Details /> }],
       },
     ],
   },
