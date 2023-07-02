@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Details.scss';
 import {
   Button,
@@ -12,6 +12,7 @@ import {
   Typography,
 } from 'antd';
 import dayjs from 'dayjs';
+import { useCountryList } from '@modules/home/hooks/useHome';
 import { KEYS } from '@utils/constants';
 
 const { Text, Title } = Typography;
@@ -19,12 +20,20 @@ const { Text, Title } = Typography;
 const Details = () => {
   const [detailsForm] = Form.useForm();
 
+  const { data: countryList, isLoading } = useCountryList({
+    select: (data) => data?.countryList,
+  });
+
   useEffect(() => {
     detailsForm.setFieldValue(
       'birthDate',
       dayjs(new Date()).format('YYYY-MM-DD')
     );
-  }, []);
+
+    if (countryList) {
+      detailsForm.setFieldValue('dialCode', countryList?.[0]?.dialCode);
+    }
+  }, [countryList]);
 
   const updateDetails = (values) => {
     console.log({ values });

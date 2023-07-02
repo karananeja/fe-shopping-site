@@ -45,3 +45,7 @@ export const KEYS = {
   SIGN_IN: 'Sign In',
   SIGN_UP: 'Sign Up',
 };
+
+export const QUERY_KEYS = {
+  COUNTRY_LIST: 'country_list',
+};
