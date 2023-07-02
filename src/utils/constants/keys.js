@@ -1,4 +1,4 @@
-export const keys = {
+export const KEYS = {
   ACCESS_TOKEN: 'accessToken',
   DATA_MODE: 'data-mode',
   LIGHT: 'light',

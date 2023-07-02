@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { keys } from '@utils/constants';
+import { KEYS } from '@utils/constants';
 import { getValue } from '@utils/helpers/localStorageManagement';
 import { errorHandler } from './errorHandler';
 
@@ -42,7 +42,7 @@ const shoppingSite = axios.create({
 // };
 
 const setAuthorizationHeader = () => {
-  let token = getValue(keys.ACCESS_TOKEN);
+  let token = getValue(KEYS.ACCESS_TOKEN);
   if (token) {
     shoppingSite.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   }

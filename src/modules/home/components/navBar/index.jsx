@@ -11,7 +11,7 @@ import {
   LoginIcon,
   SearchIcon,
   ShoppingCartIcon,
-  keys,
+  KEYS,
 } from '@utils/constants';
 import { useAuthStatus } from '@modules/auth/hooks/useAuthStatus';
 
@@ -21,8 +21,8 @@ const NavBar = () => {
   const { loggedIn } = useAuthStatus();
 
   !isDarkMode
-    ? document.documentElement.setAttribute(keys.DATA_MODE, keys.LIGHT)
-    : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
+    ? document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.LIGHT)
+    : document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.DARK);
 
   return (
     <>

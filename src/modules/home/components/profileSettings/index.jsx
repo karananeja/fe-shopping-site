@@ -4,7 +4,7 @@ import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { deleteValue } from '@utils/helpers/localStorageManagement';
-import { keys } from '@utils/constants';
+import { KEYS } from '@utils/constants';
 
 const { Sider } = Layout;
 
@@ -40,7 +40,7 @@ const ProfileMenu = () => {
           key: 'logout',
           label: 'Logout',
           onClick: () => {
-            deleteValue(keys.ACCESS_TOKEN);
+            deleteValue(KEYS.ACCESS_TOKEN);
             window.location.reload();
           },
         },

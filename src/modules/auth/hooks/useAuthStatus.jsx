@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getValue } from '@utils/helpers/localStorageManagement';
-import { keys } from '@utils/constants';
+import { KEYS } from '@utils/constants';
 
 export const useAuthStatus = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [checkingStatus, setCheckingStatus] = useState(true);
-  const accessToken = getValue(keys.ACCESS_TOKEN);
+  const accessToken = getValue(KEYS.ACCESS_TOKEN);
 
   useEffect(() => {
     if (accessToken) {

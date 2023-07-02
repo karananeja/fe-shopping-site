@@ -4,7 +4,7 @@ import './SignUp.scss';
 import { useRecoilValue } from 'recoil';
 import { Button, Form, Input, Popover, Space, theme } from 'antd';
 import { darkModeAtom } from '@store/globalState';
-import { BrandLogoIcon, PASSWORD_CHECK, keys } from '@utils/constants';
+import { BrandLogoIcon, PASSWORD_CHECK, KEYS } from '@utils/constants';
 import { useSignUp } from '@modules/auth/hooks/useSignUp';
 import { CheckCircleFilled } from '@ant-design/icons';
 import { setValue } from '@utils/helpers/localStorageManagement';
@@ -23,12 +23,12 @@ const SignUp = () => {
   const { token } = useToken();
 
   !isDarkModeValue
-    ? document.documentElement.setAttribute(keys.DATA_MODE, keys.LIGHT)
-    : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
+    ? document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.LIGHT)
+    : document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.DARK);
 
   const { isLoading, mutate: signUp } = useSignUp({
     onSuccess: (data) => {
-      setValue(keys.ACCESS_TOKEN, data.userInfo.accessToken);
+      setValue(KEYS.ACCESS_TOKEN, data.userInfo.accessToken);
       signUpForm.resetFields();
       navigate('/');
     },
@@ -80,7 +80,7 @@ const SignUp = () => {
         </Link>
       </div>
       <div className='sign__form__layout'>
-        <h3 className='sign__title'>{keys.SIGN_UP}</h3>
+        <h3 className='sign__title'>{KEYS.SIGN_UP}</h3>
         <Form
           form={signUpForm}
           layout='vertical'
@@ -90,16 +90,16 @@ const SignUp = () => {
           requiredMark={false}
         >
           <Item
-            label={keys.EMAIL.LABEL}
-            name={keys.EMAIL.NAME}
+            label={KEYS.EMAIL.LABEL}
+            name={KEYS.EMAIL.NAME}
             rules={[
               {
                 required: true,
-                message: `${keys.EMAIL.MESSAGE}`,
+                message: KEYS.EMAIL.MESSAGE,
               },
               {
                 type: 'email',
-                message: `${keys.EMAIL.VALID_MESSAGE}`,
+                message: KEYS.EMAIL.VALID_MESSAGE,
               },
             ]}
           >
@@ -113,18 +113,18 @@ const SignUp = () => {
             trigger='click'
           >
             <Item
-              label={keys.PASSWORD.LABEL}
-              name={keys.PASSWORD.NAME}
+              label={KEYS.PASSWORD.LABEL}
+              name={KEYS.PASSWORD.NAME}
               rules={[
                 {
                   required: true,
-                  message: `${keys.PASSWORD.MESSAGE}`,
+                  message: KEYS.PASSWORD.MESSAGE,
                 },
                 {
                   pattern: new RegExp(
                     /(?=^.{6,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*/
                   ),
-                  message: `${keys.EMAIL.REGEX_MESSAGE}`,
+                  message: KEYS.EMAIL.REGEX_MESSAGE,
                 },
               ]}
             >
@@ -133,23 +133,23 @@ const SignUp = () => {
           </Popover>
 
           <Item
-            label={keys.CONFIRM_PASSWORD.LABEL}
-            name={keys.CONFIRM_PASSWORD.NAME}
+            label={KEYS.CONFIRM_PASSWORD.LABEL}
+            name={KEYS.CONFIRM_PASSWORD.NAME}
             rules={[
               {
                 required: true,
-                message: `${keys.CONFIRM_PASSWORD.MESSAGE}`,
+                message: KEYS.CONFIRM_PASSWORD.MESSAGE,
               },
               ({ getFieldValue }) => ({
                 validator(_, value) {
                   if (
                     !value ||
-                    getFieldValue(`${keys.PASSWORD.NAME}`) === value
+                    getFieldValue(KEYS.PASSWORD.NAME) === value
                   ) {
                     return Promise.resolve();
                   }
                   return Promise.reject(
-                    new Error(`${keys.CONFIRM_PASSWORD.ERROR_MESSAGE}`)
+                    new Error(KEYS.CONFIRM_PASSWORD.ERROR_MESSAGE)
                   );
                 },
               }),
@@ -159,11 +159,11 @@ const SignUp = () => {
           </Item>
 
           <Button type='primary' htmlType='submit' loading={isLoading}>
-            {keys.SIGN_UP}
+            {KEYS.SIGN_UP}
           </Button>
         </Form>
         <div className='sign__user__validate'>
-          Already have an account? <Link to='/auth/signin'>{keys.SIGN_IN}</Link>
+          Already have an account? <Link to='/auth/signin'>{KEYS.SIGN_IN}</Link>
         </div>
       </div>
     </div>
