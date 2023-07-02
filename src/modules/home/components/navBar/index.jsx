@@ -53,7 +53,7 @@ const NavBar = () => {
               </li>
               <li>
                 {loggedIn ? (
-                  <Link to='/profile'>
+                  <Link to='/profile/details'>
                     <AccountCircleIcon />
                   </Link>
                 ) : (
