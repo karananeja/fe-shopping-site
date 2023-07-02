@@ -50,7 +50,7 @@ const setAuthorizationHeader = () => {
 
 export const apiPost = async (url, body, headers = {}) => {
   setAuthorizationHeader();
-  return shoppingSite
+  return await shoppingSite
     .post(url, body, headers)
     .then((response) => response.data.data)
     .catch((error) => {
@@ -61,7 +61,7 @@ export const apiPost = async (url, body, headers = {}) => {
 
 export const apiGet = async (url) => {
   setAuthorizationHeader();
-  return shoppingSite
+  return await shoppingSite
     .get(url)
     .then((response) => response.data.data)
     .catch((error) => {
@@ -72,7 +72,7 @@ export const apiGet = async (url) => {
 
 export const apiPut = async (url, body) => {
   setAuthorizationHeader();
-  return shoppingSite
+  return await shoppingSite
     .put(url, body)
     .then((response) => response.data.data)
     .catch((error) => {
@@ -83,10 +83,8 @@ export const apiPut = async (url, body) => {
 
 export const apiDelete = async (url, body) => {
   setAuthorizationHeader();
-  return shoppingSite
-    .delete(url, {
-      data: body,
-    })
+  return await shoppingSite
+    .delete(url, { data: body })
     .then((response) => response.data.data)
     .catch((error) => {
       errorHandler(error);
