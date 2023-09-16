@@ -1,24 +1,10 @@
-export const setValue = (name, value) => {
-  // const hostName = window.location.hostname;
-  // window.document.cookie = `${name}=${value}; path=/; domain=${hostName}; samesite; max-age=${
-  //   30 * 24 * 60 * 60
-  // }`;
+const setValue = (name, value) =>
+  localStorage.setItem(name, JSON.stringify(value));
 
-  localStorage.setItem(name, value);
-};
+const getValue = (name) => JSON.parse(localStorage.getItem(name));
 
-export const getValue = (name) => {
-  // let matches = document.cookie.match(
-  //   new RegExp(
-  //     "(?:^|; )" +
-  //       name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
-  //       "=([^;]*)"
-  //   )
-  // );
-  // return matches ? decodeURIComponent(matches[1]) : undefined;
-  return localStorage.getItem(name);
-};
+const deleteValue = (name) => localStorage.removeItem(name);
 
-export const deleteValue = (name) => {
-  localStorage.removeItem(name);
-};
+const clearAll = () => localStorage.clear();
+
+export { setValue, getValue, deleteValue, clearAll };
