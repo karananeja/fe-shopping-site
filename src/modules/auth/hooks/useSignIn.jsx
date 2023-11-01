@@ -6,5 +6,5 @@ import { signInUser } from '@services/authConnect';
  * @param {object} options
  */
 export const useSignIn = (options = {}) => {
-  return useMutation(signInUser, { ...options });
+  return useMutation(signInUser, options);
 };
