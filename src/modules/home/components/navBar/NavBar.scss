@@ -53,6 +53,15 @@
       }
     }
   }
+
+  &__profile-avatar {
+    background-color: transparent;
+    border: 1px solid $white-color;
+
+    span {
+      font-size: 0.75rem;
+    }
+  }
 }
 
 html[data-mode='light'] .header {
