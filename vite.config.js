@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
+import mkcert from 'vite-plugin-mkcert';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), svgr()],
-  server: { port: 3000 },
+  plugins: [react(), svgr(), mkcert()],
+  server: { https: true, port: 3000 },
   resolve: {
     alias: [
       { find: '@assets', replacement: '/src/assets' },

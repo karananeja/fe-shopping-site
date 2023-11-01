@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ProfileMenu.scss';
 import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { deleteValue } from '@utils/helpers/localStorageManagement';
-import { keys } from '@utils/constants';
+import { KEYS } from '@utils/constants';
 
 const { Sider } = Layout;
 
 const ProfileMenu = () => {
+  const [activeLink, setActiveLink] = useState('details');
   const navigate = useNavigate();
 
   const items = [
@@ -27,6 +28,7 @@ const ProfileMenu = () => {
           label: 'Details',
           onClick: () => {
             navigate('details');
+            setActiveLink('details');
           },
         },
         { key: 'address', path: 'address', label: 'Address' },
@@ -40,7 +42,7 @@ const ProfileMenu = () => {
           key: 'logout',
           label: 'Logout',
           onClick: () => {
-            deleteValue(keys.ACCESS_TOKEN);
+            deleteValue(KEYS.ACCESS_TOKEN);
             window.location.reload();
           },
         },
@@ -50,7 +52,7 @@ const ProfileMenu = () => {
 
   return (
     <Sider className='profileMenu'>
-      <Menu items={items} />
+      <Menu items={items} selectedKeys={[activeLink]} />
     </Sider>
   );
 };

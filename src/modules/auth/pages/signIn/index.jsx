@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './SignIn.scss';
 import '../../AuthHome.scss';
 import { Button, Form, Input } from 'antd';
-import { BrandLogoIcon, keys } from '@utils/constants';
+import { BrandLogoIcon, KEYS } from '@utils/constants';
 import { useRecoilValue } from 'recoil';
 import { darkModeAtom } from '@store/globalState';
 import { useSignIn } from '@modules/auth/hooks/useSignIn';
@@ -19,12 +19,12 @@ const SignIn = () => {
   const [signInForm] = useForm();
 
   !isDarkModeValue
-    ? document.documentElement.setAttribute(keys.DATA_MODE, keys.LIGHT)
-    : document.documentElement.setAttribute(keys.DATA_MODE, keys.DARK);
+    ? document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.LIGHT)
+    : document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.DARK);
 
   const { isLoading, mutate: signIn } = useSignIn({
     onSuccess: (data) => {
-      setValue(keys.ACCESS_TOKEN, data.userInfo.accessToken);
+      setValue(KEYS.ACCESS_TOKEN, data.userInfo.accessToken);
       signInForm.resetFields();
       navigate('/');
     },
@@ -52,7 +52,7 @@ const SignIn = () => {
         </Link>
       </div>
       <div className='sign__form__layout'>
-        <h3 className='sign__title'>{keys.SIGN_IN}</h3>
+        <h3 className='sign__title'>{KEYS.SIGN_IN}</h3>
         <Form
           form={signInForm}
           layout='vertical'
@@ -62,42 +62,31 @@ const SignIn = () => {
           requiredMark={false}
         >
           <Item
-            label={keys.EMAIL.LABEL}
-            name={keys.EMAIL.NAME}
+            label={KEYS.EMAIL.LABEL}
+            name={KEYS.EMAIL.NAME}
             rules={[
-              {
-                required: true,
-                message: `${keys.EMAIL.MESSAGE}`,
-              },
-              {
-                type: 'email',
-                message: `${keys.EMAIL.VALID_MESSAGE}`,
-              },
+              { required: true, message: KEYS.EMAIL.MESSAGE },
+              { type: 'email', message: KEYS.EMAIL.VALID_MESSAGE },
             ]}
           >
             <Input />
           </Item>
 
           <Item
-            label={keys.PASSWORD.LABEL}
-            name={keys.PASSWORD.NAME}
-            rules={[
-              {
-                required: true,
-                message: `${keys.PASSWORD.MESSAGE}`,
-              },
-            ]}
+            label={KEYS.PASSWORD.LABEL}
+            name={KEYS.PASSWORD.NAME}
+            rules={[{ required: true, message: KEYS.PASSWORD.MESSAGE }]}
           >
             <Password />
           </Item>
 
           <Button type='primary' htmlType='submit' loading={isLoading}>
-            {keys.SIGN_IN}
+            {KEYS.SIGN_IN}
           </Button>
         </Form>
         <div className='sign__user__validate'>
           Don&#39;t have an account?{' '}
-          <Link to='/auth/signup'>{keys.SIGN_UP}</Link>
+          <Link to='/auth/signup'>{KEYS.SIGN_UP}</Link>
         </div>
       </div>
     </div>

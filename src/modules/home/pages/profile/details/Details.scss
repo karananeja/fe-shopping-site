@@ -1,3 +1,11 @@
 .details {
   width: 100%;
+
+  &__card {
+    height: 100%;
+  }
+
+  .ant-input-group-addon {
+    background: transparent;
+  }
 }

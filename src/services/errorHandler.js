@@ -2,7 +2,7 @@ import { displayNotification } from '@utils/helpers';
 
 export const errorHandler = (error) => {
   const errMsg =
-    (error.response && error.response.data.data.errmessage) ||
+    (error.response && error.response.data.data.errMessage) ||
     error.message ||
     error.toString();
 
