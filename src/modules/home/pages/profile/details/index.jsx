@@ -105,10 +105,7 @@ const Details = () => {
                       label={KEYS.FIRST_NAME.LABEL}
                       name={KEYS.FIRST_NAME.NAME}
                       rules={[
-                        {
-                          required: true,
-                          message: KEYS.FIRST_NAME.MESSAGE,
-                        },
+                        { required: true, message: KEYS.FIRST_NAME.MESSAGE },
                       ]}
                     >
                       <Input />
@@ -118,10 +115,7 @@ const Details = () => {
                       label={KEYS.BIRTH_DATE.LABEL}
                       name={KEYS.BIRTH_DATE.NAME}
                       rules={[
-                        {
-                          required: true,
-                          message: KEYS.BIRTH_DATE.MESSAGE,
-                        },
+                        { required: true, message: KEYS.BIRTH_DATE.MESSAGE },
                       ]}
                     >
                       <Input type='date' />
@@ -131,10 +125,7 @@ const Details = () => {
                       label={KEYS.PHONE_NUMBER.LABEL}
                       name={KEYS.PHONE_NUMBER.NAME}
                       rules={[
-                        {
-                          required: true,
-                          message: KEYS.PHONE_NUMBER.MESSAGE,
-                        },
+                        { required: true, message: KEYS.PHONE_NUMBER.MESSAGE },
                         {
                           pattern: /^\d{10}$/,
                           message: KEYS.PHONE_NUMBER.VALID_MESSAGE,
@@ -156,10 +147,7 @@ const Details = () => {
                       label={KEYS.LAST_NAME.LABEL}
                       name={KEYS.LAST_NAME.NAME}
                       rules={[
-                        {
-                          required: true,
-                          message: KEYS.LAST_NAME.MESSAGE,
-                        },
+                        { required: true, message: KEYS.LAST_NAME.MESSAGE },
                       ]}
                     >
                       <Input />
@@ -188,10 +176,7 @@ const Details = () => {
                       label={KEYS.EMAIL.LABEL}
                       name={KEYS.EMAIL.NAME}
                       rules={[
-                        {
-                          required: true,
-                          message: KEYS.EMAIL.MESSAGE,
-                        },
+                        { required: true, message: KEYS.EMAIL.MESSAGE },
                         {
                           pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                           message: KEYS.EMAIL.VALID_MESSAGE,
@@ -203,7 +188,7 @@ const Details = () => {
 
                     <Form.Item>
                       <Button type='primary' htmlType='submit'>
-                        Save
+                        Update
                       </Button>
                     </Form.Item>
                   </Col>
