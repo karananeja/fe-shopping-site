@@ -11,9 +11,14 @@ import {
   Select,
   Typography,
 } from 'antd';
-import dayjs from 'dayjs';
-import { useCountryList } from '@modules/home/hooks/useHome';
+import {
+  useCountryList,
+  useGetUserInfo,
+  useUpdateUserInfo,
+} from '@modules/home/hooks/useHome';
 import { KEYS } from '@utils/constants';
+import Loader from '@modules/shared/components/loader';
+import { displayNotification } from '@utils/helpers';
 
 const { Text, Title } = Typography;
 
@@ -24,19 +29,34 @@ const Details = () => {
     select: (data) => data?.countryList,
   });
 
-  useEffect(() => {
-    detailsForm.setFieldValue(
-      'birthDate',
-      dayjs(new Date()).format('YYYY-MM-DD')
-    );
+  const { isLoading: isUpdating, mutateAsync: updateUserInfo } =
+    useUpdateUserInfo();
 
+  const { isLoading: isInfoLoading } = useGetUserInfo({
+    select: (data) => data?.userInfo,
+    onSuccess: (data) =>
+      detailsForm.setFieldsValue({
+        ...data,
+        phoneNumber: data.phoneNumber.slice(2),
+      }),
+  });
+
+  useEffect(() => {
     if (countryList) {
       detailsForm.setFieldValue('dialCode', countryList?.[0]?.dialCode);
     }
   }, [countryList]);
 
   const updateDetails = (values) => {
-    console.log({ values });
+    const payload = {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      birthDate: values.birthDate,
+      phoneNumber: `${values.dialCode.slice(1)}${values.phoneNumber}`,
+    };
+
+    updateUserInfo(payload);
+    displayNotification({ description: 'User Info Updated!' });
   };
 
   const updateEmail = (value) => {
@@ -65,6 +85,8 @@ const Details = () => {
       />
     </Form.Item>
   );
+
+  if (isInfoLoading) return <Loader />;
 
   return (
     <Row className='details'>
@@ -136,8 +158,12 @@ const Details = () => {
                     </Form.Item>
 
                     <Form.Item>
-                      <Button type='primary' htmlType='submit'>
-                        Save
+                      <Button
+                        type='primary'
+                        htmlType='submit'
+                        loading={isUpdating}
+                      >
+                        Update
                       </Button>
                     </Form.Item>
                   </Col>
