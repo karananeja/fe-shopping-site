@@ -5,7 +5,7 @@ export const KEYS = {
   DARK: 'dark',
   EMAIL: {
     NAME: 'email',
-    LABEL: 'Email',
+    LABEL: 'Email ID',
     MESSAGE: 'Please enter your Email!',
     VALID_MESSAGE: 'Please input a valid email.',
     REGEX_MESSAGE: 'Your password should meet the password policy.',
@@ -37,8 +37,8 @@ export const KEYS = {
     MESSAGE: 'Please select your birth date!',
   },
   PHONE_NUMBER: {
-    NAME: 'confirmPassword',
-    LABEL: 'Confirm Password',
+    NAME: 'phoneNumber',
+    LABEL: 'Phone Number',
     MESSAGE: 'Please enter your phone number!',
     VALID_MESSAGE: 'Please enter a valid phone number.',
   },
