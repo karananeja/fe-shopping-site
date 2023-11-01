@@ -48,4 +48,5 @@ export const KEYS = {
 
 export const QUERY_KEYS = {
   COUNTRY_LIST: 'country_list',
+  USER_INFO: 'user_info',
 };
