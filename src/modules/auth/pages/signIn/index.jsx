@@ -65,14 +65,8 @@ const SignIn = () => {
             label={KEYS.EMAIL.LABEL}
             name={KEYS.EMAIL.NAME}
             rules={[
-              {
-                required: true,
-                message: KEYS.EMAIL.MESSAGE,
-              },
-              {
-                type: 'email',
-                message: KEYS.EMAIL.VALID_MESSAGE,
-              },
+              { required: true, message: KEYS.EMAIL.MESSAGE },
+              { type: 'email', message: KEYS.EMAIL.VALID_MESSAGE },
             ]}
           >
             <Input />
@@ -81,12 +75,7 @@ const SignIn = () => {
           <Item
             label={KEYS.PASSWORD.LABEL}
             name={KEYS.PASSWORD.NAME}
-            rules={[
-              {
-                required: true,
-                message: KEYS.PASSWORD.MESSAGE,
-              },
-            ]}
+            rules={[{ required: true, message: KEYS.PASSWORD.MESSAGE }]}
           >
             <Password />
           </Item>
