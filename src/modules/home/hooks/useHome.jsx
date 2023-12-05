@@ -8,7 +8,10 @@ import { useMutation, useQuery } from 'react-query';
  * @param {object} options
  */
 export const useCountryList = (options = {}) => {
-  return useQuery(QUERY_KEYS.COUNTRY_LIST, getCountryList, options);
+  return useQuery(QUERY_KEYS.COUNTRY_LIST, getCountryList, {
+    staleTime: Infinity,
+    ...options,
+  });
 };
 
 /**
