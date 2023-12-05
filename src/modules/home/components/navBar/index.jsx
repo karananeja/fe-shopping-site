@@ -23,6 +23,7 @@ const NavBar = () => {
   const { loggedIn } = useAuthStatus();
 
   const { isLoading: isInfoLoading, data: userInfo } = useGetUserInfo({
+    enabled: loggedIn,
     select: (data) => data?.userInfo,
   });
 
