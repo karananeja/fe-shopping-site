@@ -55,6 +55,7 @@
   }
 
   &__profile-avatar {
+    @include flexCenter;
     background-color: transparent;
     border: 1px solid $white-color;
 
