@@ -11,18 +11,18 @@
 
   &:hover {
     transform: scale(1.1);
-
-    .card__title {
-      text-decoration: underline;
-    }
   }
 
-  .card__img {
+  &:hover &__title {
+    text-decoration: underline;
+  }
+
+  &__img {
     height: 30vh;
     object-fit: contain;
   }
 
-  .card__title a {
+  &__title a {
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -40,13 +40,9 @@ html[data-mode='light'] .card {
 
   &:hover {
     border: 1px solid $white-color;
-
-    .card__title {
-      color: $white-color;
-    }
   }
 
-  .card__title {
+  &__title {
     color: $white-color;
 
     svg {
@@ -61,13 +57,9 @@ html[data-mode='dark'] .card {
 
   &:hover {
     border: 1px solid $white-color;
-
-    .card__title {
-      color: $gray-color;
-    }
   }
 
-  .card__title {
+  &__title {
     color: $gray-color;
 
     svg {
