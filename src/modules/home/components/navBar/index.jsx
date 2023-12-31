@@ -56,7 +56,8 @@ const NavBar = () => {
                     <AccountCircleIcon />
                   ) : (
                     <Avatar className='header__profile-avatar' size={24}>
-                      {userInfo?.firstName[0]}
+                      {userInfo?.firstName[0] ??
+                        userInfo?.email[0].toUpperCase()}
                     </Avatar>
                   )}
                 </Link>
