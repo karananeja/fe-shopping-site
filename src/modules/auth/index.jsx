@@ -7,9 +7,7 @@ const AuthHome = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loggedIn && !checkingStatus) {
-      navigate('/');
-    }
+    if (loggedIn && !checkingStatus) navigate('/');
   }, [loggedIn, checkingStatus, navigate]);
 
   return <Outlet />;

@@ -9,9 +9,7 @@ const PrivateRoute = ({ children }) => {
   const { loggedIn, checkingStatus } = useAuthStatus();
 
   useEffect(() => {
-    if (!checkingStatus && !loggedIn) {
-      deleteValue(KEYS.ACCESS_TOKEN);
-    }
+    if (!checkingStatus && !loggedIn) deleteValue(KEYS.ACCESS_TOKEN);
   }, [loggedIn, checkingStatus]);
 
   if (checkingStatus) return <Loader />;
