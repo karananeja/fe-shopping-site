@@ -4,24 +4,16 @@ import './SignIn.scss';
 import '../../AuthHome.scss';
 import { Button, Form, Input } from 'antd';
 import { BrandLogoIcon, KEYS } from '@utils/constants';
-import { useRecoilValue } from 'recoil';
-import { darkModeAtom } from '@store/globalState';
 import { useSignIn } from '@modules/auth/hooks/useSignIn';
 import { setValue } from '@utils/helpers/localStorageManagement';
+import { useDarkMode } from '@hooks/useUtils';
 
 const { Item, useForm } = Form;
-
 const { Password } = Input;
 
 const SignIn = () => {
-  const isDarkModeValue = useRecoilValue(darkModeAtom);
   const navigate = useNavigate();
   const [signInForm] = useForm();
-
-  !isDarkModeValue
-    ? document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.LIGHT)
-    : document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.DARK);
-
   const { isLoading, mutate: signIn } = useSignIn({
     onSuccess: (data) => {
       setValue(KEYS.ACCESS_TOKEN, data.userInfo.accessToken);
@@ -29,6 +21,7 @@ const SignIn = () => {
       navigate('/');
     },
   });
+  useDarkMode();
 
   const handleSignInSubmit = (credentials) => {
     const payload = {
