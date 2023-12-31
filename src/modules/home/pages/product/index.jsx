@@ -12,9 +12,7 @@ import {
 const Product = () => {
   const { productID } = useParams();
 
-  const productInfo = sampleData.filter(
-    ({ id }) => id === parseInt(productID)
-  )[0];
+  const productInfo = sampleData.find(({ id }) => id === parseInt(productID));
 
   return (
     <div className='product'>
