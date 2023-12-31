@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
 import './NavBar.scss';
-import { darkModeAtom } from '@store/globalState';
 import {
   AccountCircleIcon,
   BrandLogoIcon,
@@ -11,25 +9,19 @@ import {
   LoginIcon,
   SearchIcon,
   ShoppingCartIcon,
-  KEYS,
 } from '@utils/constants';
 import { useAuthStatus } from '@modules/auth/hooks/useAuthStatus';
 import { useGetUserInfo } from '@modules/home/hooks/useHome';
 import { Avatar } from 'antd';
+import { useDarkMode } from '@hooks/useUtils';
 
 const NavBar = () => {
-  const [isDarkMode, setIsDarkMode] = useRecoilState(darkModeAtom);
-
+  const { isDarkMode, setIsDarkMode } = useDarkMode();
   const { loggedIn } = useAuthStatus();
-
   const { isLoading: isInfoLoading, data: userInfo } = useGetUserInfo({
     enabled: loggedIn,
     select: (data) => data?.userInfo,
   });
-
-  !isDarkMode
-    ? document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.LIGHT)
-    : document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.DARK);
 
   return (
     <header className='header'>
