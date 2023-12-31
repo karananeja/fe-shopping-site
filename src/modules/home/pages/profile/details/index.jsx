@@ -24,14 +24,11 @@ const { Text, Title } = Typography;
 
 const Details = () => {
   const [detailsForm] = Form.useForm();
-
   const { data: countryList, isLoading } = useCountryList({
     select: (data) => data?.countryList,
   });
-
   const { isLoading: isUpdating, mutateAsync: updateUserInfo } =
     useUpdateUserInfo();
-
   const { isLoading: isInfoLoading } = useGetUserInfo({
     select: (data) => data?.userInfo,
     onSuccess: (data) =>
@@ -43,11 +40,11 @@ const Details = () => {
 
   useEffect(() => {
     if (countryList) {
-      detailsForm.setFieldValue('dialCode', countryList?.[0]?.dialCode);
+      detailsForm.setFieldValue('dialCode', countryList[0]?.dialCode);
     }
   }, [countryList]);
 
-  const updateDetails = (values) => {
+  const updateDetails = async (values) => {
     const payload = {
       firstName: values.firstName,
       lastName: values.lastName,
@@ -55,7 +52,7 @@ const Details = () => {
       phoneNumber: `${values.dialCode.slice(1)}${values.phoneNumber}`,
     };
 
-    updateUserInfo(payload);
+    await updateUserInfo(payload);
     displayNotification({ description: 'User Info Updated!' });
   };
 
