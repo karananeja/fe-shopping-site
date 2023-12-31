@@ -24,20 +24,15 @@ const ProfileMenu = () => {
       children: [
         {
           key: 'details',
-          path: 'details',
           label: 'Details',
           onClick: () => {
             navigate('details');
             setActiveLink('details');
           },
         },
-        { key: 'address', path: 'address', label: 'Address' },
-        { key: 'orders', path: 'orders', label: 'Orders' },
-        {
-          key: 'account-settings',
-          path: 'account-settings',
-          label: 'Account Settings',
-        },
+        { key: 'address', label: 'Address' },
+        { key: 'orders', label: 'Orders' },
+        { key: 'account-settings', label: 'Account Settings' },
         {
           key: 'logout',
           label: 'Logout',
