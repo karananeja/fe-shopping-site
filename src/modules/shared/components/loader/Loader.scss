@@ -6,3 +6,13 @@
   height: calc(100vh - $navbar-height);
   width: 100%;
 }
+
+html[data-mode='dark'] .loader {
+  background: $dm-form-bg-color;
+
+  .ant-spin {
+    &-dot-item {
+      background-color: $white-color;
+    }
+  }
+}
