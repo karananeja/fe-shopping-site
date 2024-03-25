@@ -12,3 +12,37 @@
     justify-content: flex-start;
   }
 }
+
+html[data-mode='light'] .profileMenu {
+  .ant-menu {
+    &-item {
+      &-selected {
+        color: $white-color;
+      }
+    }
+  }
+}
+
+html[data-mode='dark'] .profileMenu {
+  .ant-layout-sider-children {
+    background: $dm-form-bg-color;
+    border: solid $white-color;
+    border-width: 0 1px 0 0;
+  }
+
+  .ant-menu {
+    background: $dm-form-bg-color;
+
+    &-item {
+      &,
+      &-group-title,
+      &:hover {
+        color: $white-color !important;
+      }
+
+      &:hover {
+        background-color: $gray-color !important;
+      }
+    }
+  }
+}

@@ -5,12 +5,12 @@
   align-items: center;
   height: 100vh;
 
-  .sign__logo,
-  .sign__form {
+  &__logo,
+  &__form {
     flex: 0.5;
   }
 
-  .sign__logo {
+  &__logo {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,7 +26,7 @@
     }
   }
 
-  .sign__form__layout {
+  &__form__layout {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -37,49 +37,49 @@
     > * {
       margin: 1.25rem;
     }
+  }
 
-    .sign__title {
-      font-size: 2rem;
-      display: flex;
-      align-items: flex-start;
-      text-align: left;
+  &__title {
+    font-size: 2rem;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    margin: 1.25rem 0 !important;
+    padding: 0 1rem !important;
+  }
+
+  &__form {
+    width: 80%;
+
+    > * {
+      margin: 1rem 0;
+    }
+
+    button {
       width: 100%;
-      margin: 1.25rem 0 !important;
-      padding: 0 1rem !important;
     }
+  }
 
-    .sign__form {
-      width: 80%;
-
-      > * {
-        margin: 1rem 0;
-      }
-
-      button {
-        width: 100%;
-      }
-    }
-
-    .sign__user__validate a {
-      text-decoration: none;
-    }
+  &__user__validate a {
+    text-decoration: none;
   }
 }
 
 html[data-mode='light'] .sign {
   background-color: $gray-color;
 
-  .sign__logo {
+  &__logo {
     color: $white-color;
   }
 
-  .sign__form__layout {
+  &__form__layout {
     background-color: $white-color;
     box-shadow: 0 0 1rem 0.75rem rgba(0, 0, 0, 0.3);
+  }
 
-    .sign__user__validate a {
-      color: $blue-color;
-    }
+  &__user__validate a {
+    color: $blue-color;
   }
 }
 
@@ -87,23 +87,23 @@ html[data-mode='dark'] .sign {
   background-color: $dm-black-color;
   color: $white-color;
 
-  .sign__logo {
+  &__logo {
     color: $white-color;
   }
 
-  .sign__form__layout {
+  &__form__layout {
     background-color: $dm-form-bg-color;
     box-shadow: 0 0 1rem 0.75rem rgba(255, 255, 255, 0.3);
+  }
 
-    .sign__form {
-      label {
-        color: $white-color;
-      }
+  &__form {
+    label {
+      color: $white-color;
     }
+  }
 
-    .sign__user__validate a {
-      color: $dm-button-color;
-    }
+  &__user__validate a {
+    color: $dm-button-color;
   }
 }
 
@@ -111,7 +111,7 @@ html[data-mode='dark'] .sign {
   .sign {
     flex-direction: column;
 
-    .sign__form__layout {
+    &__form__layout {
       width: 50%;
     }
   }
@@ -121,7 +121,7 @@ html[data-mode='dark'] .sign {
   .sign {
     flex-direction: column;
 
-    .sign__form__layout {
+    &__form__layout {
       width: unset;
     }
   }

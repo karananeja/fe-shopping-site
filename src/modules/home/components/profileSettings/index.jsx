@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './ProfileMenu.scss';
-import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
-import { deleteValue } from '@utils/helpers/localStorageManagement';
 import { KEYS } from '@utils/constants';
+import { deleteValue } from '@utils/helpers/localStorageManagement';
+import { Layout, Menu } from 'antd';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './ProfileMenu.scss';
 
 const { Sider } = Layout;
 
@@ -24,20 +24,15 @@ const ProfileMenu = () => {
       children: [
         {
           key: 'details',
-          path: 'details',
           label: 'Details',
           onClick: () => {
             navigate('details');
             setActiveLink('details');
           },
         },
-        { key: 'address', path: 'address', label: 'Address' },
-        { key: 'orders', path: 'orders', label: 'Orders' },
-        {
-          key: 'account-settings',
-          path: 'account-settings',
-          label: 'Account Settings',
-        },
+        { key: 'address', label: 'Address' },
+        { key: 'orders', label: 'Orders' },
+        { key: 'account-settings', label: 'Account Settings' },
         {
           key: 'logout',
           label: 'Logout',

@@ -11,10 +11,8 @@
     font-weight: bold;
   }
 
-  .product__imgContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &__imgContainer {
+    @include flexCenter;
 
     svg {
       cursor: pointer;
@@ -25,21 +23,21 @@
         opacity: 1;
       }
     }
-
-    .product__img {
-      height: 25rem;
-      width: 25rem;
-      margin: 0.5rem;
-      object-fit: contain;
-      border-radius: 0.5rem;
-    }
   }
 
-  .product__content > * {
+  &__img {
+    height: 25rem;
+    width: 25rem;
+    margin: 0.5rem;
+    object-fit: contain;
+    border-radius: 0.5rem;
+  }
+
+  &__content > * {
     padding: 0.5rem;
   }
 
-  .product__button {
+  &__button {
     display: flex;
     align-items: center;
     color: inherit !important;
@@ -65,22 +63,22 @@ html[data-mode='light'] .product {
     color: $black-color;
   }
 
-  .product__imgContainer {
+  &__imgContainer {
     svg:hover {
       fill: $white-color;
       background-color: $black-color;
     }
-
-    .product__img {
-      border: 1px solid $gray-color;
-    }
   }
 
-  .product__content > * {
+  &__img {
+    border: 1px solid $gray-color;
+  }
+
+  &__content > * {
     padding: 0.5rem;
   }
 
-  .product__button {
+  &__button {
     svg {
       fill: $black-color;
     }
@@ -100,7 +98,7 @@ html[data-mode='dark'] .product {
     color: $white-color;
   }
 
-  .product__imgContainer {
+  &__imgContainer {
     svg {
       fill: $white-color;
 
@@ -109,17 +107,17 @@ html[data-mode='dark'] .product {
         background-color: $white-color;
       }
     }
-
-    .product__img {
-      border: 1px solid $white-color;
-    }
   }
 
-  .product__content > * {
+  &__img {
+    border: 1px solid $white-color;
+  }
+
+  &__content > * {
     padding: 0.5rem;
   }
 
-  .product__button {
+  &__button {
     svg {
       fill: $white-color;
     }

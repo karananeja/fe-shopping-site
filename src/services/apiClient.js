@@ -42,7 +42,7 @@ const shoppingSite = axios.create({
 // };
 
 const setAuthorizationHeader = () => {
-  let token = getValue(KEYS.ACCESS_TOKEN);
+  const token = getValue(KEYS.ACCESS_TOKEN);
   if (token) {
     shoppingSite.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   }

@@ -8,11 +8,7 @@ export const useAuthStatus = () => {
   const accessToken = getValue(KEYS.ACCESS_TOKEN);
 
   useEffect(() => {
-    if (accessToken) {
-      setLoggedIn(true);
-    } else {
-      setLoggedIn(false);
-    }
+    accessToken ? setLoggedIn(true) : setLoggedIn(false);
     setCheckingStatus(false);
   }, [accessToken]);
 

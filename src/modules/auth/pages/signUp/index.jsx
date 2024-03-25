@@ -1,30 +1,21 @@
+import { CheckCircleFilled } from '@ant-design/icons';
+import { useSignUp } from '@modules/auth/hooks/useSignUp';
+import { BrandLogoIcon, KEYS, PASSWORD_CHECK } from '@utils/constants';
+import { setValue } from '@utils/helpers/localStorageManagement';
+import { Button, Form, Input, Popover, Space, theme } from 'antd';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.scss';
-import { useRecoilValue } from 'recoil';
-import { Button, Form, Input, Popover, Space, theme } from 'antd';
-import { darkModeAtom } from '@store/globalState';
-import { BrandLogoIcon, PASSWORD_CHECK, KEYS } from '@utils/constants';
-import { useSignUp } from '@modules/auth/hooks/useSignUp';
-import { CheckCircleFilled } from '@ant-design/icons';
-import { setValue } from '@utils/helpers/localStorageManagement';
 
 const { Item, useForm } = Form;
-
 const { Password } = Input;
-
 const { useToken } = theme;
 
 const SignUp = () => {
   const [passwordChecks, setPasswordChecks] = useState(PASSWORD_CHECK);
-  const isDarkModeValue = useRecoilValue(darkModeAtom);
   const navigate = useNavigate();
   const [signUpForm] = useForm();
   const { token } = useToken();
-
-  !isDarkModeValue
-    ? document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.LIGHT)
-    : document.documentElement.setAttribute(KEYS.DATA_MODE, KEYS.DARK);
 
   const { isLoading, mutate: signUp } = useSignUp({
     onSuccess: (data) => {
@@ -93,14 +84,8 @@ const SignUp = () => {
             label={KEYS.EMAIL.LABEL}
             name={KEYS.EMAIL.NAME}
             rules={[
-              {
-                required: true,
-                message: KEYS.EMAIL.MESSAGE,
-              },
-              {
-                type: 'email',
-                message: KEYS.EMAIL.VALID_MESSAGE,
-              },
+              { required: true, message: KEYS.EMAIL.MESSAGE },
+              { type: 'email', message: KEYS.EMAIL.VALID_MESSAGE },
             ]}
           >
             <Input />
@@ -116,10 +101,7 @@ const SignUp = () => {
               label={KEYS.PASSWORD.LABEL}
               name={KEYS.PASSWORD.NAME}
               rules={[
-                {
-                  required: true,
-                  message: KEYS.PASSWORD.MESSAGE,
-                },
+                { required: true, message: KEYS.PASSWORD.MESSAGE },
                 {
                   pattern: new RegExp(
                     /(?=^.{6,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*/
@@ -142,10 +124,7 @@ const SignUp = () => {
               },
               ({ getFieldValue }) => ({
                 validator(_, value) {
-                  if (
-                    !value ||
-                    getFieldValue(KEYS.PASSWORD.NAME) === value
-                  ) {
+                  if (!value || getFieldValue(KEYS.PASSWORD.NAME) === value) {
                     return Promise.resolve();
                   }
                   return Promise.reject(

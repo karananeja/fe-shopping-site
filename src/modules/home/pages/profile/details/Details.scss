@@ -1,3 +1,5 @@
+@use '@modules/shared/styles' as *;
+
 .details {
   width: 100%;
 
@@ -5,7 +7,78 @@
     height: 100%;
   }
 
+  &__infoRow {
+    height: 2.5rem;
+  }
+
   .ant-input-group-addon {
     background: transparent;
+  }
+
+  .ant-input-group-wrapper-disabled .ant-input-group-addon {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}
+
+html[data-mode='dark'] .details {
+  &,
+  &__card {
+    background: $dm-form-bg-color;
+    border: none;
+  }
+
+  &__card {
+    .ant {
+      &-typography {
+        color: $white-color;
+      }
+
+      &-form-item-label > label {
+        color: $white-color;
+      }
+
+      &-input {
+        border-color: $gray-color-1 !important;
+        color: $white-color;
+        background: $gray-color;
+
+        &-disabled {
+          background: $gray-color-2;
+        }
+
+        &-group-addon {
+          .ant-select {
+            &-selector {
+              background-color: $gray-color !important;
+              border-color: #bfbfbf !important;
+              border-width: 1px 0 !important;
+            }
+
+            &-arrow {
+              color: $white-color;
+            }
+
+            &-clear:hover {
+              color: $white-color !important;
+              background: transparent !important;
+            }
+
+            &-selection-item {
+              color: $white-color;
+            }
+
+            &-disabled > .ant-select-selector {
+              background: $gray-color-2 !important;
+              border-color: #bfbfbf !important;
+              border-width: 1px 0 !important;
+            }
+          }
+        }
+      }
+
+      &-divider {
+        background: $white-color;
+      }
+    }
   }
 }

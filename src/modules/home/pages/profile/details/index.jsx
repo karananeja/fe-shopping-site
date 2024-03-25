@@ -1,5 +1,11 @@
-import React, { useEffect } from 'react';
-import './Details.scss';
+import {
+  useCountryList,
+  useGetUserInfo,
+  useUpdateUserInfo,
+} from '@modules/home/hooks/useHome';
+import Loader from '@modules/shared/components/loader';
+import { KEYS } from '@utils/constants';
+import { displayNotification } from '@utils/helpers';
 import {
   Button,
   Card,
@@ -11,27 +17,19 @@ import {
   Select,
   Typography,
 } from 'antd';
-import {
-  useCountryList,
-  useGetUserInfo,
-  useUpdateUserInfo,
-} from '@modules/home/hooks/useHome';
-import { KEYS } from '@utils/constants';
-import Loader from '@modules/shared/components/loader';
-import { displayNotification } from '@utils/helpers';
+import React, { useEffect, useState } from 'react';
+import './Details.scss';
 
 const { Text, Title } = Typography;
 
 const Details = () => {
+  const [editMode, setEditMode] = useState(false);
   const [detailsForm] = Form.useForm();
-
   const { data: countryList, isLoading } = useCountryList({
     select: (data) => data?.countryList,
   });
-
   const { isLoading: isUpdating, mutateAsync: updateUserInfo } =
     useUpdateUserInfo();
-
   const { isLoading: isInfoLoading } = useGetUserInfo({
     select: (data) => data?.userInfo,
     onSuccess: (data) =>
@@ -43,11 +41,11 @@ const Details = () => {
 
   useEffect(() => {
     if (countryList) {
-      detailsForm.setFieldValue('dialCode', countryList?.[0]?.dialCode);
+      detailsForm.setFieldValue('dialCode', countryList[0]?.dialCode);
     }
   }, [countryList]);
 
-  const updateDetails = (values) => {
+  const updateDetails = async (values) => {
     const payload = {
       firstName: values.firstName,
       lastName: values.lastName,
@@ -55,12 +53,9 @@ const Details = () => {
       phoneNumber: `${values.dialCode.slice(1)}${values.phoneNumber}`,
     };
 
-    updateUserInfo(payload);
+    await updateUserInfo(payload);
     displayNotification({ description: 'User Info Updated!' });
-  };
-
-  const updateEmail = (value) => {
-    console.log({ value });
+    closeEdit();
   };
 
   const prefixSelector = (
@@ -82,9 +77,12 @@ const Details = () => {
           label: dialCode,
           value: dialCode,
         }))}
+        disabled={!editMode}
       />
     </Form.Item>
   );
+
+  const closeEdit = () => setEditMode(false);
 
   if (isInfoLoading) return <Loader />;
 
@@ -98,21 +96,28 @@ const Details = () => {
             </Col>
           </Row>
 
-          <Row>
-            <Col span={24}>
+          <Row
+            justify={'space-between'}
+            align={'middle'}
+            gutter={48}
+            className='details__infoRow'
+          >
+            <Col>
               <Text type='secondary'>Personal Information</Text>
             </Col>
+
+            {!editMode && (
+              <Col>
+                <Button type='primary' onClick={() => setEditMode(true)}>
+                  Edit
+                </Button>
+              </Col>
+            )}
           </Row>
 
           <Divider />
 
           <Row gutter={24}>
-            <Col span={8}>
-              <Text type='secondary'>
-                Please update your personal information
-              </Text>
-            </Col>
-
             <Col span={16}>
               <Form
                 layout='vertical'
@@ -130,41 +135,7 @@ const Details = () => {
                         { required: true, message: KEYS.FIRST_NAME.MESSAGE },
                       ]}
                     >
-                      <Input />
-                    </Form.Item>
-
-                    <Form.Item
-                      label={KEYS.BIRTH_DATE.LABEL}
-                      name={KEYS.BIRTH_DATE.NAME}
-                      rules={[
-                        { required: true, message: KEYS.BIRTH_DATE.MESSAGE },
-                      ]}
-                    >
-                      <Input type='date' />
-                    </Form.Item>
-
-                    <Form.Item
-                      label={KEYS.PHONE_NUMBER.LABEL}
-                      name={KEYS.PHONE_NUMBER.NAME}
-                      rules={[
-                        { required: true, message: KEYS.PHONE_NUMBER.MESSAGE },
-                        {
-                          pattern: /^\d{10}$/,
-                          message: KEYS.PHONE_NUMBER.VALID_MESSAGE,
-                        },
-                      ]}
-                    >
-                      <Input addonBefore={prefixSelector} />
-                    </Form.Item>
-
-                    <Form.Item>
-                      <Button
-                        type='primary'
-                        htmlType='submit'
-                        loading={isUpdating}
-                      >
-                        Update
-                      </Button>
+                      <Input disabled={!editMode} />
                     </Form.Item>
                   </Col>
 
@@ -176,27 +147,10 @@ const Details = () => {
                         { required: true, message: KEYS.LAST_NAME.MESSAGE },
                       ]}
                     >
-                      <Input />
+                      <Input disabled={!editMode} />
                     </Form.Item>
                   </Col>
-                </Row>
-              </Form>
-            </Col>
-          </Row>
 
-          <Row gutter={24}>
-            <Col span={8}>
-              <Text type='secondary'>Please update your Email Id</Text>
-            </Col>
-
-            <Col span={16}>
-              <Form
-                layout='vertical'
-                autoComplete='off'
-                onFinish={updateEmail}
-                requiredMark={false}
-              >
-                <Row gutter={24}>
                   <Col span={12}>
                     <Form.Item
                       label={KEYS.EMAIL.LABEL}
@@ -209,16 +163,63 @@ const Details = () => {
                         },
                       ]}
                     >
-                      <Input type='email' />
+                      <Input type='email' disabled={!editMode} />
                     </Form.Item>
+                  </Col>
 
-                    <Form.Item>
-                      <Button type='primary' htmlType='submit'>
-                        Update
-                      </Button>
+                  <Col span={12}>
+                    <Form.Item
+                      label={KEYS.BIRTH_DATE.LABEL}
+                      name={KEYS.BIRTH_DATE.NAME}
+                      rules={[
+                        { required: true, message: KEYS.BIRTH_DATE.MESSAGE },
+                      ]}
+                    >
+                      <Input type='date' disabled={!editMode} />
+                    </Form.Item>
+                  </Col>
+
+                  <Col span={12}>
+                    <Form.Item
+                      label={KEYS.PHONE_NUMBER.LABEL}
+                      name={KEYS.PHONE_NUMBER.NAME}
+                      rules={[
+                        { required: true, message: KEYS.PHONE_NUMBER.MESSAGE },
+                        {
+                          pattern: /^\d{10}$/,
+                          message: KEYS.PHONE_NUMBER.VALID_MESSAGE,
+                        },
+                      ]}
+                    >
+                      <Input
+                        addonBefore={prefixSelector}
+                        disabled={!editMode}
+                      />
                     </Form.Item>
                   </Col>
                 </Row>
+
+                {editMode && (
+                  <Row gutter={24}>
+                    <Col span={3}>
+                      <Form.Item>
+                        <Button onClick={closeEdit}>Cancel</Button>
+                      </Form.Item>
+                    </Col>
+
+                    <Col span={3}>
+                      <Form.Item>
+                        <Button
+                          type='primary'
+                          htmlType='submit'
+                          loading={isUpdating}
+                        >
+                          Update
+                        </Button>
+                      </Form.Item>
+                    </Col>
+                  </Row>
+                )}
               </Form>
             </Col>
           </Row>
