@@ -38,12 +38,12 @@ html[data-mode='dark'] .details {
       }
 
       &-input {
-        border-color: $gray-color1 !important;
+        border-color: $gray-color-1 !important;
         color: $white-color;
         background: $gray-color;
 
         &-disabled {
-          background: $gray-color2;
+          background: $gray-color-2;
         }
 
         &-group-addon {
@@ -68,7 +68,7 @@ html[data-mode='dark'] .details {
             }
 
             &-disabled > .ant-select-selector {
-              background: $gray-color2 !important;
+              background: $gray-color-2 !important;
               border-color: #bfbfbf !important;
               border-width: 1px 0 !important;
             }
