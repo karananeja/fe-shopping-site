@@ -50,3 +50,5 @@ export const QUERY_KEYS = {
   COUNTRY_LIST: 'country_list',
   USER_INFO: 'user_info',
 };
+
+export const ATOM_KEYS = { DARK_MODE: 'dark_mode' };
