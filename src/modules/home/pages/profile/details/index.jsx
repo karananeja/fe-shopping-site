@@ -19,6 +19,7 @@ import {
 } from 'antd';
 import React, { useEffect, useState } from 'react';
 import './Details.scss';
+import { useDarkMode } from '@hooks/useUtils';
 
 const { Text, Title } = Typography;
 
@@ -38,6 +39,7 @@ const Details = () => {
         phoneNumber: data.phoneNumber.slice(2),
       }),
   });
+  useDarkMode();
 
   useEffect(() => {
     if (countryList) {
