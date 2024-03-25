@@ -77,6 +77,10 @@ html[data-mode='light'] .header {
 
   &__searchBar {
     background-color: $white-color;
+
+    input {
+      color: $gray-color;
+    }
   }
 }
 
@@ -84,17 +88,14 @@ html[data-mode='dark'] .header {
   background-color: $gray-color;
   color: $white-color;
 
-  &__center {
-    svg {
-      fill: $gray-color;
-    }
-  }
-
   &__searchBar {
     background-color: $dm-form-bg-color;
 
     input {
-      color: $white-color;
+      &,
+      &::placeholder {
+        color: $white-color;
+      }
     }
   }
 }
