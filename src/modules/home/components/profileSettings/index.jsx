@@ -5,14 +5,12 @@ import { UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { deleteValue } from '@utils/helpers/localStorageManagement';
 import { KEYS } from '@utils/constants';
-import { useDarkMode } from '@hooks/useUtils';
 
 const { Sider } = Layout;
 
 const ProfileMenu = () => {
   const [activeLink, setActiveLink] = useState('details');
   const navigate = useNavigate();
-  useDarkMode();
 
   const items = [
     {
