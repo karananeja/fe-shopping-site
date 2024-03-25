@@ -1,12 +1,11 @@
+import { CheckCircleFilled } from '@ant-design/icons';
+import { useSignUp } from '@modules/auth/hooks/useSignUp';
+import { BrandLogoIcon, KEYS, PASSWORD_CHECK } from '@utils/constants';
+import { setValue } from '@utils/helpers/localStorageManagement';
+import { Button, Form, Input, Popover, Space, theme } from 'antd';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.scss';
-import { Button, Form, Input, Popover, Space, theme } from 'antd';
-import { BrandLogoIcon, PASSWORD_CHECK, KEYS } from '@utils/constants';
-import { useSignUp } from '@modules/auth/hooks/useSignUp';
-import { CheckCircleFilled } from '@ant-design/icons';
-import { setValue } from '@utils/helpers/localStorageManagement';
-import { useDarkMode } from '@hooks/useUtils';
 
 const { Item, useForm } = Form;
 const { Password } = Input;
@@ -17,7 +16,6 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [signUpForm] = useForm();
   const { token } = useToken();
-  useDarkMode();
 
   const { isLoading, mutate: signUp } = useSignUp({
     onSuccess: (data) => {

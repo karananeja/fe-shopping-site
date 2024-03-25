@@ -1,12 +1,11 @@
+import { useSignIn } from '@modules/auth/hooks/useSignIn';
+import { BrandLogoIcon, KEYS } from '@utils/constants';
+import { setValue } from '@utils/helpers/localStorageManagement';
+import { Button, Form, Input } from 'antd';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './SignIn.scss';
 import '../../AuthHome.scss';
-import { Button, Form, Input } from 'antd';
-import { BrandLogoIcon, KEYS } from '@utils/constants';
-import { useSignIn } from '@modules/auth/hooks/useSignIn';
-import { setValue } from '@utils/helpers/localStorageManagement';
-import { useDarkMode } from '@hooks/useUtils';
+import './SignIn.scss';
 
 const { Item, useForm } = Form;
 const { Password } = Input;
@@ -21,7 +20,6 @@ const SignIn = () => {
       navigate('/');
     },
   });
-  useDarkMode();
 
   const handleSignInSubmit = (credentials) => {
     const payload = {
