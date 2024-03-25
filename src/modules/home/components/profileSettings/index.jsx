@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import './ProfileMenu.scss';
-import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
-import { deleteValue } from '@utils/helpers/localStorageManagement';
 import { KEYS } from '@utils/constants';
+import { deleteValue } from '@utils/helpers/localStorageManagement';
+import { Layout, Menu } from 'antd';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './ProfileMenu.scss';
 
 const { Sider } = Layout;
 

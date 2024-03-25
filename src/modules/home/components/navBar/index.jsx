@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './NavBar.scss';
+import { useDarkMode } from '@hooks/useUtils';
+import { useAuthStatus } from '@modules/auth/hooks/useAuthStatus';
+import { useGetUserInfo } from '@modules/home/hooks/useHome';
 import {
   AccountCircleIcon,
   BrandLogoIcon,
@@ -10,10 +10,10 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from '@utils/constants';
-import { useAuthStatus } from '@modules/auth/hooks/useAuthStatus';
-import { useGetUserInfo } from '@modules/home/hooks/useHome';
 import { Avatar } from 'antd';
-import { useDarkMode } from '@hooks/useUtils';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './NavBar.scss';
 
 const NavBar = () => {
   const { isDarkMode, setIsDarkMode } = useDarkMode();
