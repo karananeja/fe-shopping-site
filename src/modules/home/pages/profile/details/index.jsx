@@ -17,7 +17,8 @@ import {
   Select,
   Typography,
 } from 'antd';
-import React, { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
+import { useState } from 'react';
 import './Details.scss';
 
 const { Text, Title } = Typography;
@@ -25,32 +26,33 @@ const { Text, Title } = Typography;
 const Details = () => {
   const [editMode, setEditMode] = useState(false);
   const [detailsForm] = Form.useForm();
+
   const { data: countryList, isLoading } = useCountryList({
     select: (data) => data?.countryList,
+    onSuccess: (data) =>
+      detailsForm.setFieldValue('dialCode', data[0].dialCode),
   });
+
   const { isLoading: isUpdating, mutateAsync: updateUserInfo } =
     useUpdateUserInfo();
+
   const { isLoading: isInfoLoading } = useGetUserInfo({
     select: (data) => data?.userInfo,
     onSuccess: (data) =>
       detailsForm.setFieldsValue({
         ...data,
         phoneNumber: data.phoneNumber.slice(2),
+        birthDate: dayjs(data.birthDate).format('YYYY-MM-DD'),
       }),
   });
-
-  useEffect(() => {
-    if (countryList) {
-      detailsForm.setFieldValue('dialCode', countryList[0]?.dialCode);
-    }
-  }, [countryList]);
 
   const updateDetails = async (values) => {
     const payload = {
       firstName: values.firstName,
       lastName: values.lastName,
-      birthDate: values.birthDate,
+      birthDate: +new Date(values.birthDate),
       phoneNumber: `${values.dialCode.slice(1)}${values.phoneNumber}`,
+      updatedEmail: values.email,
     };
 
     await updateUserInfo(payload);
@@ -203,7 +205,9 @@ const Details = () => {
                   <Row gutter={24}>
                     <Col span={3}>
                       <Form.Item>
-                        <Button onClick={closeEdit}>Cancel</Button>
+                        <Button onClick={closeEdit} disabled={isUpdating}>
+                          Cancel
+                        </Button>
                       </Form.Item>
                     </Col>
 

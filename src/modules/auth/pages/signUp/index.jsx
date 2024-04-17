@@ -1,9 +1,9 @@
-import { CheckCircleFilled } from '@ant-design/icons';
-import { useSignUp } from '@modules/auth/hooks/useSignUp';
-import { BrandLogoIcon, KEYS, PASSWORD_CHECK } from '@utils/constants';
-import { setValue } from '@utils/helpers/localStorageManagement';
+import { useDarkMode } from '@hooks/useUtils';
+import { useSignUp } from '@modules/auth/hooks';
+import { Icons, KEYS, PASSWORD_CHECK } from '@utils/constants';
+import { setValue } from '@utils/helpers';
 import { Button, Form, Input, Popover, Space, theme } from 'antd';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.scss';
 
@@ -16,6 +16,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [signUpForm] = useForm();
   const { token } = useToken();
+  useDarkMode();
 
   const { isLoading, mutate: signUp } = useSignUp({
     onSuccess: (data) => {
@@ -51,9 +52,15 @@ const SignUp = () => {
         <div key={check.id}>
           <Space>
             {check.valid ? (
-              <CheckCircleFilled style={{ color: token.colorPrimary }} />
+              <Icons.check
+                className='sign__icon'
+                style={{ color: token.colorPrimary }}
+              />
             ) : (
-              <CheckCircleFilled style={{ color: '#e5e5e5' }} />
+              <Icons.check
+                className='sign__icon'
+                style={{ color: '#e5e5e5' }}
+              />
             )}
             {check.label}
           </Space>
@@ -67,7 +74,7 @@ const SignUp = () => {
       <div className='sign__logo'>
         {/* Brand Logo */}
         <Link to='/'>
-          <BrandLogoIcon />
+          <Icons.watermark />
         </Link>
       </div>
       <div className='sign__form__layout'>

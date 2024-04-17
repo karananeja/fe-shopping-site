@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
 import { useAuthStatus } from '@modules/auth/hooks/useAuthStatus';
-import { deleteValue } from '@utils/helpers';
 import { KEYS } from '@utils/constants';
+import { deleteValue } from '@utils/helpers';
+import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import Loader from './loader';
 
 const PrivateRoute = ({ children }) => {

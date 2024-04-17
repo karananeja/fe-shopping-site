@@ -1,15 +1,15 @@
-import { UserOutlined } from '@ant-design/icons';
-import { KEYS } from '@utils/constants';
-import { deleteValue } from '@utils/helpers/localStorageManagement';
+import { Icons, KEYS } from '@utils/constants';
+import { deleteValue } from '@utils/helpers';
 import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './ProfileMenu.scss';
 
 const { Sider } = Layout;
 
 const ProfileMenu = () => {
-  const [activeLink, setActiveLink] = useState('details');
+  const { pathname } = useLocation();
+  const [activeLink, setActiveLink] = useState(pathname.split('/')[2]);
   const navigate = useNavigate();
 
   const items = [
@@ -17,7 +17,7 @@ const ProfileMenu = () => {
       key: 'account',
       label: (
         <>
-          <UserOutlined className='profileMenu__icon' /> My Account
+          <Icons.users className='profileMenu__icon' /> My Account
         </>
       ),
       type: 'group',

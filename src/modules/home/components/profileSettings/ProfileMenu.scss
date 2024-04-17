@@ -10,6 +10,11 @@
   .ant-menu-item {
     @include flexCenter;
     justify-content: flex-start;
+
+    &-group-title {
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
@@ -19,6 +24,10 @@ html[data-mode='light'] .profileMenu {
       &-selected {
         color: $white-color;
       }
+    }
+
+    &-vertical {
+      border-inline-end: 0;
     }
   }
 }

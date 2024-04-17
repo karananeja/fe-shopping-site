@@ -1,7 +1,6 @@
-import React from 'react';
-import './Error.scss';
 import { Button, Result } from 'antd';
 import { useNavigate } from 'react-router-dom';
+import './Error.scss';
 
 const Error = () => {
   const navigate = useNavigate();
