@@ -1,10 +1,10 @@
-import React from 'react';
-import Home from './index';
-import Cards from './components/cards';
-import Product from './pages/product';
-import Cart from './pages/cart';
-import Profile from './pages/profile';
 import PrivateRoute from '@modules/shared/components/PrivateRoute';
+import Cards from './components/cards';
+import Home from './index';
+import Cart from './pages/cart';
+import Product from './pages/product';
+import Profile from './pages/profile';
+import Address from './pages/profile/address';
 import Details from './pages/profile/details';
 
 const HomeRoutes = [
@@ -22,7 +22,10 @@ const HomeRoutes = [
             <Profile />
           </PrivateRoute>
         ),
-        children: [{ path: 'details', element: <Details /> }],
+        children: [
+          { path: 'details', element: <Details /> },
+          { path: 'address', element: <Address /> },
+        ],
       },
     ],
   },
