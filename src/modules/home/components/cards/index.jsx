@@ -1,7 +1,6 @@
-import React from 'react';
+import data from '../../../../utils/sampleData.json';
 import Card from '../card';
 import './Cards.scss';
-import data from '../../../../utils/sampleData.json';
 
 const Cards = () => {
   return (

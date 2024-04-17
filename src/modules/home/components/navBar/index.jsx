@@ -1,17 +1,8 @@
 import { useDarkMode } from '@hooks/useUtils';
-import { useAuthStatus } from '@modules/auth/hooks/useAuthStatus';
+import { useAuthStatus } from '@modules/auth/hooks';
 import { useGetUserInfo } from '@modules/home/hooks/useHome';
-import {
-  AccountCircleIcon,
-  BrandLogoIcon,
-  LightModeFilledIcon,
-  LightModeIcon,
-  LoginIcon,
-  SearchIcon,
-  ShoppingCartIcon,
-} from '@utils/constants';
+import { Icons } from '@utils/constants';
 import { Avatar } from 'antd';
-import React from 'react';
 import { Link } from 'react-router-dom';
 import './NavBar.scss';
 
@@ -28,12 +19,12 @@ const NavBar = () => {
       <div className='header__left'>
         {/* Brand Logo */}
         <Link to='/'>
-          <BrandLogoIcon />
+          <Icons.watermark />
         </Link>
       </div>
       <div className='header__center'>
         <div className='header__searchBar'>
-          <SearchIcon />
+          <Icons.search />
           <input
             type='text'
             placeholder="Search the name of the product you're looking for"
@@ -46,14 +37,14 @@ const NavBar = () => {
           <ul className='header__unorderedList'>
             <li>
               <Link to='/cart'>
-                <ShoppingCartIcon />
+                <Icons.shoppingCart />
               </Link>
             </li>
             <li>
               {loggedIn ? (
                 <Link to='/profile/details'>
                   {isInfoLoading ? (
-                    <AccountCircleIcon />
+                    <Icons.account />
                   ) : (
                     <Avatar className='header__profile-avatar' size={24}>
                       {userInfo?.firstName[0] ??
@@ -63,12 +54,12 @@ const NavBar = () => {
                 </Link>
               ) : (
                 <Link to='/auth/signin'>
-                  <LoginIcon />
+                  <Icons.login />
                 </Link>
               )}
             </li>
             <li onClick={() => setIsDarkMode(!isDarkMode)}>
-              {isDarkMode ? <LightModeFilledIcon /> : <LightModeIcon />}
+              {isDarkMode ? <Icons.lightModeFilled /> : <Icons.lightMode />}
             </li>
           </ul>
         </nav>

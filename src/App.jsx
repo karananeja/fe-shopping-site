@@ -1,12 +1,11 @@
-import React from 'react';
-import router from './router';
-import { RouterProvider } from 'react-router-dom';
-import { RecoilRoot } from 'recoil';
+import { ConfigProvider } from 'antd';
 import { QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-import { ConfigProvider } from 'antd';
-import { theme } from './utils/constants/theme';
+import { RouterProvider } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
+import router from './router';
 import { queryClient } from './services/queryClient';
+import { theme } from './utils/constants/theme';
 
 const App = () => {
   return (

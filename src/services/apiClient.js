@@ -7,40 +7,6 @@ const shoppingSite = axios.create({
   baseURL: import.meta.env.VITE_APP_API_BASE_URL,
 });
 
-// shoppingSite.interceptors.response.use(null, async (error) => {
-//   console.log(error);
-//   if (
-//     error.config &&
-//     error.response &&
-//     error.response.data.err?.requestrefresh
-//   ) {
-//     return refreshAccessToken()
-//       .then((response) => {
-//         setValue('accessToken', response.data.accessToken);
-//         error.config.headers.Authorization = `Bearer ${response.data.accessToken}`;
-//         return shoppingSite.request(error.config);
-//       })
-//       .catch((err) => {
-//         console.log({ err });
-//         deleteValue('accessToken');
-//         deleteValue('refreshToken');
-//         window.location.reload();
-//       });
-//   }
-//   return Promise.reject(error);
-// });
-
-// const refreshAccessToken = async () => {
-//   setAuthorizationRefreshHeader();
-//   return await shoppingSite.post('/user/v1/token/refresh');
-// };
-
-// const setAuthorizationRefreshHeader = () => {
-//   shoppingSite.defaults.headers.common['Authorization'] = `Bearer ${getValue(
-//     'refreshToken'
-//   )}`;
-// };
-
 const setAuthorizationHeader = () => {
   const token = getValue(KEYS.ACCESS_TOKEN);
   if (token) {

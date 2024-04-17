@@ -1,7 +1,6 @@
-import React from 'react';
+import { Icons } from '@utils/constants';
 import { Link } from 'react-router-dom';
 import './Card.scss';
-import { OpenInBrowserIcon } from '../../../../utils/constants/icons';
 
 const Card = ({ id, imageUrl, title }) => {
   return (
@@ -10,7 +9,7 @@ const Card = ({ id, imageUrl, title }) => {
       <h3 className='card__title'>
         <Link to={`products/${id}`}>
           {title}
-          <OpenInBrowserIcon />
+          <Icons.openInBrowser />
         </Link>
       </h3>
     </div>

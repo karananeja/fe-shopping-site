@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useAuthStatus } from './hooks/useAuthStatus';
+import { useAuthStatus } from './hooks';
 
 const AuthHome = () => {
   const { loggedIn, checkingStatus } = useAuthStatus();

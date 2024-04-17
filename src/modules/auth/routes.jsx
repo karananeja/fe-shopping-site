@@ -1,4 +1,3 @@
-import React from 'react';
 import AuthHome from '.';
 import SignIn from './pages/signIn';
 import SignUp from './pages/signUp';

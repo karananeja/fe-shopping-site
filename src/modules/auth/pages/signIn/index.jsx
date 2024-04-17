@@ -1,8 +1,8 @@
-import { useSignIn } from '@modules/auth/hooks/useSignIn';
-import { BrandLogoIcon, KEYS } from '@utils/constants';
-import { setValue } from '@utils/helpers/localStorageManagement';
+import { useDarkMode } from '@hooks/useUtils';
+import { useSignIn } from '@modules/auth/hooks';
+import { Icons, KEYS } from '@utils/constants';
+import { setValue } from '@utils/helpers';
 import { Button, Form, Input } from 'antd';
-import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../AuthHome.scss';
 import './SignIn.scss';
@@ -20,6 +20,7 @@ const SignIn = () => {
       navigate('/');
     },
   });
+  useDarkMode();
 
   const handleSignInSubmit = (credentials) => {
     const payload = {
@@ -39,7 +40,7 @@ const SignIn = () => {
       <div className='sign__logo'>
         {/* Brand Logo */}
         <Link to='/'>
-          <BrandLogoIcon />
+          <Icons.watermark />
         </Link>
       </div>
       <div className='sign__form__layout'>

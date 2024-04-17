@@ -64,6 +64,11 @@
   &__user__validate a {
     text-decoration: none;
   }
+
+  &__icon {
+    height: 1rem;
+    width: 1rem;
+  }
 }
 
 html[data-mode='light'] .sign {

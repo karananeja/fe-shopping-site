@@ -1,6 +1,5 @@
-import React from 'react';
-import './Cart.scss';
 import Maintenance from '@modules/shared/components/maintenance';
+import './Cart.scss';
 
 const Cart = () => {
   return (
