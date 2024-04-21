@@ -4,7 +4,7 @@ import {
   useUpdateUserInfo,
 } from '@modules/home/hooks/useHome';
 import Loader from '@modules/shared/components/loader';
-import { KEYS } from '@utils/constants';
+import { Icons, KEYS } from '@utils/constants';
 import { displayNotification } from '@utils/helpers';
 import {
   Button,
@@ -99,8 +99,8 @@ const Details = () => {
           </Row>
 
           <Row
-            justify={'space-between'}
-            align={'middle'}
+            justify='space-between'
+            align='middle'
             gutter={48}
             className='details__infoRow'
           >
@@ -110,8 +110,12 @@ const Details = () => {
 
             {!editMode && (
               <Col>
-                <Button type='primary' onClick={() => setEditMode(true)}>
-                  Edit
+                <Button
+                  type='primary'
+                  className='details__addBtn'
+                  onClick={() => setEditMode(true)}
+                >
+                  <Icons.edit /> Edit
                 </Button>
               </Col>
             )}

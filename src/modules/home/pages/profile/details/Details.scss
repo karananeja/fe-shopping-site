@@ -11,6 +11,16 @@
     height: 2.5rem;
   }
 
+  &__addBtn {
+    @include flexCenter;
+    gap: 0.5rem;
+
+    svg {
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+
   .ant-input-group-addon {
     background: transparent;
   }
@@ -50,7 +60,7 @@ html[data-mode='dark'] .details {
           .ant-select {
             &-selector {
               background-color: $gray-color !important;
-              border-color: #bfbfbf !important;
+              border-color: $gray-color-1 !important;
               border-width: 1px 0 !important;
             }
 
@@ -69,7 +79,7 @@ html[data-mode='dark'] .details {
 
             &-disabled > .ant-select-selector {
               background: $gray-color-2 !important;
-              border-color: #bfbfbf !important;
+              border-color: $gray-color-1 !important;
               border-width: 1px 0 !important;
             }
           }
