@@ -29,8 +29,6 @@ const Details = () => {
 
   const { data: countryList, isLoading } = useCountryList({
     select: (data) => data?.countryList,
-    onSuccess: (data) =>
-      detailsForm.setFieldValue('dialCode', data[0].dialCode),
   });
 
   const { isLoading: isUpdating, mutateAsync: updateUserInfo } =
@@ -131,6 +129,7 @@ const Details = () => {
                 form={detailsForm}
                 onFinish={updateDetails}
                 requiredMark={false}
+                initialValues={{ dialCode: countryList?.[0].dialCode }}
               >
                 <Row gutter={24}>
                   <Col span={12}>
