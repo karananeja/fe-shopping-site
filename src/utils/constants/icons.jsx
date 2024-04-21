@@ -148,6 +148,23 @@ export const Icons = {
       <path d='m15 5 4 4' />
     </svg>
   ),
+  add: (props) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <path d='M5 12h14' />
+      <path d='M12 5v14' />
+    </svg>
+  ),
   users: (props) => (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -180,6 +197,24 @@ export const Icons = {
     >
       <circle cx='12' cy='12' r='10' />
       <path d='m9 12 2 2 4-4' />
+    </svg>
+  ),
+  more: (props) => (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      stroke='currentColor'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      {...props}
+    >
+      <circle cx='12' cy='12' r='1' />
+      <circle cx='12' cy='5' r='1' />
+      <circle cx='12' cy='19' r='1' />
     </svg>
   ),
 };
