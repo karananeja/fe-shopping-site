@@ -1,0 +1,76 @@
+@use '@modules/shared/styles' as *;
+
+.address {
+  width: 100%;
+
+  &__card {
+    height: 100%;
+  }
+
+  &__infoRow {
+    height: 2.5rem;
+  }
+
+  &__addBtn {
+    @include flexCenter;
+    gap: 0.5rem;
+
+    svg {
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+
+  &__list {
+    gap: 0.5rem;
+  }
+
+  &__item {
+    display: flex;
+    border: 1px solid $gray-color-1;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    gap: 0.5rem;
+  }
+
+  &__type {
+    font-size: 0.75rem;
+    background-color: $gray-color;
+    color: $white-color;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    width: 4rem;
+    text-align: center;
+  }
+
+  &__name {
+    display: flex;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+
+  &__data {
+    span {
+      font-weight: 600;
+    }
+  }
+
+  &__noData {
+    display: flex;
+    height: calc(100vh - 18rem);
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}
