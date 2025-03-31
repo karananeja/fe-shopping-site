@@ -1,11 +1,12 @@
 import {
+  deleteUserAddress,
   getUserAddressList,
   getUserInfo,
   updateUserInfo,
 } from '@services/userClient';
 import { getCountryList } from '@services/utilsConnect';
 import { QUERY_KEYS } from '@utils/constants';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 
 /**
  * @summary This method is used to get the country list
@@ -40,4 +41,19 @@ export const useGetUserInfo = (options = {}) => {
  */
 export const useGetUserAddressList = (options = {}) => {
   return useQuery(QUERY_KEYS.USER_ADDRESS_LIST, getUserAddressList, options);
+};
+
+/**
+ * @summary This method is used to delete the user address
+ * @param {object} options
+ */
+export const useDeleteUserAddress = (options = {}) => {
+  const queryClient = useQueryClient();
+  return useMutation(deleteUserAddress, {
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.USER_ADDRESS_LIST,
+      }),
+    ...options,
+  });
 };
