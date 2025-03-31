@@ -49,7 +49,6 @@ const AddressForm = () => {
             <Col span={12}>
               <Form.Item
                 label={KEYS.LAST_NAME.LABEL}
-                name={KEYS.LAST_NAME.NAME}
                 rules={[{ required: true, message: KEYS.LAST_NAME.MESSAGE }]}
               >
                 <Input />
@@ -59,7 +58,6 @@ const AddressForm = () => {
             <Col span={12}>
               <Form.Item
                 label={KEYS.EMAIL.LABEL}
-                name={KEYS.EMAIL.NAME}
                 rules={[
                   { required: true, message: KEYS.EMAIL.MESSAGE },
                   {
@@ -75,7 +73,6 @@ const AddressForm = () => {
             <Col span={12}>
               <Form.Item
                 label={KEYS.BIRTH_DATE.LABEL}
-                name={KEYS.BIRTH_DATE.NAME}
                 rules={[{ required: true, message: KEYS.BIRTH_DATE.MESSAGE }]}
               >
                 <Input type='date' />
@@ -85,7 +82,6 @@ const AddressForm = () => {
             <Col span={12}>
               <Form.Item
                 label={KEYS.PHONE_NUMBER.LABEL}
-                name={KEYS.PHONE_NUMBER.NAME}
                 rules={[
                   { required: true, message: KEYS.PHONE_NUMBER.MESSAGE },
                   {
