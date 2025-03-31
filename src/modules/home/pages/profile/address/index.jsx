@@ -1,74 +1,19 @@
 import AddressForm from '@modules/home/components/addressForm';
+import { useGetUserAddressList } from '@modules/home/hooks';
+import Loader from '@modules/shared/components/loader';
 import { Icons } from '@utils/constants';
 import { Card, Col, Divider, Row, Typography } from 'antd';
 import './Address.scss';
 
 const { Text, Title } = Typography;
 
-const addresses = [
-  {
-    id: 1,
-    type: 'Home',
-    name: 'Karan Kumar Aneja R',
-    phone: '9980672016',
-    addressLine1: '43, 3rd cross, shirdi sai nagar',
-    addressLine2: 'k narayanapura',
-    city: 'bengaluru',
-    state: 'Karnataka',
-    pincode: 560077,
-    isDefault: true,
-  },
-  {
-    id: 11,
-    type: 'Home',
-    name: 'Karan Kumar Aneja R',
-    phone: '9980672016',
-    addressLine1: '43, 3rd cross, shirdi sai nagar',
-    addressLine2: 'k narayanapura',
-    city: 'bengaluru',
-    state: 'Karnataka',
-    pincode: 560077,
-    isDefault: false,
-  },
-  {
-    id: 111,
-    type: 'Home',
-    name: 'Karan Kumar Aneja R',
-    phone: '9980672016',
-    addressLine1: '43, 3rd cross, shirdi sai nagar',
-    addressLine2: 'k narayanapura',
-    city: 'bengaluru',
-    state: 'Karnataka',
-    pincode: 560077,
-    isDefault: false,
-  },
-  {
-    id: 1111,
-    type: 'Home',
-    name: 'Karan Kumar Aneja R',
-    phone: '9980672016',
-    addressLine1: '43, 3rd cross, shirdi sai nagar',
-    addressLine2: 'k narayanapura',
-    city: 'bengaluru',
-    state: 'Karnataka',
-    pincode: 560077,
-    isDefault: false,
-  },
-  {
-    id: 11111,
-    type: 'Home',
-    name: 'Karan Kumar Aneja R',
-    phone: '9980672016',
-    addressLine1: '43, 3rd cross, shirdi sai nagar',
-    addressLine2: 'k narayanapura',
-    city: 'bengaluru',
-    state: 'Karnataka',
-    pincode: 560077,
-    isDefault: false,
-  },
-];
-
 const Address = () => {
+  const { data: addressList, isLoading } = useGetUserAddressList({
+    select: (data) => data.userAddresses,
+  });
+
+  if (isLoading) return <Loader />;
+
   return (
     <Row className='address'>
       <Col span={24}>
@@ -89,17 +34,19 @@ const Address = () => {
               <Text type='secondary'>Available Addresses</Text>
             </Col>
 
-            <Col>
-              <AddressForm />
-            </Col>
+            {(addressList || []).length < 5 && (
+              <Col>
+                <AddressForm />
+              </Col>
+            )}
           </Row>
 
           <Divider />
 
           <Row gutter={24} className='address__list'>
-            {addresses.length ? (
-              addresses.map((address) => (
-                <Col span={24} key={address.id} className='address__item'>
+            {(addressList || []).length ? (
+              addressList.map((address) => (
+                <Col span={24} key={address._id} className='address__item'>
                   <div className='address__info'>
                     <span className='address__type'>
                       {address.type.toUpperCase()}

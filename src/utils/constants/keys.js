@@ -49,6 +49,7 @@ export const KEYS = {
 export const QUERY_KEYS = {
   COUNTRY_LIST: 'country_list',
   USER_INFO: 'user_info',
+  USER_ADDRESS_LIST: 'user_address_list',
 };
 
 export const ATOM_KEYS = { DARK_MODE: 'dark_mode' };

@@ -1,4 +1,8 @@
-import { getUserInfo, updateUserInfo } from '@services/userClient';
+import {
+  getUserAddressList,
+  getUserInfo,
+  updateUserInfo,
+} from '@services/userClient';
 import { getCountryList } from '@services/utilsConnect';
 import { QUERY_KEYS } from '@utils/constants';
 import { useMutation, useQuery } from 'react-query';
@@ -28,4 +32,12 @@ export const useUpdateUserInfo = (options = {}) => {
  */
 export const useGetUserInfo = (options = {}) => {
   return useQuery(QUERY_KEYS.USER_INFO, getUserInfo, options);
+};
+
+/**
+ * @summary This method is used to get the user address list
+ * @param {object} options
+ */
+export const useGetUserAddressList = (options = {}) => {
+  return useQuery(QUERY_KEYS.USER_ADDRESS_LIST, getUserAddressList, options);
 };

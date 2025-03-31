@@ -7,3 +7,7 @@ export const updateUserInfo = (body) => {
 export const getUserInfo = () => {
   return apiGet('/user/get-info');
 };
+
+export const getUserAddressList = () => {
+  return apiGet('/user/list-address');
+};
