@@ -97,8 +97,8 @@ const Address = () => {
           <Divider />
 
           <Row gutter={24} className='address__list'>
-            {addresses?.length ? (
-              addresses?.map((address) => (
+            {addresses.length ? (
+              addresses.map((address) => (
                 <Col span={24} key={address.id} className='address__item'>
                   <div className='address__info'>
                     <span className='address__type'>
