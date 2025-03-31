@@ -61,7 +61,9 @@ const SignIn = () => {
               { type: 'email', message: KEYS.EMAIL.VALID_MESSAGE },
             ]}
           >
-            <Input />
+            <Input
+              onInput={(e) => (e.target.value = e.target.value.toLowerCase())}
+            />
           </Item>
 
           <Item
