@@ -7,3 +7,14 @@ export const darkModeAtom = atom({
   default: false,
   effects: [localStorageEffect(ATOM_KEYS.DARK_MODE)],
 });
+
+export const cartItemsAtom = atom({
+  key: ATOM_KEYS.CART_ITEMS,
+  default: [],
+  effects: [localStorageEffect(ATOM_KEYS.CART_ITEMS)],
+});
+
+export const productSearchQueryAtom = atom({
+  key: ATOM_KEYS.PRODUCT_SEARCH_QUERY,
+  default: '',
+});

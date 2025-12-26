@@ -4,7 +4,7 @@ import {
   useUpdateUserInfo,
 } from '@modules/home/hooks/useHome';
 import Loader from '@modules/shared/components/loader';
-import { KEYS } from '@utils/constants';
+import { Icons, KEYS } from '@utils/constants';
 import { displayNotification } from '@utils/helpers';
 import {
   Button,
@@ -29,8 +29,6 @@ const Details = () => {
 
   const { data: countryList, isLoading } = useCountryList({
     select: (data) => data?.countryList,
-    onSuccess: (data) =>
-      detailsForm.setFieldValue('dialCode', data[0].dialCode),
   });
 
   const { isLoading: isUpdating, mutateAsync: updateUserInfo } =
@@ -99,8 +97,8 @@ const Details = () => {
           </Row>
 
           <Row
-            justify={'space-between'}
-            align={'middle'}
+            justify='space-between'
+            align='middle'
             gutter={48}
             className='details__infoRow'
           >
@@ -110,8 +108,12 @@ const Details = () => {
 
             {!editMode && (
               <Col>
-                <Button type='primary' onClick={() => setEditMode(true)}>
-                  Edit
+                <Button
+                  type='primary'
+                  className='details__addBtn'
+                  onClick={() => setEditMode(true)}
+                >
+                  <Icons.edit /> Edit
                 </Button>
               </Col>
             )}
@@ -127,8 +129,44 @@ const Details = () => {
                 form={detailsForm}
                 onFinish={updateDetails}
                 requiredMark={false}
+                initialValues={{ dialCode: countryList?.[0].dialCode }}
               >
                 <Row gutter={24}>
+                  <Col span={12}>
+                    <Form.Item
+                      label={KEYS.EMAIL.LABEL}
+                      name={KEYS.EMAIL.NAME}
+                      rules={[
+                        { required: true, message: KEYS.EMAIL.MESSAGE },
+                        {
+                          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                          message: KEYS.EMAIL.VALID_MESSAGE,
+                        },
+                      ]}
+                    >
+                      <Input type='email' disabled />
+                    </Form.Item>
+                  </Col>
+
+                  <Col span={12}>
+                    <Form.Item
+                      label={KEYS.PHONE_NUMBER.LABEL}
+                      name={KEYS.PHONE_NUMBER.NAME}
+                      rules={[
+                        { required: true, message: KEYS.PHONE_NUMBER.MESSAGE },
+                        {
+                          pattern: /^\d{10}$/,
+                          message: KEYS.PHONE_NUMBER.VALID_MESSAGE,
+                        },
+                      ]}
+                    >
+                      <Input
+                        addonBefore={prefixSelector}
+                        disabled={!editMode}
+                      />
+                    </Form.Item>
+                  </Col>
+
                   <Col span={12}>
                     <Form.Item
                       label={KEYS.FIRST_NAME.LABEL}
@@ -155,22 +193,6 @@ const Details = () => {
 
                   <Col span={12}>
                     <Form.Item
-                      label={KEYS.EMAIL.LABEL}
-                      name={KEYS.EMAIL.NAME}
-                      rules={[
-                        { required: true, message: KEYS.EMAIL.MESSAGE },
-                        {
-                          pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                          message: KEYS.EMAIL.VALID_MESSAGE,
-                        },
-                      ]}
-                    >
-                      <Input type='email' disabled={!editMode} />
-                    </Form.Item>
-                  </Col>
-
-                  <Col span={12}>
-                    <Form.Item
                       label={KEYS.BIRTH_DATE.LABEL}
                       name={KEYS.BIRTH_DATE.NAME}
                       rules={[
@@ -178,25 +200,6 @@ const Details = () => {
                       ]}
                     >
                       <Input type='date' disabled={!editMode} />
-                    </Form.Item>
-                  </Col>
-
-                  <Col span={12}>
-                    <Form.Item
-                      label={KEYS.PHONE_NUMBER.LABEL}
-                      name={KEYS.PHONE_NUMBER.NAME}
-                      rules={[
-                        { required: true, message: KEYS.PHONE_NUMBER.MESSAGE },
-                        {
-                          pattern: /^\d{10}$/,
-                          message: KEYS.PHONE_NUMBER.VALID_MESSAGE,
-                        },
-                      ]}
-                    >
-                      <Input
-                        addonBefore={prefixSelector}
-                        disabled={!editMode}
-                      />
                     </Form.Item>
                   </Col>
                 </Row>

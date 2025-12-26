@@ -1,4 +1,4 @@
-import { apiGet, apiPost } from './apiClient';
+import { apiDelete, apiGet, apiPost } from './apiClient';
 
 export const updateUserInfo = (body) => {
   return apiPost('/user/update-info', body);
@@ -6,4 +6,12 @@ export const updateUserInfo = (body) => {
 
 export const getUserInfo = () => {
   return apiGet('/user/get-info');
+};
+
+export const getUserAddressList = () => {
+  return apiGet('/user/list-address');
+};
+
+export const deleteUserAddress = (body) => {
+  return apiDelete('/user/delete-address', body);
 };

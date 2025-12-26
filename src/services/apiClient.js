@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { KEYS } from '@utils/constants';
 import { getValue } from '@utils/helpers/localStorageManagement';
+import axios from 'axios';
 import { errorHandler } from './errorHandler';
 
 const shoppingSite = axios.create({
@@ -57,3 +57,11 @@ export const apiDelete = async (url, body) => {
       throw error;
     });
 };
+
+shoppingSite.interceptors.response.use(null, (err) => {
+  const status = err.response.status;
+  if (status === 401) {
+    localStorage.clear();
+    window.location.reload();
+  }
+});

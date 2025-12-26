@@ -30,7 +30,14 @@ const ProfileMenu = () => {
             setActiveLink('details');
           },
         },
-        { key: 'address', label: 'Address' },
+        {
+          key: 'address',
+          label: 'Address',
+          onClick: () => {
+            navigate('address');
+            setActiveLink('address');
+          },
+        },
         { key: 'orders', label: 'Orders' },
         { key: 'account-settings', label: 'Account Settings' },
         {
