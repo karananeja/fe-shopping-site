@@ -52,4 +52,8 @@ export const QUERY_KEYS = {
   USER_ADDRESS_LIST: 'user_address_list',
 };
 
-export const ATOM_KEYS = { DARK_MODE: 'dark_mode' };
+export const ATOM_KEYS = {
+  DARK_MODE: 'dark_mode',
+  CART_ITEMS: 'cart_items',
+  PRODUCT_SEARCH_QUERY: 'product_search_query',
+};

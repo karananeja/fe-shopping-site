@@ -9,7 +9,7 @@ import Details from './pages/profile/details';
 
 const HomeRoutes = [
   {
-    path: '/',
+    path: '',
     element: <Home />,
     children: [
       { path: '', element: <Cards /> },

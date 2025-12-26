@@ -1,10 +1,16 @@
 @use '@modules/shared/styles' as *;
 
 .cards {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  align-items: start;
+  justify-items: center;
   height: calc(100vh - $navbar-height);
   overflow-y: auto;
+
+  &__empty {
+    @include flexCenter;
+    grid-column: 1 / -1;
+    height: 100%;
+  }
 }

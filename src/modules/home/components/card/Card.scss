@@ -1,69 +1,162 @@
 @use '@modules/shared/styles' as *;
 
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  margin: 0.5rem 0;
-  transition: all 0.2s ease-in-out;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   }
 
-  &:hover &__title {
-    text-decoration: underline;
+  &__link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__imgContainer {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: $white-color;
+    @include flexCenter;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.05) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
   }
 
   &__img {
-    height: 30vh;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
+    padding: 1rem;
+    transition: transform 0.3s ease;
   }
 
-  &__title a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include flexCenter;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+  }
 
-    svg {
-      margin: 0 0.5rem !important;
-    }
+  &__icon {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.3s ease;
+  }
+
+  &__content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+  }
+
+  &__price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: auto;
+  }
+
+  &:hover &__imgContainer::before {
+    opacity: 1;
+  }
+
+  &:hover &__img {
+    transform: scale(1.05);
+  }
+
+  &:hover &__overlay {
+    opacity: 1;
+  }
+
+  &:hover &__icon {
+    transform: scale(1.1);
   }
 }
 
 html[data-mode='light'] .card {
-  border: 1px solid $gray-color;
-  background-color: $gray-color;
+  background-color: $white-color;
+  border: 1px solid $gray-color-1;
 
   &:hover {
-    border: 1px solid $white-color;
+    border-color: $gray-color;
   }
 
   &__title {
-    color: $white-color;
+    color: $black-color;
+  }
 
-    svg {
-      fill: $white-color;
-    }
+  &__price {
+    color: $blue-color;
+  }
+
+  &__icon {
+    fill: $white-color;
   }
 }
 
 html[data-mode='dark'] .card {
-  border: 1px solid $gray-color;
-  background-color: $white-color;
+  background-color: $dm-form-bg-color;
+  border: 1px solid $gray-color-2;
 
   &:hover {
-    border: 1px solid $white-color;
+    border-color: $white-color;
   }
 
   &__title {
-    color: $gray-color;
+    color: $white-color;
+  }
 
-    svg {
-      fill: $gray-color;
-    }
+  &__price {
+    color: $dm-button-color;
+  }
+
+  &__icon {
+    fill: $white-color;
   }
 }
