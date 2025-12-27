@@ -25,5 +25,5 @@ export const updateUserAddress = (body) => {
 };
 
 export const resetPassword = (body) => {
-  return apiPost('/user/password/reset', body);
+  return apiPut('/user/reset-password', body);
 };
