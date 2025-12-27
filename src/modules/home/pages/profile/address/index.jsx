@@ -1,4 +1,5 @@
 import AddressForm from '@modules/home/components/address-form';
+import EditAddressForm from '@modules/home/components/edit-address-form';
 import {
   useDeleteUserAddress,
   useGetUserAddressList,
@@ -17,8 +18,9 @@ const { Text, Title } = Typography;
 const Address = () => {
   const searchQuery = useRecoilValue(searchQueryAtom);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedAddressId, setSelectedAddressId] = useState('');
+  const [editingAddress, setEditingAddress] = useState(null);
 
   const { data: addressList = [], isLoading } = useGetUserAddressList({
     select: (data) => data.userAddresses,
@@ -33,22 +35,29 @@ const Address = () => {
   const handleDelete = async () => {
     await deleteUserAddress({ id: selectedAddressId });
     displayNotification({ description: 'User Address deleted!' });
-    setIsModalOpen(false);
+    setIsDeleteModalOpen(false);
     setSelectedAddressId('');
   };
 
   const handleSelectedAddress = (id) => {
-    setIsModalOpen(true);
+    setIsDeleteModalOpen(true);
     setSelectedAddressId(id);
   };
 
-  const handleCancel = () => setIsModalOpen(false);
+  const handleCancelDelete = () => setIsDeleteModalOpen(false);
 
-  const items = (id) => [
+  const handleEdit = (address) => setEditingAddress(address);
+
+  const handleCloseEdit = () => setEditingAddress(null);
+
+  const items = (address) => [
     {
       key: 'edit',
       label: (
-        <div className='address__more__item'>
+        <div
+          className='address__more__item'
+          onClick={() => handleEdit(address)}
+        >
           <Icons.edit />
           Edit
         </div>
@@ -59,7 +68,7 @@ const Address = () => {
       label: (
         <div
           className='address__more__item'
-          onClick={() => handleSelectedAddress(id)}
+          onClick={() => handleSelectedAddress(address._id)}
         >
           <Icons.delete />
           Delete
@@ -129,7 +138,7 @@ const Address = () => {
                   </div>
 
                   <Dropdown
-                    menu={{ items: items(address._id) }}
+                    menu={{ items: items(address) }}
                     trigger={['click']}
                   >
                     <Icons.more />
@@ -143,11 +152,18 @@ const Address = () => {
         </Card>
       </Col>
 
+      {editingAddress && (
+        <EditAddressForm
+          addressData={editingAddress}
+          onClose={handleCloseEdit}
+        />
+      )}
+
       <Modal
         title='Delete Address'
-        open={isModalOpen}
+        open={isDeleteModalOpen}
         onOk={handleDelete}
-        onCancel={handleCancel}
+        onCancel={handleCancelDelete}
         okText='Delete'
         okType='danger'
         confirmLoading={isDeleting}

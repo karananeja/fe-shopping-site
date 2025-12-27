@@ -4,6 +4,7 @@ import {
   getUserAddressList,
   getUserInfo,
   resetPassword,
+  updateUserAddress,
   updateUserInfo,
 } from '@services/userClient';
 import { getCountryList } from '@services/utilsConnect';
@@ -67,6 +68,21 @@ export const useAddUserAddress = (options = {}) => {
 export const useDeleteUserAddress = (options = {}) => {
   const queryClient = useQueryClient();
   return useMutation(deleteUserAddress, {
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.USER_ADDRESS_LIST,
+      }),
+    ...options,
+  });
+};
+
+/**
+ * @summary This method is used to update the user address
+ * @param {object} options
+ */
+export const useUpdateUserAddress = (options = {}) => {
+  const queryClient = useQueryClient();
+  return useMutation(updateUserAddress, {
     onSuccess: () =>
       queryClient.invalidateQueries({
         queryKey: QUERY_KEYS.USER_ADDRESS_LIST,
