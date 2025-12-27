@@ -153,4 +153,4 @@ The application is deployed on Netlify:
 
 ## 📄 License
 
-This project is private and proprietary.
+This project is licensed under the MIT License - see the LICENSE file for details.
