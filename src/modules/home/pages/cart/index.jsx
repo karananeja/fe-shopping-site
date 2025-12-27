@@ -3,14 +3,14 @@ import {
   MinusCircleOutlined,
   PlusCircleOutlined,
 } from '@ant-design/icons';
-import { cartItemsAtom, productSearchQueryAtom } from '@store/globalState';
+import { cartItemsAtom, searchQueryAtom } from '@store/globalState';
 import { formatCurrency } from '@utils/helpers';
 import { Button, Empty } from 'antd';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import './Cart.scss';
 
 const Cart = () => {
-  const productSearchQuery = useRecoilValue(productSearchQueryAtom);
+  const searchQuery = useRecoilValue(searchQueryAtom);
   const [cartItems, setCartItems] = useRecoilState(cartItemsAtom);
 
   const totalAmount = cartItems.reduce(
@@ -21,7 +21,7 @@ const Cart = () => {
   const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const filteredCartItems = cartItems.filter((item) =>
-    item?.title?.toLowerCase().includes(productSearchQuery?.toLowerCase())
+    item?.title?.toLowerCase().includes(searchQuery?.toLowerCase())
   );
 
   const updateCart = (id, count) => {

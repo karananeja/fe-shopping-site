@@ -1,4 +1,4 @@
-import { productSearchQueryAtom } from '@store/globalState';
+import { searchQueryAtom } from '@store/globalState';
 import { Empty } from 'antd';
 import { useRecoilValue } from 'recoil';
 import data from '../../../../utils/sampleData.json';
@@ -6,10 +6,10 @@ import Card from '../card';
 import './Cards.scss';
 
 const Cards = () => {
-  const productSearchQuery = useRecoilValue(productSearchQueryAtom);
+  const searchQuery = useRecoilValue(searchQueryAtom);
 
   const filteredProducts = data.filter(({ title }) =>
-    title.toLowerCase().includes(productSearchQuery.toLowerCase())
+    title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (

@@ -4,23 +4,31 @@ import {
   useGetUserAddressList,
 } from '@modules/home/hooks';
 import Loader from '@modules/shared/components/loader';
+import { searchQueryAtom } from '@store/globalState';
 import { Icons } from '@utils/constants';
 import { displayNotification } from '@utils/helpers';
 import { Card, Col, Divider, Dropdown, Modal, Row, Typography } from 'antd';
 import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import './address.scss';
 
 const { Text, Title } = Typography;
 
 const Address = () => {
+  const searchQuery = useRecoilValue(searchQueryAtom);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedAddressId, setSelectedAddressId] = useState('');
 
-  const { data: addressList, isLoading } = useGetUserAddressList({
+  const { data: addressList = [], isLoading } = useGetUserAddressList({
     select: (data) => data.userAddresses,
   });
   const { isLoading: isDeleting, mutateAsync: deleteUserAddress } =
     useDeleteUserAddress();
+
+  const filteredAddressList = addressList.filter((address) =>
+    address.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const handleDelete = async () => {
     await deleteUserAddress({ id: selectedAddressId });
@@ -93,8 +101,8 @@ const Address = () => {
           <Divider />
 
           <Row gutter={24} className='address__list'>
-            {(addressList || []).length ? (
-              addressList.map((address) => (
+            {filteredAddressList.length ? (
+              filteredAddressList.map((address) => (
                 <Col span={24} key={address._id} className='address__item'>
                   <div className='address__info'>
                     <p className='address__info__type'>

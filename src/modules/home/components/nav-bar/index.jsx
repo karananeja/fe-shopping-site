@@ -1,7 +1,7 @@
 import { CloseCircleOutlined } from '@ant-design/icons';
 import { useAuthStatus } from '@modules/auth/hooks';
 import { useGetUserInfo } from '@modules/home/hooks/useHome';
-import { cartItemsAtom, productSearchQueryAtom } from '@store/globalState';
+import { cartItemsAtom, searchQueryAtom } from '@store/globalState';
 import { Icons } from '@utils/constants';
 import { Avatar } from 'antd';
 import { useRef } from 'react';
@@ -13,9 +13,7 @@ const NavBar = () => {
   const { loggedIn } = useAuthStatus();
 
   const cartItems = useRecoilValue(cartItemsAtom);
-  const [productSearchQuery, setProductSearchQuery] = useRecoilState(
-    productSearchQueryAtom
-  );
+  const [searchQuery, setSearchQuery] = useRecoilState(searchQueryAtom);
 
   const inputRef = useRef(null);
 
@@ -43,14 +41,14 @@ const NavBar = () => {
             ref={inputRef}
             type='text'
             placeholder="Search the name of the product you're looking for"
-            value={productSearchQuery}
-            onChange={(e) => setProductSearchQuery(e.target.value)}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             autoFocus
           />
-          {productSearchQuery && (
+          {searchQuery && (
             <CloseCircleOutlined
               className='header__searchBar-clear'
-              onClick={() => setProductSearchQuery('')}
+              onClick={() => setSearchQuery('')}
             />
           )}
         </div>

@@ -1,3 +1,4 @@
+import { useAddUserAddress } from '@modules/home/hooks';
 import { Icons } from '@utils/constants';
 import { Button, Checkbox, Col, Form, Input, Modal, Row, Select } from 'antd';
 import { useState } from 'react';
@@ -8,6 +9,9 @@ const { Option } = Select;
 const AddressForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [addressForm] = Form.useForm();
+
+  const { mutateAsync: addUserAddress, isLoading: isAdding } =
+    useAddUserAddress();
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -22,14 +26,12 @@ const AddressForm = () => {
   const handleOk = () => {
     addressForm
       .validateFields()
-      .then((values) => {
-        console.log({ values });
+      .then(async (values) => {
+        await addUserAddress(values);
         setIsModalOpen(false);
         addressForm.resetFields();
       })
-      .catch((info) => {
-        console.log('Validate Failed:', info);
-      });
+      .catch((info) => console.log('Validate Failed:', info));
   };
 
   return (
@@ -42,6 +44,8 @@ const AddressForm = () => {
         open={isModalOpen}
         onOk={handleOk}
         okText='Save'
+        loading={isAdding}
+        disabled={isAdding}
         onCancel={handleCancel}
         className='addressForm__modal'
         width={700}

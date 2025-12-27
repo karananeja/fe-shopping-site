@@ -12,6 +12,10 @@ export const getUserAddressList = () => {
   return apiGet('/user/list-address');
 };
 
+export const addUserAddress = (body) => {
+  return apiPost('/user/add-address', body);
+};
+
 export const deleteUserAddress = (body) => {
   return apiDelete('/user/delete-address', body);
 };

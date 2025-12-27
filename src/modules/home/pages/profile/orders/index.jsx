@@ -1,4 +1,4 @@
-import { productSearchQueryAtom } from '@store/globalState';
+import { searchQueryAtom } from '@store/globalState';
 import { formatCurrency } from '@utils/helpers';
 import { Card, Col, Row, Tag, Typography } from 'antd';
 import dayjs from 'dayjs';
@@ -32,10 +32,10 @@ const formatDateTime = (dateString) => {
 };
 
 const Orders = () => {
-  const productSearchQuery = useRecoilValue(productSearchQueryAtom);
+  const searchQuery = useRecoilValue(searchQueryAtom);
 
   const filteredOrders = sampleOrdersData.filter((order) =>
-    order.id.toLowerCase().includes(productSearchQuery.toLowerCase())
+    order.id.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (

@@ -14,7 +14,7 @@ export const cartItemsAtom = atom({
   effects: [localStorageEffect(ATOM_KEYS.CART_ITEMS)],
 });
 
-export const productSearchQueryAtom = atom({
-  key: ATOM_KEYS.PRODUCT_SEARCH_QUERY,
+export const searchQueryAtom = atom({
+  key: ATOM_KEYS.SEARCH_QUERY,
   default: '',
 });

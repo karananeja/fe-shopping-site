@@ -55,5 +55,5 @@ export const QUERY_KEYS = {
 export const ATOM_KEYS = {
   DARK_MODE: 'dark_mode',
   CART_ITEMS: 'cart_items',
-  PRODUCT_SEARCH_QUERY: 'product_search_query',
+  SEARCH_QUERY: 'search_query',
 };

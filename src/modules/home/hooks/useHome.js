@@ -1,4 +1,5 @@
 import {
+  addUserAddress,
   deleteUserAddress,
   getUserAddressList,
   getUserInfo,
@@ -42,6 +43,21 @@ export const useGetUserInfo = (options = {}) => {
  */
 export const useGetUserAddressList = (options = {}) => {
   return useQuery(QUERY_KEYS.USER_ADDRESS_LIST, getUserAddressList, options);
+};
+
+/**
+ * @summary This method is used to add the user address
+ * @param {object} options
+ */
+export const useAddUserAddress = (options = {}) => {
+  const queryClient = useQueryClient();
+  return useMutation(addUserAddress, {
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEYS.USER_ADDRESS_LIST,
+      }),
+    ...options,
+  });
 };
 
 /**
