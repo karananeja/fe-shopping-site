@@ -16,6 +16,7 @@ import {
   Typography,
   theme,
 } from 'antd';
+import CryptoJS from 'crypto-js';
 import { useState } from 'react';
 import './account-settings.scss';
 
@@ -33,24 +34,7 @@ const AccountSettings = () => {
   const [passwordForm] = useForm();
   const { token } = useToken();
 
-  const { isLoading, mutateAsync: resetPassword } = useResetPassword({
-    onSuccess: () => {
-      displayNotification({
-        type: 'success',
-        description: 'Password reset successfully!',
-      });
-      passwordForm.resetFields();
-      setPasswordChecks(PASSWORD_CHECK);
-      setEditMode(false);
-    },
-    onError: (error) => {
-      displayNotification({
-        type: 'error',
-        description:
-          error?.response?.data?.message || 'Failed to reset password',
-      });
-    },
-  });
+  const { isLoading, mutateAsync: resetPassword } = useResetPassword();
 
   const handlePasswordChange = (e) => {
     const password = e.target.value;
@@ -65,11 +49,24 @@ const AccountSettings = () => {
 
   const handleResetPassword = async (values) => {
     try {
-      await resetPassword({
-        currentPassword: values.currentPassword,
-        newPassword: values.newPassword,
+      const payload = {
+        currentPassword: CryptoJS.SHA256(values.currentPassword).toString(),
+        newPassword: CryptoJS.SHA256(values.newPassword).toString(),
+      };
+      await resetPassword(payload);
+
+      displayNotification({
+        type: 'success',
+        description: 'Password reset successfully!',
       });
+      passwordForm.resetFields();
+      setPasswordChecks(PASSWORD_CHECK);
+      setEditMode(false);
     } catch (err) {
+      displayNotification({
+        type: 'error',
+        description: err?.response?.data?.message || 'Failed to reset password',
+      });
       console.log({ err });
     }
   };

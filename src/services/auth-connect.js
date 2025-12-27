@@ -1,6 +1,6 @@
 import { apiPost } from './api-client';
 
-//register user which accepts an email id to send the verification link
+//register user
 export const signUpUser = (body) => {
   return apiPost('/user/register', body);
 };

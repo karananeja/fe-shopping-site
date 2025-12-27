@@ -3,6 +3,7 @@ import { useSignUp } from '@modules/auth/hooks';
 import { Icons, KEYS, PASSWORD_CHECK } from '@utils/constants';
 import { setValue } from '@utils/helpers';
 import { Button, Form, Input, Popover, Space, theme } from 'antd';
+import CryptoJS from 'crypto-js';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './sign-up.scss';
@@ -27,8 +28,12 @@ const SignUp = () => {
   });
 
   const handleSignUpSubmit = (credentials) => {
+    const payload = {
+      email: credentials.email,
+      password: CryptoJS.SHA256(credentials.password).toString(),
+    };
     try {
-      signUp(credentials);
+      signUp(payload);
     } catch (err) {
       console.log({ err });
     }

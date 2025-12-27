@@ -3,6 +3,7 @@ import { useSignIn } from '@modules/auth/hooks';
 import { Icons, KEYS } from '@utils/constants';
 import { setValue } from '@utils/helpers';
 import { Button, Form, Input } from 'antd';
+import CryptoJS from 'crypto-js';
 import { Link, useNavigate } from 'react-router-dom';
 import '../../auth-home.scss';
 import './sign-in.scss';
@@ -25,7 +26,7 @@ const SignIn = () => {
   const handleSignInSubmit = (credentials) => {
     const payload = {
       email: credentials.email,
-      password: credentials.password,
+      password: CryptoJS.SHA256(credentials.password).toString(),
     };
 
     try {
