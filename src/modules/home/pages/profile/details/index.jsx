@@ -2,7 +2,7 @@ import {
   useCountryList,
   useGetUserInfo,
   useUpdateUserInfo,
-} from '@modules/home/hooks/useHome';
+} from '@modules/home/hooks/use-home';
 import Loader from '@modules/shared/components/loader';
 import { Icons, KEYS } from '@utils/constants';
 import { displayNotification } from '@utils/helpers';

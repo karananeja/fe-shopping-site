@@ -1,2 +1,2 @@
 export * from './helper';
-export * from './localStorageManagement';
+export * from './local-storage-management';

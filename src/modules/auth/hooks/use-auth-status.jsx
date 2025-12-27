@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getValue } from '@utils/helpers/localStorageManagement';
+import { getValue } from '@utils/helpers/local-storage-management';
 import { KEYS } from '@utils/constants';
 
 export const useAuthStatus = () => {

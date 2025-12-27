@@ -3,7 +3,7 @@ import {
   MinusCircleOutlined,
   PlusCircleOutlined,
 } from '@ant-design/icons';
-import { cartItemsAtom, searchQueryAtom } from '@store/globalState';
+import { cartItemsAtom, searchQueryAtom } from '@store/global-state';
 import { formatCurrency } from '@utils/helpers';
 import { Button, Empty } from 'antd';
 import { useRecoilState, useRecoilValue } from 'recoil';

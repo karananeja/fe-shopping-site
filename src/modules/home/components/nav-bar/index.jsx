@@ -1,7 +1,7 @@
 import { CloseCircleOutlined } from '@ant-design/icons';
 import { useAuthStatus } from '@modules/auth/hooks';
-import { useGetUserInfo } from '@modules/home/hooks/useHome';
-import { cartItemsAtom, searchQueryAtom } from '@store/globalState';
+import { useGetUserInfo } from '@modules/home/hooks/use-home';
+import { cartItemsAtom, searchQueryAtom } from '@store/global-state';
 import { Icons } from '@utils/constants';
 import { Avatar } from 'antd';
 import { useRef } from 'react';

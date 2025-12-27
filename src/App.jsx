@@ -4,7 +4,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { RouterProvider } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import router from './router';
-import { queryClient } from './services/queryClient';
+import { queryClient } from './services/query-client';
 import { theme } from './utils/constants/theme';
 
 const App = () => {

@@ -1,3 +1,3 @@
-export * from './useAuthStatus';
-export * from './useSignIn';
-export * from './useSignUp';
+export * from './use-auth-status';
+export * from './use-sign-in';
+export * from './use-sign-up';

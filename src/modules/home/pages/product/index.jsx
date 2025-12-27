@@ -3,7 +3,7 @@ import {
   MinusCircleOutlined,
   PlusCircleOutlined,
 } from '@ant-design/icons';
-import { cartItemsAtom } from '@store/globalState';
+import { cartItemsAtom } from '@store/global-state';
 import { Icons } from '@utils/constants';
 import { formatCurrency } from '@utils/helpers';
 import { Button } from 'antd';

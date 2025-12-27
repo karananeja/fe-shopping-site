@@ -1,7 +1,7 @@
 import { KEYS } from '@utils/constants';
-import { getValue } from '@utils/helpers/localStorageManagement';
+import { getValue } from '@utils/helpers/local-storage-management';
 import axios from 'axios';
-import { errorHandler } from './errorHandler';
+import { errorHandler } from './error-handler';
 
 const shoppingSite = axios.create({
   baseURL: import.meta.env.VITE_APP_API_BASE_URL,

@@ -1,4 +1,4 @@
-import { searchQueryAtom } from '@store/globalState';
+import { searchQueryAtom } from '@store/global-state';
 import { Empty } from 'antd';
 import { useRecoilValue } from 'recoil';
 import data from '../../../../utils/sampleData.json';

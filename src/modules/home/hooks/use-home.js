@@ -6,8 +6,8 @@ import {
   resetPassword,
   updateUserAddress,
   updateUserInfo,
-} from '@services/userClient';
-import { getCountryList } from '@services/utilsConnect';
+} from '@services/user-client';
+import { getCountryList } from '@services/utils-connect';
 import { QUERY_KEYS } from '@utils/constants';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 

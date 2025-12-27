@@ -1,4 +1,4 @@
-import { useDarkMode } from '@hooks/useUtils';
+import { useDarkMode } from '@hooks/use-utils';
 import { useSignUp } from '@modules/auth/hooks';
 import { Icons, KEYS, PASSWORD_CHECK } from '@utils/constants';
 import { setValue } from '@utils/helpers';

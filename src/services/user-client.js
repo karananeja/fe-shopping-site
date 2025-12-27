@@ -1,4 +1,4 @@
-import { apiDelete, apiGet, apiPost, apiPut } from './apiClient';
+import { apiDelete, apiGet, apiPost, apiPut } from './api-client';
 
 export const updateUserInfo = (body) => {
   return apiPost('/user/update-info', body);

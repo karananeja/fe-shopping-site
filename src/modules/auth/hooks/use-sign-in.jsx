@@ -1,5 +1,5 @@
 import { useMutation } from 'react-query';
-import { signInUser } from '@services/authConnect';
+import { signInUser } from '@services/auth-connect';
 
 /**
  * @summary This method is used to sign up

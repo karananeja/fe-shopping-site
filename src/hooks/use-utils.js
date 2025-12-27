@@ -1,4 +1,4 @@
-import { darkModeAtom } from '@store/globalState';
+import { darkModeAtom } from '@store/global-state';
 import { KEYS } from '@utils/constants';
 import { useRecoilState } from 'recoil';
 

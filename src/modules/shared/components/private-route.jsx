@@ -1,4 +1,4 @@
-import { useAuthStatus } from '@modules/auth/hooks/useAuthStatus';
+import { useAuthStatus } from '@modules/auth/hooks/use-auth-status';
 import { KEYS } from '@utils/constants';
 import { deleteValue } from '@utils/helpers';
 import { useEffect } from 'react';

@@ -1,1 +1,1 @@
-export * from './useUtils';
+export * from './use-utils';

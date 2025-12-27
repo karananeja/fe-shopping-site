@@ -5,7 +5,7 @@ import {
   useGetUserAddressList,
 } from '@modules/home/hooks';
 import Loader from '@modules/shared/components/loader';
-import { searchQueryAtom } from '@store/globalState';
+import { searchQueryAtom } from '@store/global-state';
 import { Icons } from '@utils/constants';
 import { displayNotification } from '@utils/helpers';
 import { Card, Col, Divider, Dropdown, Modal, Row, Typography } from 'antd';

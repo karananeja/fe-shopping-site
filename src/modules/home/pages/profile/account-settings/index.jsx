@@ -1,5 +1,5 @@
-import { useDarkMode } from '@hooks/useUtils';
-import { useResetPassword } from '@modules/home/hooks/useHome';
+import { useDarkMode } from '@hooks/use-utils';
+import { useResetPassword } from '@modules/home/hooks/use-home';
 import { Icons, PASSWORD_CHECK } from '@utils/constants';
 import { displayNotification } from '@utils/helpers';
 import {

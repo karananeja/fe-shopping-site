@@ -1,4 +1,4 @@
-import PrivateRoute from '@modules/shared/components/PrivateRoute';
+import PrivateRoute from '@modules/shared/components/private-route';
 import Cards from './components/cards';
 import Home from './index';
 import Cart from './pages/cart';

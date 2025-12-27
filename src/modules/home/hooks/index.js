@@ -1,1 +1,1 @@
-export * from './useHome';
+export * from './use-home';
