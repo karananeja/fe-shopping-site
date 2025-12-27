@@ -15,3 +15,7 @@ export const getUserAddressList = () => {
 export const deleteUserAddress = (body) => {
   return apiDelete('/user/delete-address', body);
 };
+
+export const resetPassword = (body) => {
+  return apiPost('/user/password/reset', body);
+};

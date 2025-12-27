@@ -1,0 +1,125 @@
+[
+  {
+    "id": "ORD-001",
+    "orderDate": "2024-01-15T10:30:00Z",
+    "status": "delivered",
+    "totalAmount": 200000,
+    "items": [
+      {
+        "id": 1,
+        "title": "Semi Automatic Shuttle",
+        "imageUrl": "https://2.imimg.com/data2/BV/MK/MY-618710/semi-automatic-shuttle-loom-machine-500x500.jpg",
+        "price": 100000,
+        "quantity": 2
+      }
+    ],
+    "shippingAddress": {
+      "name": "John Doe",
+      "phone": "+91 9876543210",
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apartment 4B",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001"
+    },
+    "deliveryDate": "2024-01-20T14:00:00Z"
+  },
+  {
+    "id": "ORD-002",
+    "orderDate": "2024-01-20T09:15:00Z",
+    "status": "shipped",
+    "totalAmount": 300000,
+    "items": [
+      {
+        "id": 2,
+        "title": "Semi Automatic Shuttle",
+        "imageUrl": "https://2.imimg.com/data2/BV/MK/MY-618710/semi-automatic-shuttle-loom-machine-500x500.jpg",
+        "price": 100000,
+        "quantity": 3
+      }
+    ],
+    "shippingAddress": {
+      "name": "John Doe",
+      "phone": "+91 9876543210",
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apartment 4B",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001"
+    },
+    "estimatedDeliveryDate": "2024-01-25T18:00:00Z"
+  },
+  {
+    "id": "ORD-003",
+    "orderDate": "2024-01-25T11:45:00Z",
+    "status": "processing",
+    "totalAmount": 100000,
+    "items": [
+      {
+        "id": 3,
+        "title": "Semi Automatic Shuttle",
+        "imageUrl": "https://2.imimg.com/data2/BV/MK/MY-618710/semi-automatic-shuttle-loom-machine-500x500.jpg",
+        "price": 100000,
+        "quantity": 1
+      }
+    ],
+    "shippingAddress": {
+      "name": "John Doe",
+      "phone": "+91 9876543210",
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apartment 4B",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001"
+    }
+  },
+  {
+    "id": "ORD-004",
+    "orderDate": "2024-01-10T14:20:00Z",
+    "status": "delivered",
+    "totalAmount": 500000,
+    "items": [
+      {
+        "id": 4,
+        "title": "Semi Automatic Shuttle",
+        "imageUrl": "https://2.imimg.com/data2/BV/MK/MY-618710/semi-automatic-shuttle-loom-machine-500x500.jpg",
+        "price": 100000,
+        "quantity": 5
+      }
+    ],
+    "shippingAddress": {
+      "name": "John Doe",
+      "phone": "+91 9876543210",
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apartment 4B",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001"
+    },
+    "deliveryDate": "2024-01-18T16:30:00Z"
+  },
+  {
+    "id": "ORD-005",
+    "orderDate": "2024-01-28T08:00:00Z",
+    "status": "cancelled",
+    "totalAmount": 200000,
+    "items": [
+      {
+        "id": 5,
+        "title": "Semi Automatic Shuttle",
+        "imageUrl": "https://2.imimg.com/data2/BV/MK/MY-618710/semi-automatic-shuttle-loom-machine-500x500.jpg",
+        "price": 100000,
+        "quantity": 2
+      }
+    ],
+    "shippingAddress": {
+      "name": "John Doe",
+      "phone": "+91 9876543210",
+      "addressLine1": "123 Main Street",
+      "addressLine2": "Apartment 4B",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400001"
+    }
+  }
+]

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import NavBar from './components/navBar';
-import './Home.scss';
+import NavBar from './components/nav-bar';
+import './home.scss';
 
 const Home = () => {
   return (

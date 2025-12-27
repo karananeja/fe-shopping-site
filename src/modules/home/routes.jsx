@@ -4,8 +4,10 @@ import Home from './index';
 import Cart from './pages/cart';
 import Product from './pages/product';
 import Profile from './pages/profile';
+import AccountSettings from './pages/profile/account-settings';
 import Address from './pages/profile/address';
 import Details from './pages/profile/details';
+import Orders from './pages/profile/orders';
 
 const HomeRoutes = [
   {
@@ -25,6 +27,8 @@ const HomeRoutes = [
         children: [
           { path: 'details', element: <Details /> },
           { path: 'address', element: <Address /> },
+          { path: 'orders', element: <Orders /> },
+          { path: 'account-settings', element: <AccountSettings /> },
         ],
       },
     ],

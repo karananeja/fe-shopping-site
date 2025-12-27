@@ -124,15 +124,24 @@ html[data-mode='light'] .card {
   border: 1px solid $gray-color-1;
 
   &:hover {
-    border-color: $gray-color;
+    border-color: $primary-color;
+    box-shadow: 0 12px 24px rgba(74, 144, 226, 0.2);
   }
 
   &__title {
     color: $black-color;
   }
 
+  &__title:hover {
+    color: $primary-color;
+  }
+
   &__price {
-    color: $blue-color;
+    color: $primary-color;
+    background: linear-gradient(135deg, $primary-color 0%, $purple-color 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   &__icon {
@@ -145,15 +154,28 @@ html[data-mode='dark'] .card {
   border: 1px solid $gray-color-2;
 
   &:hover {
-    border-color: $white-color;
+    border-color: $dm-primary-color;
+    box-shadow: 0 12px 24px rgba(91, 163, 245, 0.3);
   }
 
   &__title {
     color: $white-color;
   }
 
+  &__title:hover {
+    color: $dm-primary-color;
+  }
+
   &__price {
-    color: $dm-button-color;
+    color: $dm-primary-color;
+    background: linear-gradient(
+      135deg,
+      $dm-primary-color 0%,
+      $dm-purple-color 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   &__icon {

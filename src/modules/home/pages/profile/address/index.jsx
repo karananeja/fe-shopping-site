@@ -1,4 +1,4 @@
-import AddressForm from '@modules/home/components/addressForm';
+import AddressForm from '@modules/home/components/address-form';
 import {
   useDeleteUserAddress,
   useGetUserAddressList,
@@ -8,7 +8,7 @@ import { Icons } from '@utils/constants';
 import { displayNotification } from '@utils/helpers';
 import { Card, Col, Divider, Dropdown, Modal, Row, Typography } from 'antd';
 import { useState } from 'react';
-import './Address.scss';
+import './address.scss';
 
 const { Text, Title } = Typography;
 

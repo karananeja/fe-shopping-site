@@ -1,0 +1,447 @@
+@use '@modules/shared/styles' as *;
+
+.sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  &__logo,
+  &__form {
+    flex: 0.5;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 2rem;
+    transition: all 0.3s ease-in-out;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      svg {
+        fill: $white-color;
+        width: 3rem;
+        height: 3rem;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+
+  &__form__layout {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 30%;
+    min-width: 400px;
+    max-width: 500px;
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    transition: all 0.3s ease-in-out;
+
+    > * {
+      margin: 1.25rem 0;
+    }
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    margin: 0 0 1.5rem 0 !important;
+    padding: 0 !important;
+    background: linear-gradient(135deg, $primary-color 0%, $purple-color 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__form {
+    width: 100%;
+
+    > * {
+      margin: 1.25rem 0;
+    }
+
+    .ant-form-item-label > label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .ant-input,
+    .ant-input-password {
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      transition: all 0.3s ease-in-out;
+      border-width: 2px;
+
+      &:hover {
+        border-color: $primary-color;
+      }
+
+      &:focus,
+      &.ant-input-focused {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+      }
+    }
+
+    button {
+      width: 100%;
+      height: 3rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      background: linear-gradient(
+        135deg,
+        $primary-color 0%,
+        $purple-color 100%
+      );
+      border: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        background: linear-gradient(
+          135deg,
+          $primary-hover 0%,
+          $purple-color 100%
+        );
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+
+  &__user__validate {
+    text-align: center;
+    font-size: 0.95rem;
+    margin-top: 1.5rem;
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(
+          135deg,
+          $primary-color 0%,
+          $purple-color 100%
+        );
+        transition: width 0.3s ease-in-out;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__icon {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+html[data-mode='light'] .sign {
+  background: linear-gradient(135deg, $primary-color 0%, $purple-color 100%);
+  background-color: $primary-color;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 20% 50%,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(155, 89, 182, 0.2) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+  }
+
+  &__logo {
+    color: $white-color;
+    z-index: 1;
+
+    svg {
+      filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+    }
+  }
+
+  &__form__layout {
+    background-color: $white-color;
+    box-shadow: 0 20px 60px rgba(74, 144, 226, 0.3),
+      0 0 0 1px rgba(74, 144, 226, 0.1);
+    border: 2px solid rgba(74, 144, 226, 0.2);
+    z-index: 1;
+    backdrop-filter: blur(10px);
+  }
+
+  &__form {
+    .ant-form-item-label > label {
+      color: $black-color;
+    }
+
+    .ant-input,
+    .ant-input-password {
+      border-color: $gray-color-1;
+      color: $black-color;
+
+      &::placeholder {
+        color: $gray-color-2;
+      }
+    }
+  }
+
+  &__user__validate {
+    color: $gray-color;
+
+    a {
+      color: $primary-color;
+
+      &:hover {
+        color: $purple-color;
+      }
+    }
+  }
+}
+
+html[data-mode='dark'] .sign {
+  background: linear-gradient(
+    135deg,
+    $dm-primary-color 0%,
+    $dm-purple-color 100%
+  );
+  background-color: $dm-primary-color;
+  color: $white-color;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at 20% 50%,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 80%,
+        rgba(167, 139, 250, 0.2) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+  }
+
+  &__logo {
+    color: $white-color;
+    z-index: 1;
+
+    svg {
+      filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+    }
+  }
+
+  &__form__layout {
+    background-color: $dm-form-bg-color;
+    box-shadow: 0 20px 60px rgba(91, 163, 245, 0.4),
+      0 0 0 1px rgba(91, 163, 245, 0.2);
+    border: 2px solid rgba(91, 163, 245, 0.3);
+    z-index: 1;
+    backdrop-filter: blur(10px);
+  }
+
+  &__title {
+    background: linear-gradient(
+      135deg,
+      $dm-primary-color 0%,
+      $dm-purple-color 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__form {
+    .ant-form-item-label > label {
+      color: $white-color;
+    }
+
+    .ant-input,
+    .ant-input-password {
+      background-color: $dm-black-color;
+      border-color: $gray-color-2;
+      color: $white-color;
+
+      &::placeholder {
+        color: $gray-color-1;
+      }
+
+      &:hover {
+        border-color: $dm-primary-color;
+      }
+
+      &:focus,
+      &.ant-input-focused {
+        border-color: $dm-primary-color;
+        box-shadow: 0 0 0 3px rgba(91, 163, 245, 0.2);
+      }
+    }
+
+    button {
+      background: linear-gradient(
+        135deg,
+        $dm-primary-color 0%,
+        $dm-purple-color 100%
+      );
+      box-shadow: 0 4px 12px rgba(91, 163, 245, 0.4);
+
+      &:hover {
+        box-shadow: 0 6px 20px rgba(91, 163, 245, 0.5);
+        background: linear-gradient(
+          135deg,
+          $dm-primary-hover 0%,
+          $dm-purple-color 100%
+        );
+      }
+    }
+  }
+
+  &__user__validate {
+    color: $gray-color-1;
+
+    a {
+      color: $dm-primary-color;
+
+      &:hover {
+        color: $dm-purple-color;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sign {
+    flex-direction: column;
+    padding: 1rem;
+
+    &__logo {
+      padding: 1rem;
+      margin-bottom: 1rem;
+
+      a {
+        svg {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+    }
+
+    &__form__layout {
+      width: 90%;
+      min-width: unset;
+      max-width: 450px;
+      padding: 2rem 1.5rem;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .sign {
+    padding: 0.5rem;
+
+    &__logo {
+      padding: 0.5rem;
+
+      a {
+        padding: 0.75rem;
+
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+
+    &__form__layout {
+      width: 95%;
+      padding: 1.5rem 1rem;
+      border-radius: 1rem;
+    }
+
+    &__title {
+      font-size: 1.75rem;
+      margin-bottom: 1rem !important;
+    }
+
+    &__form {
+      .ant-input,
+      .ant-input-password {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.95rem;
+      }
+
+      button {
+        height: 2.75rem;
+        font-size: 1rem;
+      }
+    }
+
+    &__user__validate {
+      font-size: 0.875rem;
+    }
+  }
+}

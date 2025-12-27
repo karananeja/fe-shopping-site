@@ -4,8 +4,8 @@ import { Icons, KEYS } from '@utils/constants';
 import { setValue } from '@utils/helpers';
 import { Button, Form, Input } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import '../../AuthHome.scss';
-import './SignIn.scss';
+import '../../auth-home.scss';
+import './sign-in.scss';
 
 const { Item, useForm } = Form;
 const { Password } = Input;
@@ -80,7 +80,7 @@ const SignIn = () => {
         </Form>
         <div className='sign__user__validate'>
           Don&#39;t have an account?{' '}
-          <Link to='/auth/signup'>{KEYS.SIGN_UP}</Link>
+          <Link to='/auth/sign-up'>{KEYS.SIGN_UP}</Link>
         </div>
       </div>
     </div>

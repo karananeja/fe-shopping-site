@@ -3,7 +3,7 @@ import { deleteValue } from '@utils/helpers';
 import { Layout, Menu } from 'antd';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './ProfileMenu.scss';
+import './profile-menu.scss';
 
 const { Sider } = Layout;
 
@@ -38,8 +38,22 @@ const ProfileMenu = () => {
             setActiveLink('address');
           },
         },
-        { key: 'orders', label: 'Orders' },
-        { key: 'account-settings', label: 'Account Settings' },
+        {
+          key: 'orders',
+          label: 'Orders',
+          onClick: () => {
+            navigate('orders');
+            setActiveLink('orders');
+          },
+        },
+        {
+          key: 'account-settings',
+          label: 'Account Settings',
+          onClick: () => {
+            navigate('account-settings');
+            setActiveLink('account-settings');
+          },
+        },
         {
           key: 'logout',
           label: 'Logout',

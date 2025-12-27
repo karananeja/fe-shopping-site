@@ -1,5 +1,4 @@
 import { CloseCircleOutlined } from '@ant-design/icons';
-import { useDarkMode } from '@hooks/useUtils';
 import { useAuthStatus } from '@modules/auth/hooks';
 import { useGetUserInfo } from '@modules/home/hooks/useHome';
 import { cartItemsAtom, productSearchQueryAtom } from '@store/globalState';
@@ -8,10 +7,9 @@ import { Avatar } from 'antd';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import './NavBar.scss';
+import './nav-bar.scss';
 
 const NavBar = () => {
-  const { isDarkMode, setIsDarkMode } = useDarkMode();
   const { loggedIn } = useAuthStatus();
 
   const cartItems = useRecoilValue(cartItemsAtom);
@@ -31,8 +29,7 @@ const NavBar = () => {
   return (
     <header className='header'>
       <div className='header__left'>
-        {/* Brand Logo */}
-        <Link to='/'>
+        <Link to='/' className='header__logo'>
           <Icons.watermark />
         </Link>
       </div>
@@ -51,40 +48,45 @@ const NavBar = () => {
             autoFocus
           />
           {productSearchQuery && (
-            <CloseCircleOutlined onClick={() => setProductSearchQuery('')} />
+            <CloseCircleOutlined
+              className='header__searchBar-clear'
+              onClick={() => setProductSearchQuery('')}
+            />
           )}
         </div>
       </div>
       <div className='header__right'>
-        {/* Options */}
         <nav className='header__nav'>
           <ul className='header__unorderedList'>
             <li className='header__cart-item'>
-              <Link to='/cart'>
-                <span className='header__cart-item-count'>{totalItems}</span>
-                <Icons.shoppingCart />
+              <Link to='/cart' className='header__cart-link'>
+                <div className='header__cart-wrapper'>
+                  <Icons.shoppingCart className='header__cart-icon' />
+                  {totalItems > 0 && (
+                    <span className='header__cart-item-count'>
+                      {totalItems}
+                    </span>
+                  )}
+                </div>
               </Link>
             </li>
-            <li>
+            <li className='header__nav-item'>
               {loggedIn ? (
-                <Link to='/profile/details'>
+                <Link to='/profile/details' className='header__profile-link'>
                   {isInfoLoading ? (
-                    <Icons.account />
+                    <Icons.account className='header__profile-icon' />
                   ) : (
-                    <Avatar className='header__profile-avatar' size={24}>
+                    <Avatar className='header__profile-avatar' size={28}>
                       {userInfo?.firstName[0] ??
                         userInfo?.email[0].toUpperCase()}
                     </Avatar>
                   )}
                 </Link>
               ) : (
-                <Link to='/auth/signin'>
-                  <Icons.login />
+                <Link to='/auth/sign-in' className='header__login-link'>
+                  <Icons.login className='header__login-icon' />
                 </Link>
               )}
-            </li>
-            <li onClick={() => setIsDarkMode(!isDarkMode)}>
-              {isDarkMode ? <Icons.lightModeFilled /> : <Icons.lightMode />}
             </li>
           </ul>
         </nav>

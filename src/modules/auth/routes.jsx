@@ -1,13 +1,13 @@
 import AuthHome from '.';
-import SignIn from './pages/signIn';
-import SignUp from './pages/signUp';
+import SignIn from './pages/sign-in';
+import SignUp from './pages/sign-up';
 
 const AuthRoutes = {
   path: 'auth',
   element: <AuthHome />,
   children: [
-    { path: 'signin', element: <SignIn /> },
-    { path: 'signup', element: <SignUp /> },
+    { path: 'sign-in', element: <SignIn /> },
+    { path: 'sign-up', element: <SignUp /> },
   ],
 };
 

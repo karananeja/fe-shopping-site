@@ -317,7 +317,11 @@ html[data-mode='light'] .product {
   }
 
   &__price {
-    color: $blue-color;
+    color: $primary-color;
+    background: linear-gradient(135deg, $primary-color 0%, $purple-color 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   &__detailCard,
@@ -335,7 +339,7 @@ html[data-mode='light'] .product {
   }
 
   &__detailValue {
-    color: $black-color;
+    color: $primary-color;
   }
 
   &__specLabel {
@@ -343,7 +347,7 @@ html[data-mode='light'] .product {
   }
 
   &__specValue {
-    color: $black-color;
+    color: $primary-color;
   }
 
   &__quantityButton {
@@ -353,7 +357,7 @@ html[data-mode='light'] .product {
 
     &:hover:not(:disabled) {
       svg {
-        fill: $blue-color;
+        fill: $primary-color;
       }
     }
   }
@@ -387,7 +391,15 @@ html[data-mode='dark'] .product {
   }
 
   &__price {
-    color: $dm-button-color;
+    color: $dm-primary-color;
+    background: linear-gradient(
+      135deg,
+      $dm-primary-color 0%,
+      $dm-purple-color 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   &__detailCard,
@@ -412,9 +424,17 @@ html[data-mode='dark'] .product {
 
     &:hover:not(:disabled) {
       svg {
-        fill: $dm-button-color;
+        fill: $dm-primary-color;
       }
     }
+  }
+
+  &__detailValue {
+    color: $dm-primary-color;
+  }
+
+  &__specValue {
+    color: $dm-primary-color;
   }
 
   &__header,

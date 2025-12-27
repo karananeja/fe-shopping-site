@@ -5,7 +5,7 @@ import { setValue } from '@utils/helpers';
 import { Button, Form, Input, Popover, Space, theme } from 'antd';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './SignUp.scss';
+import './sign-up.scss';
 
 const { Item, useForm } = Form;
 const { Password } = Input;
@@ -54,12 +54,15 @@ const SignUp = () => {
             {check.valid ? (
               <Icons.check
                 className='sign__icon'
-                style={{ color: token.colorPrimary }}
+                style={{
+                  color: token.colorPrimary,
+                  filter: 'drop-shadow(0 0 4px rgba(74, 144, 226, 0.5))',
+                }}
               />
             ) : (
               <Icons.check
                 className='sign__icon'
-                style={{ color: '#e5e5e5' }}
+                style={{ color: '#e5e5e5', opacity: 0.5 }}
               />
             )}
             {check.label}
@@ -70,7 +73,7 @@ const SignUp = () => {
   );
 
   return (
-    <div className='sign'>
+    <div className='sign sign-up'>
       <div className='sign__logo'>
         {/* Brand Logo */}
         <Link to='/'>
@@ -151,7 +154,8 @@ const SignUp = () => {
           </Button>
         </Form>
         <div className='sign__user__validate'>
-          Already have an account? <Link to='/auth/signin'>{KEYS.SIGN_IN}</Link>
+          Already have an account?{' '}
+          <Link to='/auth/sign-in'>{KEYS.SIGN_IN}</Link>
         </div>
       </div>
     </div>

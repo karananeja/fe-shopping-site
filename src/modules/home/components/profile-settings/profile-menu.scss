@@ -1,0 +1,95 @@
+@use '@modules/shared/styles' as *;
+
+.profileMenu {
+  background: linear-gradient(180deg, $primary-color 0%, $purple-color 100%);
+  background-color: $primary-color !important;
+  box-shadow: 4px 0 16px rgba(74, 144, 226, 0.2);
+
+  &__icon {
+    padding-right: 0.5rem;
+    fill: $white-color;
+  }
+
+  .ant-menu {
+    background: transparent !important;
+    border: none;
+
+    &-item {
+      @include flexCenter;
+      justify-content: flex-start;
+      color: rgba(255, 255, 255, 0.9) !important;
+      border-radius: 0.5rem;
+      margin: 0.25rem 0.5rem;
+      transition: all 0.3s ease-in-out;
+
+      &-group-title {
+        display: flex;
+        align-items: center;
+        color: $white-color !important;
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 1rem 0.5rem 0.5rem;
+      }
+
+      &-selected {
+        background: rgba(255, 255, 255, 0.2) !important;
+        color: $white-color !important;
+        font-weight: 600;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+        &::after {
+          display: none;
+        }
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+        color: $white-color !important;
+        transform: translateX(4px);
+      }
+    }
+
+    &-submenu {
+      &-title {
+        color: rgba(255, 255, 255, 0.9) !important;
+
+        &:hover {
+          color: $white-color !important;
+        }
+      }
+    }
+
+    &-vertical {
+      border-inline-end: 0;
+    }
+  }
+}
+
+html[data-mode='dark'] .profileMenu {
+  background: linear-gradient(
+    180deg,
+    $dm-primary-color 0%,
+    $dm-purple-color 100%
+  );
+  background-color: $dm-primary-color !important;
+  box-shadow: 4px 0 16px rgba(91, 163, 245, 0.3);
+
+  .ant-layout-sider-children {
+    background: transparent;
+    border: none;
+  }
+
+  .ant-menu {
+    &-item {
+      &-selected {
+        background: rgba(255, 255, 255, 0.2) !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15) !important;
+      }
+    }
+  }
+}

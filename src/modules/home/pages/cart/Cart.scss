@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: 1.5rem;
   height: calc(100vh - $navbar-height);
-  padding: 1.5rem;
+  padding: 2rem;
   overflow: hidden;
 
   &__header {
@@ -13,17 +13,34 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 1rem;
-    border-bottom: 2px solid $gray-color-1;
+    border-bottom: 2px solid rgba(74, 144, 226, 0.2);
 
     h2 {
       margin: 0;
       font-size: 2rem;
-      font-weight: bold;
+      font-weight: 700;
+      background: linear-gradient(
+        135deg,
+        $primary-color 0%,
+        $purple-color 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     &Count {
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      background: linear-gradient(
+        135deg,
+        $primary-color 0%,
+        $purple-color 100%
+      );
+      color: $white-color;
+      border-radius: 1rem;
+      box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
     }
   }
 
@@ -42,38 +59,46 @@
   &__items {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden;
     padding-right: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    min-height: 0;
 
     &::-webkit-scrollbar {
-      width: 8px;
+      width: 6px;
     }
 
     &::-webkit-scrollbar-track {
       background: transparent;
+      border-radius: 3px;
     }
 
     &::-webkit-scrollbar-thumb {
-      border-radius: 4px;
+      background: rgba(74, 144, 226, 0.3);
+      border-radius: 3px;
+
+      &:hover {
+        background: rgba(74, 144, 226, 0.5);
+      }
     }
   }
 
   &__item {
     display: flex;
     gap: 1.5rem;
-    border: 1px solid $gray-color-1;
-    border-radius: 0.75rem;
+    border: 2px solid $gray-color-1;
+    border-radius: 1rem;
     padding: 1.5rem;
-    background-color: inherit;
+    background-color: $white-color;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      border-color: $gray-color-2;
+      box-shadow: 0 4px 16px rgba(74, 144, 226, 0.2);
+      border-color: $primary-color;
     }
 
     &ImageContainer {
@@ -81,17 +106,28 @@
       width: 12rem;
       height: 12rem;
       @include flexCenter;
-      border-radius: 0.5rem;
+      border-radius: 0.75rem;
       overflow: hidden;
       background-color: $white-color;
-      border: 1px solid $gray-color-1;
+      border: 2px solid rgba(74, 144, 226, 0.1);
+      transition: all 0.3s ease-in-out;
     }
 
     &Image {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      padding: 0.5rem;
       transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover &ImageContainer {
+      border-color: $primary-color;
+      box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
+    }
+
+    &:hover &Image {
+      transform: scale(1.05);
     }
 
     &Details {
@@ -105,14 +141,18 @@
     &Title {
       margin: 0;
       font-size: 1.25rem;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.4;
+      color: $black-color;
     }
 
     &PriceInfo {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: rgba(74, 144, 226, 0.05);
+      border-radius: 0.75rem;
     }
 
     &PriceRow {
@@ -123,22 +163,33 @@
 
       &--total {
         margin-top: 0.5rem;
-        padding-top: 0.5rem;
-        border-top: 1px solid $gray-color-1;
+        padding-top: 0.75rem;
+        border-top: 2px solid rgba(74, 144, 226, 0.2);
         font-size: 1.1rem;
       }
     }
 
     &PriceLabel {
-      font-weight: 500;
+      font-weight: 600;
+      color: $gray-color;
     }
 
     &PriceValue {
       font-weight: 600;
+      color: $black-color;
 
       &--total {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 700;
+        color: $primary-color;
+        background: linear-gradient(
+          135deg,
+          $primary-color 0%,
+          $purple-color 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
     }
 
@@ -154,9 +205,16 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      border: 1px solid $gray-color-1;
+      border: 2px solid rgba(74, 144, 226, 0.2);
       border-radius: 0.5rem;
-      padding: 0.25rem;
+      padding: 0.5rem;
+      background: rgba(74, 144, 226, 0.05);
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        border-color: $primary-color;
+        background: rgba(74, 144, 226, 0.1);
+      }
     }
 
     &Button {
@@ -166,14 +224,24 @@
       align-items: center;
       justify-content: center;
       transition: all 0.2s ease-in-out;
+      border-radius: 0.25rem;
 
       &:hover:not(:disabled) {
-        transform: scale(1.1);
+        transform: scale(1.15);
+        background: rgba(74, 144, 226, 0.1);
       }
 
       &:disabled {
         opacity: 0.4;
         cursor: not-allowed;
+      }
+
+      svg {
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover:not(:disabled) svg {
+        fill: $primary-color;
       }
     }
 
@@ -194,24 +262,39 @@
     width: 20rem;
     display: flex;
     flex-direction: column;
-    border: 1px solid $gray-color-1;
-    border-radius: 0.75rem;
+    border: 2px solid rgba(74, 144, 226, 0.2);
+    border-radius: 1rem;
     padding: 1.5rem;
     height: fit-content;
     position: sticky;
     top: 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(74, 144, 226, 0.15);
+    background: $white-color;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(74, 144, 226, 0.2);
+      border-color: $primary-color;
+    }
   }
 
   &__summaryHeader {
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid $gray-color-1;
+    border-bottom: 2px solid rgba(74, 144, 226, 0.2);
 
     h3 {
       margin: 0;
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 700;
+      background: linear-gradient(
+        135deg,
+        $primary-color 0%,
+        $purple-color 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   }
 
@@ -231,21 +314,32 @@
     &--total {
       margin-top: 0.5rem;
       padding-top: 1rem;
-      border-top: 2px solid $gray-color-1;
+      border-top: 2px solid rgba(74, 144, 226, 0.2);
       font-size: 1.25rem;
     }
   }
 
   &__summaryLabel {
-    font-weight: 500;
+    font-weight: 600;
+    color: $gray-color;
   }
 
   &__summaryValue {
     font-weight: 600;
+    color: $black-color;
 
     &--total {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       font-weight: 700;
+      color: $primary-color;
+      background: linear-gradient(
+        135deg,
+        $primary-color 0%,
+        $purple-color 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
   }
 
@@ -254,30 +348,51 @@
     height: 3rem;
     font-size: 1.1rem;
     font-weight: 600;
-    border-radius: 0.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, $primary-color 0%, $purple-color 100%);
+    border: none;
     transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+      background: linear-gradient(
+        135deg,
+        $primary-hover 0%,
+        $purple-color 100%
+      );
     }
   }
 }
 
 html[data-mode='light'] .cart {
   color: $black-color;
-  background-color: $white-color;
+  background: linear-gradient(
+    135deg,
+    rgba(74, 144, 226, 0.03) 0%,
+    rgba(155, 89, 182, 0.03) 100%
+  );
+
+  &__header {
+    border-bottom-color: rgba(74, 144, 226, 0.2);
+  }
 
   &__item {
     background-color: $white-color;
+    border-color: $gray-color-1;
 
     &ImageContainer {
       background-color: $white-color;
-      border-color: $gray-color-1;
+      border-color: rgba(74, 144, 226, 0.1);
     }
 
     &Title {
       color: $black-color;
+    }
+
+    &PriceInfo {
+      background: rgba(74, 144, 226, 0.05);
     }
 
     &PriceLabel {
@@ -286,27 +401,23 @@ html[data-mode='light'] .cart {
 
     &PriceValue {
       color: $black-color;
+    }
 
-      &--total {
-        color: $blue-color;
-      }
+    &Quantity {
+      border-color: rgba(74, 144, 226, 0.2);
+      background: rgba(74, 144, 226, 0.05);
     }
 
     &Button {
       svg {
         fill: $black-color;
       }
-
-      &:hover:not(:disabled) {
-        svg {
-          fill: $blue-color;
-        }
-      }
     }
   }
 
   &__summary {
     background-color: $white-color;
+    border-color: rgba(74, 144, 226, 0.2);
 
     &Label {
       color: $gray-color;
@@ -314,27 +425,49 @@ html[data-mode='light'] .cart {
 
     &Value {
       color: $black-color;
-
-      &--total {
-        color: $blue-color;
-      }
     }
   }
 }
 
 html[data-mode='dark'] .cart {
   color: $white-color;
-  background-color: $dm-form-bg-color;
+  background: linear-gradient(
+    135deg,
+    rgba(91, 163, 245, 0.03) 0%,
+    rgba(167, 139, 250, 0.03) 100%
+  );
+
+  &__items {
+    &::-webkit-scrollbar-thumb {
+      background: rgba(91, 163, 245, 0.3);
+
+      &:hover {
+        background: rgba(91, 163, 245, 0.5);
+      }
+    }
+  }
 
   &__header {
-    border-bottom-color: $gray-color-2;
+    border-bottom-color: rgba(91, 163, 245, 0.2);
 
     h2 {
-      color: $white-color;
+      background: linear-gradient(
+        135deg,
+        $dm-primary-color 0%,
+        $dm-purple-color 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     &Count {
-      color: $gray-color-1;
+      background: linear-gradient(
+        135deg,
+        $dm-primary-color 0%,
+        $dm-purple-color 100%
+      );
+      box-shadow: 0 2px 8px rgba(91, 163, 245, 0.3);
     }
   }
 
@@ -343,16 +476,21 @@ html[data-mode='dark'] .cart {
     border-color: $gray-color-2;
 
     &:hover {
-      border-color: $white-color;
+      border-color: $dm-primary-color;
+      box-shadow: 0 4px 16px rgba(91, 163, 245, 0.2);
     }
 
     &ImageContainer {
       background-color: $white-color;
-      border-color: $gray-color-2;
+      border-color: rgba(91, 163, 245, 0.2);
     }
 
     &Title {
       color: $white-color;
+    }
+
+    &PriceInfo {
+      background: rgba(91, 163, 245, 0.1);
     }
 
     &PriceLabel {
@@ -363,7 +501,24 @@ html[data-mode='dark'] .cart {
       color: $white-color;
 
       &--total {
-        color: $dm-button-color;
+        background: linear-gradient(
+          135deg,
+          $dm-primary-color 0%,
+          $dm-purple-color 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+
+    &Quantity {
+      border-color: rgba(91, 163, 245, 0.2);
+      background: rgba(91, 163, 245, 0.1);
+
+      &:hover {
+        border-color: $dm-primary-color;
+        background: rgba(91, 163, 245, 0.15);
       }
     }
 
@@ -373,8 +528,10 @@ html[data-mode='dark'] .cart {
       }
 
       &:hover:not(:disabled) {
+        background: rgba(91, 163, 245, 0.15);
+
         svg {
-          fill: $dm-button-color;
+          fill: $dm-primary-color;
         }
       }
     }
@@ -382,18 +539,30 @@ html[data-mode='dark'] .cart {
 
   &__summary {
     background-color: $dm-black-color;
-    border-color: $gray-color-2;
+    border-color: rgba(91, 163, 245, 0.2);
+
+    &:hover {
+      border-color: $dm-primary-color;
+      box-shadow: 0 6px 20px rgba(91, 163, 245, 0.2);
+    }
 
     &Header {
-      border-bottom-color: $gray-color-2;
+      border-bottom-color: rgba(91, 163, 245, 0.2);
 
       h3 {
-        color: $white-color;
+        background: linear-gradient(
+          135deg,
+          $dm-primary-color 0%,
+          $dm-purple-color 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
     }
 
     &Row--total {
-      border-top-color: $gray-color-2;
+      border-top-color: rgba(91, 163, 245, 0.2);
     }
 
     &Label {
@@ -404,8 +573,33 @@ html[data-mode='dark'] .cart {
       color: $white-color;
 
       &--total {
-        color: $dm-button-color;
+        background: linear-gradient(
+          135deg,
+          $dm-primary-color 0%,
+          $dm-purple-color 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
+    }
+  }
+
+  &__checkoutButton {
+    background: linear-gradient(
+      135deg,
+      $dm-primary-color 0%,
+      $dm-purple-color 100%
+    );
+    box-shadow: 0 4px 12px rgba(91, 163, 245, 0.3);
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(91, 163, 245, 0.4);
+      background: linear-gradient(
+        135deg,
+        $dm-primary-hover 0%,
+        $dm-purple-color 100%
+      );
     }
   }
 }

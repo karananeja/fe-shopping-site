@@ -2,6 +2,7 @@ import {
   deleteUserAddress,
   getUserAddressList,
   getUserInfo,
+  resetPassword,
   updateUserInfo,
 } from '@services/userClient';
 import { getCountryList } from '@services/utilsConnect';
@@ -56,4 +57,12 @@ export const useDeleteUserAddress = (options = {}) => {
       }),
     ...options,
   });
+};
+
+/**
+ * @summary This method is used to reset the user password
+ * @param {object} options
+ */
+export const useResetPassword = (options = {}) => {
+  return useMutation(resetPassword, options);
 };

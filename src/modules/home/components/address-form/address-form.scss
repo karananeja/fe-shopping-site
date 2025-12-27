@@ -1,0 +1,310 @@
+@use '@modules/shared/styles' as *;
+
+.address__addBtn {
+  @include flexCenter;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, $primary-color 0%, $purple-color 100%);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  height: auto;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+    background: linear-gradient(135deg, $primary-hover 0%, $purple-color 100%);
+  }
+
+  svg {
+    height: 1rem;
+    width: 1rem;
+    fill: $white-color;
+  }
+}
+
+.addressForm__modal {
+  .ant-modal-content {
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  .ant-modal-header {
+    background: linear-gradient(135deg, $primary-color 0%, $purple-color 100%);
+    border-bottom: none;
+    padding: 1.5rem;
+
+    .ant-modal-title {
+      color: $white-color;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+
+  .ant-modal-close {
+    color: $white-color;
+    top: 1.5rem;
+    right: 1.5rem;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .ant-modal-body {
+    padding: 2rem;
+  }
+
+  .ant-modal-footer {
+    border-top: 2px solid rgba(74, 144, 226, 0.1);
+    padding: 1rem 2rem;
+
+    .ant-btn {
+      border-radius: 0.5rem;
+      font-weight: 600;
+      height: 2.75rem;
+      padding: 0 1.5rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .ant-btn-default {
+      border-color: rgba(74, 144, 226, 0.3);
+
+      &:hover {
+        border-color: $primary-color;
+        color: $primary-color;
+      }
+    }
+
+    .ant-btn-primary {
+      background: linear-gradient(
+        135deg,
+        $primary-color 0%,
+        $purple-color 100%
+      );
+      border: none;
+      box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        background: linear-gradient(
+          135deg,
+          $primary-hover 0%,
+          $purple-color 100%
+        );
+      }
+    }
+  }
+}
+
+.addressForm {
+  .ant-form-item-label > label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: $black-color;
+  }
+
+  .ant-input,
+  .ant-select-selector {
+    border-radius: 0.5rem;
+    border-width: 2px;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      border-color: $primary-color;
+    }
+
+    &:focus,
+    &.ant-input-focused,
+    &.ant-select-focused .ant-select-selector {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    }
+  }
+
+  .ant-form-item {
+    margin-bottom: 1.5rem;
+
+    &-with-help {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__checkboxItem {
+    margin-bottom: 1.5rem;
+    padding-top: 30px;
+
+    .ant-form-item-control {
+      line-height: 32px;
+    }
+  }
+
+  .ant-checkbox-wrapper {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    .ant-checkbox {
+      display: flex;
+      align-items: center;
+      top: 0;
+      vertical-align: middle;
+    }
+
+    .ant-checkbox-inner {
+      top: 0;
+      vertical-align: middle;
+    }
+
+    .ant-checkbox + span {
+      padding-left: 0.5rem;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1.5;
+    }
+
+    .ant-checkbox-checked .ant-checkbox-inner {
+      background-color: $primary-color;
+      border-color: $primary-color;
+    }
+
+    &:hover .ant-checkbox-inner {
+      border-color: $primary-color;
+    }
+  }
+}
+
+html[data-mode='dark'] {
+  .address__addBtn {
+    background: linear-gradient(
+      135deg,
+      $dm-primary-color 0%,
+      $dm-purple-color 100%
+    );
+    box-shadow: 0 4px 12px rgba(91, 163, 245, 0.3);
+
+    &:hover {
+      box-shadow: 0 6px 20px rgba(91, 163, 245, 0.4);
+      background: linear-gradient(
+        135deg,
+        $dm-primary-hover 0%,
+        $dm-purple-color 100%
+      );
+    }
+  }
+
+  .addressForm__modal {
+    .ant-modal-header {
+      background: linear-gradient(
+        135deg,
+        $dm-primary-color 0%,
+        $dm-purple-color 100%
+      );
+    }
+
+    .ant-modal-body {
+      background-color: $dm-form-bg-color;
+    }
+
+    .ant-modal-footer {
+      background-color: $dm-form-bg-color;
+      border-top-color: rgba(91, 163, 245, 0.2);
+
+      .ant-btn-default {
+        border-color: rgba(91, 163, 245, 0.3);
+        color: $white-color;
+        background-color: $dm-black-color;
+
+        &:hover {
+          border-color: $dm-primary-color;
+          color: $dm-primary-color;
+        }
+      }
+
+      .ant-btn-primary {
+        background: linear-gradient(
+          135deg,
+          $dm-primary-color 0%,
+          $dm-purple-color 100%
+        );
+        box-shadow: 0 4px 12px rgba(91, 163, 245, 0.3);
+
+        &:hover {
+          box-shadow: 0 6px 20px rgba(91, 163, 245, 0.4);
+          background: linear-gradient(
+            135deg,
+            $dm-primary-hover 0%,
+            $dm-purple-color 100%
+          );
+        }
+      }
+    }
+  }
+
+  .addressForm {
+    .ant-form-item-label > label {
+      color: $white-color;
+    }
+
+    .ant-input,
+    .ant-select-selector {
+      background-color: $dm-black-color;
+      border-color: $gray-color-2;
+      color: $white-color;
+
+      &::placeholder {
+        color: $gray-color-1;
+      }
+
+      &:hover {
+        border-color: $dm-primary-color;
+      }
+
+      &:focus,
+      &.ant-input-focused,
+      &.ant-select-focused .ant-select-selector {
+        border-color: $dm-primary-color;
+        box-shadow: 0 0 0 3px rgba(91, 163, 245, 0.2);
+      }
+    }
+
+    .ant-select-arrow {
+      color: $white-color;
+    }
+
+    .ant-select-selection-item {
+      color: $white-color;
+    }
+
+    .ant-checkbox-wrapper {
+      color: $white-color;
+
+      .ant-checkbox-checked .ant-checkbox-inner {
+        background-color: $dm-primary-color;
+        border-color: $dm-primary-color;
+      }
+
+      &:hover .ant-checkbox-inner {
+        border-color: $dm-primary-color;
+      }
+    }
+  }
+}
+
+html[data-mode='light'] {
+  .addressForm__modal {
+    .ant-modal-body {
+      background-color: $white-color;
+    }
+
+    .ant-modal-footer {
+      background-color: $white-color;
+    }
+  }
+}

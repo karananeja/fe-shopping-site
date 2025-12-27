@@ -1,5 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap');
 
+:root {
+  /* Light Mode Colors */
+  --color-primary: #4a90e2;
+  --color-primary-hover: #357abd;
+  --color-secondary: #50c878;
+  --color-accent: #ff6b6b;
+  --color-accent-hover: #ff5252;
+  --color-warning: #ffa500;
+  --color-success: #32cd32;
+  --color-purple: #9b59b6;
+  --color-orange: #ff8c42;
+  --color-blue: #0000ff;
+  --color-black: #000;
+  --color-white: #ffffff;
+  --color-gray: #808080;
+  --color-gray-light: #bfbfbf;
+  --color-gray-lighter: #a5a4a4;
+}
+
+html[data-mode='dark'] {
+  /* Dark Mode Colors */
+  --color-primary: #5ba3f5;
+  --color-primary-hover: #4a90e2;
+  --color-secondary: #6dd88a;
+  --color-accent: #ff7b7b;
+  --color-accent-hover: #ff6b6b;
+  --color-warning: #ffb84d;
+  --color-success: #4ade80;
+  --color-purple: #a78bfa;
+  --color-orange: #ff9f5e;
+  --color-blue: #6666eb;
+}
+
 *,
 *::before,
 *::after {

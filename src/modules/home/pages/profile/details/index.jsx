@@ -19,7 +19,7 @@ import {
 } from 'antd';
 import dayjs from 'dayjs';
 import { useState } from 'react';
-import './Details.scss';
+import './details.scss';
 
 const { Text, Title } = Typography;
 

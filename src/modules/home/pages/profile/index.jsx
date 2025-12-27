@@ -1,7 +1,7 @@
-import ProfileMenu from '@modules/home/components/profileSettings';
+import ProfileMenu from '@modules/home/components/profile-settings';
 import { Layout } from 'antd';
 import { Outlet } from 'react-router-dom';
-import './Profile.scss';
+import './profile.scss';
 
 const Profile = () => {
   return (
