@@ -40,7 +40,7 @@ const NavBar = () => {
           <input
             ref={inputRef}
             type='text'
-            placeholder="Search the name of the product you're looking for"
+            placeholder='Search'
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             autoFocus

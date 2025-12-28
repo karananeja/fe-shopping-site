@@ -319,3 +319,119 @@ html[data-mode='dark'] .details {
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .details {
+    padding: 1.5rem;
+
+    &__card {
+      .ant-card-body {
+        padding: 1.25rem;
+      }
+    }
+
+    &__infoRow {
+      height: auto;
+      margin: 1rem 0;
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 0.75rem;
+    }
+
+    &__addBtn {
+      padding: 0.45rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .ant-card-head-title {
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .ant-form-item-label > label {
+      font-size: 0.9rem;
+    }
+
+    .ant-input,
+    .ant-select-selector {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .details {
+    padding: 1rem;
+
+    &__card {
+      border-radius: 0.75rem;
+
+      .ant-card-body {
+        padding: 1rem;
+      }
+    }
+
+    &__infoRow {
+      margin: 0.75rem 0;
+      gap: 0.5rem;
+    }
+
+    &__addBtn {
+      padding: 0.4rem 0.875rem;
+      font-size: 0.875rem;
+      width: 100%;
+
+      svg {
+        height: 0.875rem;
+        width: 0.875rem;
+      }
+    }
+
+    .ant-card-head-title {
+      h3 {
+        font-size: 1.25rem;
+      }
+    }
+
+    .ant-form-item-label > label {
+      font-size: 0.85rem;
+    }
+
+    .ant-input,
+    .ant-select-selector {
+      font-size: 0.9rem;
+      padding: 0.375rem 0.75rem;
+    }
+
+    .ant-input-group-addon {
+      .ant-select {
+        &-selector {
+          padding: 0.25rem 0.5rem !important;
+        }
+      }
+    }
+
+    .ant-btn {
+      font-size: 0.875rem;
+      padding: 0.375rem 0.875rem;
+      height: auto;
+    }
+
+    .ant-btn-primary {
+      width: 100%;
+    }
+
+    // Override Ant Design Col spans for mobile - make form fields stack vertically
+    .ant-col-12,
+    .ant-col-16 {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+
+    .ant-col-3 {
+      flex: 0 0 50% !important;
+      max-width: 50% !important;
+    }
+  }
+}

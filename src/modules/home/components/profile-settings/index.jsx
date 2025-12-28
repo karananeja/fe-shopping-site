@@ -1,7 +1,8 @@
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Icons, KEYS } from '@utils/constants';
 import { deleteValue } from '@utils/helpers';
-import { Layout, Menu } from 'antd';
-import { useState } from 'react';
+import { Button, Layout, Menu } from 'antd';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './profile-menu.scss';
 
@@ -10,7 +11,30 @@ const { Sider } = Layout;
 const ProfileMenu = () => {
   const { pathname } = useLocation();
   const [activeLink, setActiveLink] = useState(pathname.split('/')[2]);
+  const [collapsed, setCollapsed] = useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setCollapsed(false);
+      } else {
+        setCollapsed(true);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const newActiveLink = pathname.split('/')[2];
+    setActiveLink(newActiveLink);
+    if (window.innerWidth <= 768) {
+      setCollapsed(true);
+    }
+  }, [pathname]);
 
   const items = [
     {
@@ -66,10 +90,59 @@ const ProfileMenu = () => {
     },
   ];
 
+  const handleMenuClick = (onClick) => {
+    if (onClick) {
+      onClick();
+    }
+    if (window.innerWidth <= 768) {
+      setCollapsed(true);
+    }
+  };
+
+  const menuItems = items.map((item) => ({
+    ...item,
+    children: item.children?.map((child) => ({
+      ...child,
+      onClick: () => handleMenuClick(child.onClick),
+    })),
+  }));
+
   return (
-    <Sider className='profileMenu'>
-      <Menu items={items} selectedKeys={[activeLink]} />
-    </Sider>
+    <>
+      {collapsed && (
+        <Button
+          className='profileMenu__toggle'
+          type='primary'
+          icon={<MenuUnfoldOutlined />}
+          onClick={() => setCollapsed(!collapsed)}
+        />
+      )}
+      <Sider
+        className='profileMenu'
+        collapsible
+        collapsed={collapsed}
+        onCollapse={setCollapsed}
+        trigger={null}
+        breakpoint='lg'
+        collapsedWidth={0}
+      >
+        <div className='profileMenu__header'>
+          <Button
+            className='profileMenu__close'
+            type='text'
+            icon={<MenuFoldOutlined />}
+            onClick={() => setCollapsed(true)}
+          />
+        </div>
+        <Menu items={menuItems} selectedKeys={[activeLink]} />
+      </Sider>
+      {!collapsed && (
+        <div
+          className='profileMenu__overlay'
+          onClick={() => setCollapsed(true)}
+        />
+      )}
+    </>
   );
 };
 

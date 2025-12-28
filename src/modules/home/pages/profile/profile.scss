@@ -20,3 +20,12 @@ html[data-mode='dark'] .profile {
     rgba(167, 139, 250, 0.05) 100%
   );
 }
+
+@media screen and (max-width: 768px) {
+  .profile {
+    .ant-layout-content {
+      width: 100% !important;
+      margin-left: 0 !important;
+    }
+  }
+}
