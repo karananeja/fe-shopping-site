@@ -15,6 +15,7 @@ import {
   Input,
   Row,
   Select,
+  Space,
   Typography,
 } from 'antd';
 import dayjs from 'dayjs';
@@ -205,27 +206,20 @@ const Details = () => {
                 </Row>
 
                 {editMode && (
-                  <Row gutter={24}>
-                    <Col span={3}>
-                      <Form.Item>
-                        <Button onClick={closeEdit} disabled={isUpdating}>
-                          Cancel
-                        </Button>
-                      </Form.Item>
-                    </Col>
-
-                    <Col span={3}>
-                      <Form.Item>
-                        <Button
-                          type='primary'
-                          htmlType='submit'
-                          loading={isUpdating}
-                        >
-                          Update
-                        </Button>
-                      </Form.Item>
-                    </Col>
-                  </Row>
+                  <Form.Item>
+                    <Space size='middle'>
+                      <Button onClick={closeEdit} disabled={isUpdating}>
+                        Cancel
+                      </Button>
+                      <Button
+                        type='primary'
+                        htmlType='submit'
+                        loading={isUpdating}
+                      >
+                        Update
+                      </Button>
+                    </Space>
+                  </Form.Item>
                 )}
               </Form>
             </Col>

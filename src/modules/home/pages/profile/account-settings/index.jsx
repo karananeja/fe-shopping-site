@@ -255,35 +255,28 @@ const AccountSettings = () => {
                 </Row>
 
                 {editMode && (
-                  <Row gutter={24}>
-                    <Col span={3}>
-                      <Form.Item>
-                        <Button
-                          onClick={() => {
-                            passwordForm.resetFields();
-                            setPasswordChecks(PASSWORD_CHECK);
-                            setEditMode(false);
-                          }}
-                          disabled={isLoading}
-                        >
-                          Cancel
-                        </Button>
-                      </Form.Item>
-                    </Col>
-
-                    <Col span={3}>
-                      <Form.Item>
-                        <Button
-                          type='primary'
-                          htmlType='submit'
-                          loading={isLoading}
-                          className='accountSettings__submitBtn'
-                        >
-                          Update Password
-                        </Button>
-                      </Form.Item>
-                    </Col>
-                  </Row>
+                  <Form.Item>
+                    <Space size='middle'>
+                      <Button
+                        onClick={() => {
+                          passwordForm.resetFields();
+                          setPasswordChecks(PASSWORD_CHECK);
+                          setEditMode(false);
+                        }}
+                        disabled={isLoading}
+                      >
+                        Cancel
+                      </Button>
+                      <Button
+                        type='primary'
+                        htmlType='submit'
+                        loading={isLoading}
+                        className='accountSettings__submitBtn'
+                      >
+                        Update Password
+                      </Button>
+                    </Space>
+                  </Form.Item>
                 )}
               </Form>
             </Col>

@@ -330,19 +330,6 @@ html[data-mode='dark'] .details {
       }
     }
 
-    &__infoRow {
-      height: auto;
-      margin: 1rem 0;
-      flex-direction: column;
-      align-items: flex-start !important;
-      gap: 0.75rem;
-    }
-
-    &__addBtn {
-      padding: 0.45rem 1rem;
-      font-size: 0.95rem;
-    }
-
     .ant-card-head-title {
       h3 {
         font-size: 1.5rem;
@@ -369,22 +356,6 @@ html[data-mode='dark'] .details {
 
       .ant-card-body {
         padding: 1rem;
-      }
-    }
-
-    &__infoRow {
-      margin: 0.75rem 0;
-      gap: 0.5rem;
-    }
-
-    &__addBtn {
-      padding: 0.4rem 0.875rem;
-      font-size: 0.875rem;
-      width: 100%;
-
-      svg {
-        height: 0.875rem;
-        width: 0.875rem;
       }
     }
 

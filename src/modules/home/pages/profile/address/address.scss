@@ -251,6 +251,81 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .address {
+    padding: 1.5rem;
+
+    &__card {
+      .ant-card-body {
+        padding: 1.25rem;
+      }
+    }
+
+    .ant-card-head-title {
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .ant-form-item-label > label {
+      font-size: 0.9rem;
+    }
+
+    .ant-input,
+    .ant-select-selector {
+      font-size: 0.95rem;
+    }
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .address {
+    padding: 1rem;
+
+    &__card {
+      border-radius: 0.75rem;
+
+      .ant-card-body {
+        padding: 1rem;
+      }
+    }
+
+    .ant-card-head-title {
+      h3 {
+        font-size: 1.25rem;
+      }
+    }
+
+    .ant-form-item-label > label {
+      font-size: 0.85rem;
+    }
+
+    .ant-input,
+    .ant-select-selector {
+      font-size: 0.9rem;
+      padding: 0.375rem 0.75rem;
+    }
+
+    .ant-input-group-addon {
+      .ant-select {
+        &-selector {
+          padding: 0.25rem 0.5rem !important;
+        }
+      }
+    }
+
+    .ant-btn {
+      font-size: 0.875rem;
+      padding: 0.375rem 0.875rem;
+      height: auto;
+    }
+
+    .ant-btn-primary {
+      width: 100%;
+    }
+  }
+}
+
 html[data-mode='light'] .address {
   &__card {
     background: $white-color;
