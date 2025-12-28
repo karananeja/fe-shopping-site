@@ -3,7 +3,7 @@ import { Empty } from 'antd';
 import { useRecoilValue } from 'recoil';
 import data from '../../../../utils/sampleData.json';
 import Card from '../card';
-import './Cards.scss';
+import './cards.scss';
 
 const Cards = () => {
   const searchQuery = useRecoilValue(searchQueryAtom);

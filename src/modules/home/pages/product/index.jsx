@@ -10,7 +10,7 @@ import { Button } from 'antd';
 import { useParams } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import sampleData from '../../../../utils/sampleData.json';
-import './Product.scss';
+import './product.scss';
 
 const Product = () => {
   const { productID } = useParams();

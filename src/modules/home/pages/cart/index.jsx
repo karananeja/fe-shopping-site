@@ -7,7 +7,7 @@ import { cartItemsAtom, searchQueryAtom } from '@store/global-state';
 import { formatCurrency } from '@utils/helpers';
 import { Button, Empty } from 'antd';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import './Cart.scss';
+import './cart.scss';
 
 const Cart = () => {
   const searchQuery = useRecoilValue(searchQueryAtom);

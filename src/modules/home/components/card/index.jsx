@@ -1,7 +1,7 @@
 import { Icons } from '@utils/constants';
 import { formatCurrency } from '@utils/helpers';
 import { Link } from 'react-router-dom';
-import './Card.scss';
+import './card.scss';
 
 const Card = ({ id, imageUrl, title, price }) => {
   return (
